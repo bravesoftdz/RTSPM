@@ -1,0 +1,369 @@
+object SysConfig: TSysConfig
+  Left = 646
+  Height = 441
+  Top = 284
+  Width = 702
+  ActiveControl = AttocubeCheckBox
+  Caption = 'Scanning Probe Microscope - Global System Configuration'
+  ClientHeight = 441
+  ClientWidth = 702
+  Font.Height = -11
+  OnClose = FormClose
+  OnShow = FormShow
+  LCLVersion = '1.0.2.0'
+  object GroupBox4: TGroupBox
+    Left = 200
+    Height = 148
+    Top = 18
+    Width = 486
+    Caption = 'Analog Input/Output Configuration'
+    ClientHeight = 132
+    ClientWidth = 482
+    Color = clTeal
+    ParentColor = False
+    TabOrder = 3
+    object Label5: TLabel
+      Left = 15
+      Height = 15
+      Top = 11
+      Width = 99
+      Caption = 'Scan tube X  control'
+      ParentColor = False
+    end
+    object Label6: TLabel
+      Left = 178
+      Height = 15
+      Top = 11
+      Width = 96
+      Caption = 'Scan tube Y control'
+      ParentColor = False
+    end
+    object Label7: TLabel
+      Left = 337
+      Height = 15
+      Top = 11
+      Width = 95
+      Caption = 'Scan tube Z control'
+      ParentColor = False
+    end
+    object Label8: TLabel
+      Left = 15
+      Height = 15
+      Top = 65
+      Width = 78
+      Caption = 'Channel 0 input'
+      ParentColor = False
+    end
+    object Label9: TLabel
+      Left = 178
+      Height = 15
+      Top = 65
+      Width = 78
+      Caption = 'Channel 1 input'
+      ParentColor = False
+    end
+    object Label10: TLabel
+      Left = 337
+      Height = 15
+      Top = 65
+      Width = 78
+      Caption = 'Channel 2 input'
+      ParentColor = False
+    end
+    object ScanXComboBox: TComboBox
+      Left = 15
+      Height = 27
+      Top = 30
+      Width = 138
+      ItemHeight = 0
+      OnSelect = ScanXComboBoxSelect
+      TabOrder = 0
+      Text = 'Choose output channel'
+    end
+    object ScanYComboBox: TComboBox
+      Left = 178
+      Height = 27
+      Top = 30
+      Width = 138
+      ItemHeight = 0
+      OnSelect = ScanYComboBoxSelect
+      TabOrder = 1
+      Text = 'Choose output channel'
+    end
+    object ScanZComboBox: TComboBox
+      Left = 337
+      Height = 27
+      Top = 30
+      Width = 138
+      ItemHeight = 0
+      OnSelect = ScanZComboBoxSelect
+      TabOrder = 2
+      Text = 'Choose output channel'
+    end
+    object Ch0ComboBox: TComboBox
+      Left = 15
+      Height = 27
+      Top = 84
+      Width = 138
+      DropDownCount = 16
+      ItemHeight = 0
+      OnSelect = Ch0ComboBoxSelect
+      TabOrder = 3
+      Text = 'Choose input channel'
+    end
+    object Ch1ComboBox: TComboBox
+      Left = 178
+      Height = 27
+      Top = 84
+      Width = 138
+      ItemHeight = 0
+      OnSelect = Ch1ComboBoxSelect
+      TabOrder = 4
+      Text = 'Choose input channel'
+    end
+    object Ch2ComboBox: TComboBox
+      Left = 337
+      Height = 27
+      Top = 84
+      Width = 138
+      ItemHeight = 0
+      OnSelect = Ch2ComboBoxSelect
+      TabOrder = 5
+      Text = 'Choose input channel'
+    end
+  end
+  object GroupBox1: TGroupBox
+    Left = 17
+    Height = 105
+    Top = 205
+    Width = 162
+    Caption = 'Lock in amplifier config'
+    ClientHeight = 89
+    ClientWidth = 158
+    Color = clSilver
+    ParentColor = False
+    TabOrder = 0
+    object Label2: TLabel
+      Left = 18
+      Height = 15
+      Top = 56
+      Width = 67
+      Caption = 'GPIB Address'
+      ParentColor = False
+    end
+    object LockInGPIBAddressSpinEdit: TSpinEdit
+      Left = 92
+      Height = 24
+      Top = 52
+      Width = 39
+      MaxValue = 50
+      MinValue = 1
+      OnChange = LockInGPIBAddressSpinEditChange
+      TabOrder = 0
+      Value = 12
+    end
+    object LockInCheckBox: TCheckBox
+      Left = 18
+      Height = 24
+      Top = 10
+      Width = 165
+      Caption = 'Use Lock in amplifier'
+      Checked = True
+      OnClick = LockInCheckBoxClick
+      State = cbChecked
+      TabOrder = 1
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 17
+    Height = 70
+    Top = 129
+    Width = 162
+    Caption = 'Nanosurf PLL Config'
+    ClientHeight = 54
+    ClientWidth = 158
+    Color = clSilver
+    ParentColor = False
+    TabOrder = 1
+    object NanosurfCheckBox: TCheckBox
+      Left = 18
+      Height = 24
+      Top = 10
+      Width = 145
+      Caption = 'Use Nanosurf PLL'
+      OnClick = NanosurfCheckBoxClick
+      TabOrder = 0
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 17
+    Height = 105
+    Top = 18
+    Width = 162
+    Caption = 'Attocube Configuration'
+    ClientHeight = 89
+    ClientWidth = 158
+    Color = clSilver
+    ParentColor = False
+    TabOrder = 2
+    object Label4: TLabel
+      Left = 18
+      Height = 15
+      Top = 56
+      Width = 47
+      Caption = 'Com Port'
+      ParentColor = False
+    end
+    object AttocubeComPortSpinEdit: TSpinEdit
+      Left = 92
+      Height = 24
+      Top = 52
+      Width = 39
+      MaxValue = 4
+      MinValue = 1
+      OnChange = AttocubeComPortSpinEditChange
+      TabOrder = 0
+      Value = 2
+    end
+    object AttocubeCheckBox: TCheckBox
+      Left = 18
+      Height = 24
+      Top = 10
+      Width = 117
+      Caption = 'Use Attocube'
+      OnClick = AttocubeCheckBoxClick
+      TabOrder = 1
+    end
+  end
+  object ScannerConfigGroupBox: TGroupBox
+    Left = 200
+    Height = 61
+    Top = 248
+    Width = 486
+    Caption = 'Scanner Configuration File'
+    ClientHeight = 45
+    ClientWidth = 482
+    Color = clYellow
+    ParentColor = False
+    TabOrder = 4
+    object ScannerConfigFileLabel: TLabel
+      Left = 15
+      Height = 15
+      Top = 15
+      Width = 78
+      Caption = 'No file selected'
+      ParentColor = False
+    end
+    object Button1: TButton
+      Left = 375
+      Height = 25
+      Top = 5
+      Width = 91
+      Caption = 'Select'
+      OnClick = Button1Click
+      TabOrder = 0
+    end
+  end
+  object GroupBox5: TGroupBox
+    Left = 200
+    Height = 51
+    Top = 172
+    Width = 316
+    Caption = 'Feedback Channel'
+    ClientHeight = 35
+    ClientWidth = 312
+    Color = clRed
+    ParentColor = False
+    TabOrder = 5
+    object FeedbackComboBox: TComboBox
+      Left = 15
+      Height = 27
+      Top = 2
+      Width = 145
+      ItemHeight = 0
+      OnSelect = FeedbackComboBoxSelect
+      TabOrder = 0
+      Text = 'Choose feedback channel'
+    end
+    object LogCheckBox: TCheckBox
+      Left = 190
+      Height = 24
+      Top = 6
+      Width = 107
+      Caption = 'Logarithmic'
+      OnClick = LogCheckBoxClick
+      TabOrder = 1
+    end
+  end
+  object GroupBox6: TGroupBox
+    Left = 17
+    Height = 73
+    Top = 328
+    Width = 669
+    Caption = 'Acquisition cards'
+    ClientHeight = 57
+    ClientWidth = 665
+    TabOrder = 6
+    object Device1Edit: TLabeledEdit
+      Left = 17
+      Height = 24
+      Top = 27
+      Width = 140
+      Color = clRed
+      EditLabel.AnchorSideLeft.Control = Device1Edit
+      EditLabel.AnchorSideRight.Control = Device1Edit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = Device1Edit
+      EditLabel.Left = 17
+      EditLabel.Height = 15
+      EditLabel.Top = 9
+      EditLabel.Width = 140
+      EditLabel.Caption = 'Device 1'
+      EditLabel.ParentColor = False
+      TabOrder = 0
+      Text = 'None'
+    end
+    object Device2Edit: TLabeledEdit
+      Left = 208
+      Height = 24
+      Top = 27
+      Width = 140
+      Color = clRed
+      EditLabel.AnchorSideLeft.Control = Device2Edit
+      EditLabel.AnchorSideRight.Control = Device2Edit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = Device2Edit
+      EditLabel.Left = 208
+      EditLabel.Height = 15
+      EditLabel.Top = 9
+      EditLabel.Width = 140
+      EditLabel.Caption = 'Device 2'
+      EditLabel.ParentColor = False
+      TabOrder = 1
+      Text = 'None'
+    end
+    object Device3Edit: TLabeledEdit
+      Left = 397
+      Height = 24
+      Top = 27
+      Width = 140
+      Color = clRed
+      EditLabel.AnchorSideLeft.Control = Device3Edit
+      EditLabel.AnchorSideRight.Control = Device3Edit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = Device3Edit
+      EditLabel.Left = 397
+      EditLabel.Height = 15
+      EditLabel.Top = 9
+      EditLabel.Width = 140
+      EditLabel.Caption = 'Device 3'
+      EditLabel.ParentColor = False
+      TabOrder = 2
+      Text = 'None'
+    end
+  end
+  object ScannerFileOpenDialog: TOpenDialog
+    left = 627
+    top = 201
+  end
+end

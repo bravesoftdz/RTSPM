@@ -1,0 +1,615 @@
+object CoarseApproachTool: TCoarseApproachTool
+  Left = 380
+  Height = 663
+  Top = 138
+  Width = 664
+  ActiveControl = TipSignal
+  Caption = 'Tip Coarse Approach Tool'
+  ClientHeight = 663
+  ClientWidth = 664
+  Font.Height = -11
+  Menu = MainMenu1
+  OnShow = FormShow
+  LCLVersion = '1.0.2.0'
+  object ZApproachBar: TProgressBar
+    Left = 8
+    Height = 22
+    Hint = 'Z Position of the scan tube'
+    Top = 240
+    Width = 651
+    Max = 65535
+    ParentShowHint = False
+    Position = 32768
+    ShowHint = True
+    Smooth = True
+    Step = 32
+    TabOrder = 1
+  end
+  object SignalControlGroupBox: TGroupBox
+    Left = 8
+    Height = 133
+    Top = 268
+    Width = 651
+    Caption = 'Coarse Approach'
+    ClientHeight = 117
+    ClientWidth = 647
+    Color = clYellow
+    Font.Height = -11
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 16
+      Height = 15
+      Top = 8
+      Width = 26
+      Caption = 'Ch. 0'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 64
+      Height = 15
+      Top = 8
+      Width = 26
+      Caption = 'Ch. 1'
+      ParentColor = False
+    end
+    object Ch0OutputLabel: TLabel
+      Left = 16
+      Height = 15
+      Top = 24
+      Width = 16
+      Caption = '0.0'
+      ParentColor = False
+    end
+    object Ch1OutputLabel: TLabel
+      Left = 62
+      Height = 15
+      Top = 24
+      Width = 16
+      Caption = '0.0'
+      ParentColor = False
+    end
+    object Bevel6: TBevel
+      Left = 208
+      Height = 46
+      Top = 1
+      Width = 2
+    end
+    object Bevel7: TBevel
+      Left = 15
+      Height = 2
+      Top = 48
+      Width = 347
+    end
+    object Bevel8: TBevel
+      Left = 377
+      Height = 46
+      Top = 11
+      Width = 2
+    end
+    object Label5: TLabel
+      Left = 302
+      Height = 15
+      Top = 68
+      Width = 63
+      Caption = 'Step number'
+      ParentColor = False
+    end
+    object StepNumberLabel: TLabel
+      Left = 302
+      Height = 15
+      Top = 84
+      Width = 7
+      Caption = '0'
+      ParentColor = False
+    end
+    object Label7: TLabel
+      Left = 16
+      Height = 15
+      Top = 56
+      Width = 134
+      Caption = 'Feedback Channel Reading'
+      ParentColor = False
+    end
+    object FeedbackOutputLabel: TLabel
+      Left = 19
+      Height = 15
+      Top = 75
+      Width = 16
+      Caption = '0.0'
+      ParentColor = False
+    end
+    object Label11: TLabel
+      Left = 224
+      Height = 15
+      Top = 56
+      Width = 45
+      Caption = 'Step size'
+      ParentColor = False
+    end
+    object SetPointEdit: TLabeledEdit
+      Left = 224
+      Height = 24
+      Top = 21
+      Width = 58
+      EditLabel.AnchorSideLeft.Control = SetPointEdit
+      EditLabel.AnchorSideRight.Control = SetPointEdit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = SetPointEdit
+      EditLabel.Left = 224
+      EditLabel.Height = 15
+      EditLabel.Top = 3
+      EditLabel.Width = 58
+      EditLabel.Caption = 'Set Point'
+      EditLabel.ParentColor = False
+      TabOrder = 0
+      Text = '0.5'
+      OnKeyPress = SetPointEditKeyPress
+    end
+    object ApprCriterionEdit: TLabeledEdit
+      Left = 295
+      Height = 24
+      Top = 21
+      Width = 63
+      EditLabel.AnchorSideLeft.Control = ApprCriterionEdit
+      EditLabel.AnchorSideRight.Control = ApprCriterionEdit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = ApprCriterionEdit
+      EditLabel.Left = 295
+      EditLabel.Height = 15
+      EditLabel.Top = 3
+      EditLabel.Width = 63
+      EditLabel.Caption = 'App. Criterion'
+      EditLabel.ParentColor = False
+      TabOrder = 1
+      Text = '0.75'
+      OnKeyPress = ApprCriterionEditKeyPress
+    end
+    object UpdateTimeEditBox: TLabeledEdit
+      Left = 128
+      Height = 24
+      Top = 21
+      Width = 40
+      EditLabel.AnchorSideLeft.Control = UpdateTimeEditBox
+      EditLabel.AnchorSideRight.Control = UpdateTimeEditBox
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = UpdateTimeEditBox
+      EditLabel.Left = 128
+      EditLabel.Height = 15
+      EditLabel.Top = 3
+      EditLabel.Width = 40
+      EditLabel.Caption = 'Update time(ms)'
+      EditLabel.Color = clYellow
+      EditLabel.ParentColor = False
+      TabOrder = 2
+      Text = '1000'
+      OnKeyPress = UpdateTimeEditBoxKeyPress
+    end
+    object StepByStepBtn: TBitBtn
+      Left = 436
+      Height = 52
+      Top = 2
+      Width = 191
+      Caption = 'Start Step-by-Step approach'
+      OnClick = StepByStepBtnClick
+      TabOrder = 3
+    end
+    object AcquireCurveBtn: TBitBtn
+      Left = 436
+      Height = 44
+      Top = 60
+      Width = 191
+      Caption = 'Acquire approach curve'
+      OnClick = AcquireCurveBtnClick
+      TabOrder = 4
+    end
+    object CoarseApproachStepSizeEdit: TSpinEdit
+      Left = 224
+      Height = 24
+      Top = 75
+      Width = 45
+      MinValue = 1
+      OnChange = CoarseApproachStepSizeEditChange
+      TabOrder = 5
+      Value = 1
+    end
+  end
+  object WalkerControlGroupBox: TGroupBox
+    Left = 224
+    Height = 190
+    Top = 407
+    Width = 435
+    Caption = 'Walker Control'
+    ClientHeight = 174
+    ClientWidth = 431
+    Color = clRed
+    ParentColor = False
+    TabOrder = 0
+    TabStop = True
+    object Bevel4: TBevel
+      Left = 105
+      Height = 145
+      Top = 16
+      Width = 1
+    end
+    object Bevel5: TBevel
+      Left = 233
+      Height = 145
+      Top = 16
+      Width = 1
+    end
+    object Label13: TLabel
+      Left = 120
+      Height = 15
+      Top = 0
+      Width = 68
+      Caption = 'Timed motion'
+      ParentColor = False
+    end
+    object Label14: TLabel
+      Left = 240
+      Height = 15
+      Top = -3
+      Width = 52
+      Caption = 'x-y motion'
+      ParentColor = False
+    end
+    object WalkerStepPlusXBtn: TButton
+      Left = 248
+      Height = 53
+      Hint = 'Continuously retract walker'
+      Top = 36
+      Width = 75
+      Caption = '+X'
+      Font.Color = clBlue
+      Font.Height = -13
+      Font.Style = [fsBold]
+      OnClick = WalkerStepPlusXBtnClick
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+    end
+    object WalkerStepPlusYBtn: TButton
+      Left = 248
+      Height = 49
+      Top = 104
+      Width = 75
+      Caption = '+Y'
+      Font.Color = clBlue
+      Font.Height = -13
+      Font.Style = [fsBold]
+      OnClick = WalkerStepPlusYBtnClick
+      ParentFont = False
+      TabOrder = 1
+    end
+    object WalkerRetract: TButton
+      Left = 16
+      Height = 49
+      Top = 40
+      Width = 75
+      Caption = 'Walker Retr'
+      OnMouseDown = WalkerRetractMouseDown
+      OnMouseUp = WalkerRetractMouseUp
+      TabOrder = 2
+    end
+    object WalkerStepMinusXBtn: TButton
+      Left = 336
+      Height = 53
+      Top = 36
+      Width = 75
+      Caption = '-X'
+      Font.Color = clBlue
+      Font.Height = -13
+      Font.Style = [fsBold]
+      OnClick = WalkerStepMinusXBtnClick
+      ParentFont = False
+      TabOrder = 3
+    end
+    object WalkerMinusYBtn: TButton
+      Left = 336
+      Height = 49
+      Top = 104
+      Width = 75
+      Caption = '-Y'
+      Font.Color = clBlue
+      Font.Height = -13
+      Font.Style = [fsBold]
+      OnClick = WalkerMinusYBtnClick
+      ParentFont = False
+      TabOrder = 4
+    end
+    object WalkerApproach: TButton
+      Left = 16
+      Height = 49
+      Top = 104
+      Width = 75
+      Caption = 'Walker Appr'
+      OnMouseDown = WalkerApproachMouseDown
+      OnMouseUp = WalkerRetractMouseUp
+      TabOrder = 5
+    end
+    object Panel1: TPanel
+      Left = 120
+      Height = 118
+      Top = 35
+      Width = 97
+      BevelInner = bvLowered
+      ClientHeight = 118
+      ClientWidth = 97
+      TabOrder = 6
+      object Label6: TLabel
+        Left = 8
+        Height = 15
+        Top = 8
+        Width = 50
+        Caption = 'Time (ms)'
+        ParentColor = False
+      end
+      object TimedRetracBtn: TButton
+        Left = 6
+        Height = 25
+        Top = 54
+        Width = 83
+        Caption = 'Timed Retr'
+        OnClick = TimedRetracBtnClick
+        TabOrder = 0
+      end
+      object TimedApproachBtn: TButton
+        Left = 6
+        Height = 25
+        Top = 85
+        Width = 83
+        Caption = 'Timed Appr'
+        OnClick = TimedApproachBtnClick
+        TabOrder = 1
+      end
+      object WalkerTimeEdit: TEdit
+        Left = 8
+        Height = 24
+        Top = 27
+        Width = 65
+        OnKeyPress = WalkerTimeEditKeyPress
+        TabOrder = 2
+        Text = '50'
+      end
+    end
+  end
+  object Scan_Tube_GroupBox: TGroupBox
+    Left = 8
+    Height = 190
+    Top = 407
+    Width = 210
+    Caption = 'Scan Tube Control'
+    ClientHeight = 174
+    ClientWidth = 206
+    Color = clSilver
+    Font.Height = -11
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 3
+    object SetXLabel: TLabel
+      Left = 8
+      Height = 15
+      Top = 40
+      Width = 27
+      Caption = 'Set X'
+      ParentColor = False
+    end
+    object Label8: TLabel
+      Left = 8
+      Height = 15
+      Top = 64
+      Width = 27
+      Caption = 'Set Y'
+      ParentColor = False
+    end
+    object Label9: TLabel
+      Left = 8
+      Height = 15
+      Top = 88
+      Width = 26
+      Caption = 'Set Z'
+      ParentColor = False
+    end
+    object Label10: TLabel
+      Left = 16
+      Height = 15
+      Top = 8
+      Width = 81
+      Caption = 'Change Position'
+      ParentColor = False
+    end
+    object Bevel1: TBevel
+      Left = 121
+      Height = 105
+      Top = 8
+      Width = 1
+    end
+    object Bevel3: TBevel
+      Left = 15
+      Height = 2
+      Top = 112
+      Width = 184
+    end
+    object Label12: TLabel
+      Left = 125
+      Height = 15
+      Top = 8
+      Width = 81
+      Caption = 'Current Position'
+      ParentColor = False
+    end
+    object Bevel2: TBevel
+      Left = 208
+      Height = 142
+      Top = 8
+      Width = 2
+    end
+    object SetXEdit: TEdit
+      Left = 48
+      Height = 24
+      Top = 36
+      Width = 57
+      OnKeyPress = SetXEditKeyPress
+      TabOrder = 0
+      Text = '0'
+    end
+    object SetYEdit: TEdit
+      Left = 48
+      Height = 24
+      Top = 60
+      Width = 57
+      OnKeyPress = SetYEditKeyPress
+      TabOrder = 1
+      Text = '0'
+    end
+    object SetZEdit: TEdit
+      Left = 48
+      Height = 24
+      Top = 85
+      Width = 57
+      OnKeyPress = SetZEditKeyPress
+      TabOrder = 2
+      Text = '0'
+    end
+    object StepXEdit: TLabeledEdit
+      Left = 9
+      Height = 24
+      Top = 137
+      Width = 47
+      EditLabel.AnchorSideLeft.Control = StepXEdit
+      EditLabel.AnchorSideRight.Control = StepXEdit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = StepXEdit
+      EditLabel.Left = 9
+      EditLabel.Height = 15
+      EditLabel.Top = 119
+      EditLabel.Width = 47
+      EditLabel.Caption = 'Step X'
+      EditLabel.ParentColor = False
+      TabOrder = 3
+      Text = '0.1'
+      OnKeyPress = StepXEditKeyPress
+    end
+    object StepYEdit: TLabeledEdit
+      Left = 80
+      Height = 24
+      Top = 136
+      Width = 47
+      EditLabel.AnchorSideLeft.Control = StepYEdit
+      EditLabel.AnchorSideRight.Control = StepYEdit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = StepYEdit
+      EditLabel.Left = 80
+      EditLabel.Height = 15
+      EditLabel.Top = 118
+      EditLabel.Width = 47
+      EditLabel.Caption = 'Step Y'
+      EditLabel.ParentColor = False
+      TabOrder = 4
+      Text = '0.1'
+      OnKeyPress = StepYEditKeyPress
+    end
+    object StepZEdit: TLabeledEdit
+      Left = 155
+      Height = 24
+      Top = 137
+      Width = 47
+      EditLabel.AnchorSideLeft.Control = StepZEdit
+      EditLabel.AnchorSideRight.Control = StepZEdit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = StepZEdit
+      EditLabel.Left = 155
+      EditLabel.Height = 15
+      EditLabel.Top = 119
+      EditLabel.Width = 47
+      EditLabel.Caption = 'Step Z'
+      EditLabel.ParentColor = False
+      TabOrder = 5
+      Text = '0.0003'
+      OnKeyPress = StepZEditKeyPress
+    end
+    object XPositionText: TStaticText
+      Left = 128
+      Height = 17
+      Top = 40
+      Width = 71
+      Caption = 'X: '
+      TabOrder = 6
+    end
+    object ZPositionText: TStaticText
+      Left = 128
+      Height = 17
+      Top = 89
+      Width = 70
+      Caption = 'Z: '
+      TabOrder = 7
+    end
+    object YPositionText: TStaticText
+      Left = 128
+      Height = 17
+      Top = 66
+      Width = 70
+      Caption = 'Y: '
+      TabOrder = 8
+    end
+  end
+  object StatusBar: TStatusBar
+    Left = 0
+    Height = 21
+    Top = 642
+    Width = 664
+    Panels = <>
+    SimpleText = 'Idle'
+  end
+  object TipSignal: TPlotPanel
+    Left = 8
+    Height = 200
+    Top = 8
+    Width = 648
+    GridColor = clBlack
+    BackColor = clSkyBlue
+    Margin = 15
+    PlotMode = pmLine
+    LayerOption = False
+    XMin = -1
+    XMax = 1
+    XScaleLog = False
+    XMarks = True
+    XInterval = 0.2
+    XLabel = 'Z axis position (um)'
+    YMin = -10
+    YMax = 10
+    YScaleLog = False
+    YMarks = True
+    YInterval = 4
+    YLabel = 'Feedback (V)'
+    Caption = ' '
+  end
+  object SaveDialog: TSaveDialog
+    DefaultExt = '.*.txt'
+    Filter = 'Text Files|*.TXT;*.txt'
+    left = 259
+    top = 126
+  end
+  object MainMenu1: TMainMenu
+    left = 498
+    top = 14
+    object File1: TMenuItem
+      Caption = 'File'
+      object SaveApproachCurve1: TMenuItem
+        Caption = 'Save Approach Curve'
+      end
+      object Exit1: TMenuItem
+        Caption = 'Exit'
+      end
+    end
+  end
+  object DataTimer: TTimer
+    OnTimer = DataTimerTimer
+    left = 466
+    top = 150
+  end
+end

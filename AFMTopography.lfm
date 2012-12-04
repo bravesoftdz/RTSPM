@@ -1,0 +1,715 @@
+object AFMTopograph: TAFMTopograph
+  Left = 318
+  Height = 797
+  Top = 132
+  Width = 804
+  ActiveControl = ScaleMinEdit
+  Caption = 'AFM Topography'
+  ClientHeight = 797
+  ClientWidth = 804
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  OnClose = FormClose
+  OnShow = FormShow
+  LCLVersion = '1.0.2.0'
+  object ForwardImage: TImage
+    Left = 21
+    Height = 350
+    Top = 33
+    Width = 350
+  end
+  object ReverseImage: TImage
+    Left = 435
+    Height = 350
+    Top = 33
+    Width = 350
+  end
+  object Label1: TLabel
+    Left = 21
+    Height = 20
+    Top = 8
+    Width = 137
+    Caption = 'Forward Image'
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 435
+    Height = 20
+    Top = 8
+    Width = 136
+    Caption = 'Reverse Image'
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object IndicatorImage: TImage
+    Left = 392
+    Height = 350
+    Top = 33
+    Width = 15
+  end
+  object Label18: TLabel
+    Left = 18
+    Height = 15
+    Top = 432
+    Width = 58
+    Caption = 'Scale Max'
+    ParentColor = False
+  end
+  object Label19: TLabel
+    Left = 21
+    Height = 15
+    Top = 401
+    Width = 54
+    Caption = 'Scale Min'
+    ParentColor = False
+  end
+  object Scan_Tube_GroupBox: TGroupBox
+    Left = 11
+    Height = 190
+    Top = 464
+    Width = 210
+    Caption = 'Scan Tube Control'
+    ClientHeight = 174
+    ClientWidth = 206
+    Color = clSilver
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 0
+    object SetXLabel: TLabel
+      Left = 8
+      Height = 15
+      Top = 40
+      Width = 31
+      Caption = 'Set X'
+      ParentColor = False
+    end
+    object Label8: TLabel
+      Left = 8
+      Height = 15
+      Top = 64
+      Width = 30
+      Caption = 'Set Y'
+      ParentColor = False
+    end
+    object Label9: TLabel
+      Left = 8
+      Height = 15
+      Top = 88
+      Width = 31
+      Caption = 'Set Z'
+      ParentColor = False
+    end
+    object Label10: TLabel
+      Left = 16
+      Height = 15
+      Top = 8
+      Width = 92
+      Caption = 'Change Position'
+      ParentColor = False
+    end
+    object Bevel1: TBevel
+      Left = 121
+      Height = 105
+      Top = 8
+      Width = 1
+    end
+    object Bevel3: TBevel
+      Left = 15
+      Height = 2
+      Top = 112
+      Width = 184
+    end
+    object Label12: TLabel
+      Left = 125
+      Height = 15
+      Top = 8
+      Width = 68
+      Caption = 'Current Pos'
+      ParentColor = False
+    end
+    object Bevel2: TBevel
+      Left = 208
+      Height = 142
+      Top = 8
+      Width = 2
+    end
+    object SetXEdit: TEdit
+      Left = 48
+      Height = 24
+      Top = 36
+      Width = 57
+      OnKeyPress = SetXEditKeyPress
+      TabOrder = 0
+      Text = '0'
+    end
+    object SetYEdit: TEdit
+      Left = 48
+      Height = 24
+      Top = 60
+      Width = 57
+      OnKeyPress = SetYEditKeyPress
+      TabOrder = 1
+      Text = '0'
+    end
+    object SetZEdit: TEdit
+      Left = 48
+      Height = 24
+      Top = 85
+      Width = 57
+      OnKeyPress = SetZEditKeyPress
+      TabOrder = 2
+      Text = '0'
+    end
+    object StepXEdit: TLabeledEdit
+      Left = 9
+      Height = 24
+      Top = 137
+      Width = 47
+      EditLabel.AnchorSideLeft.Control = StepXEdit
+      EditLabel.AnchorSideRight.Control = StepXEdit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = StepXEdit
+      EditLabel.Left = 9
+      EditLabel.Height = 15
+      EditLabel.Top = 119
+      EditLabel.Width = 47
+      EditLabel.Caption = 'Step X'
+      EditLabel.ParentColor = False
+      TabOrder = 3
+      Text = '0.1'
+      OnKeyPress = StepXEditKeyPress
+    end
+    object StepYEdit: TLabeledEdit
+      Left = 80
+      Height = 24
+      Top = 136
+      Width = 47
+      EditLabel.AnchorSideLeft.Control = StepYEdit
+      EditLabel.AnchorSideRight.Control = StepYEdit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = StepYEdit
+      EditLabel.Left = 80
+      EditLabel.Height = 15
+      EditLabel.Top = 118
+      EditLabel.Width = 47
+      EditLabel.Caption = 'Step Y'
+      EditLabel.ParentColor = False
+      TabOrder = 4
+      Text = '0.1'
+      OnKeyPress = StepYEditKeyPress
+    end
+    object StepZEdit: TLabeledEdit
+      Left = 155
+      Height = 24
+      Top = 137
+      Width = 47
+      EditLabel.AnchorSideLeft.Control = StepZEdit
+      EditLabel.AnchorSideRight.Control = StepZEdit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = StepZEdit
+      EditLabel.Left = 155
+      EditLabel.Height = 15
+      EditLabel.Top = 119
+      EditLabel.Width = 47
+      EditLabel.Caption = 'Step Z'
+      EditLabel.ParentColor = False
+      TabOrder = 5
+      Text = '0.0003'
+      OnKeyPress = StepZEditKeyPress
+    end
+    object XPositionText: TStaticText
+      Left = 128
+      Height = 17
+      Top = 40
+      Width = 76
+      Caption = 'X: '
+      TabOrder = 6
+    end
+    object ZPositionText: TStaticText
+      Left = 128
+      Height = 17
+      Top = 89
+      Width = 76
+      Caption = 'Z: '
+      TabOrder = 7
+    end
+    object YPositionText: TStaticText
+      Left = 128
+      Height = 17
+      Top = 66
+      Width = 76
+      Caption = 'Y: '
+      TabOrder = 8
+    end
+  end
+  object ZApproachBar: TProgressBar
+    Left = 435
+    Height = 22
+    Hint = 'Z Position of the scan tube'
+    Top = 399
+    Width = 350
+    Max = 65535
+    ParentShowHint = False
+    Position = 32768
+    ShowHint = True
+    Smooth = True
+    Step = 1
+    TabOrder = 1
+  end
+  object ScanStartGroupBox: TGroupBox
+    Left = 227
+    Height = 208
+    Top = 464
+    Width = 311
+    Caption = 'Scan Control'
+    ClientHeight = 192
+    ClientWidth = 307
+    Color = clYellow
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 2
+    object Label3: TLabel
+      Left = 16
+      Height = 15
+      Top = 31
+      Width = 31
+      Caption = 'Ch. 0'
+      ParentColor = False
+    end
+    object Label4: TLabel
+      Left = 65
+      Height = 15
+      Top = 31
+      Width = 31
+      Caption = 'Ch. 1'
+      ParentColor = False
+    end
+    object Ch0OutputLabel: TLabel
+      Left = 16
+      Height = 15
+      Top = 50
+      Width = 19
+      Caption = '0.0'
+      ParentColor = False
+    end
+    object Ch1OutputLabel: TLabel
+      Left = 62
+      Height = 15
+      Top = 50
+      Width = 19
+      Caption = '0.0'
+      ParentColor = False
+    end
+    object Bevel6: TBevel
+      Left = 19
+      Height = 2
+      Top = 110
+      Width = 286
+    end
+    object Bevel8: TBevel
+      Left = 104
+      Height = 159
+      Top = 2
+      Width = 2
+    end
+    object Label7: TLabel
+      Left = 16
+      Height = 15
+      Top = 75
+      Width = 53
+      Caption = 'Feedback'
+      ParentColor = False
+    end
+    object FeedbackOutputLabel: TLabel
+      Left = 19
+      Height = 15
+      Top = 94
+      Width = 19
+      Caption = '0.0'
+      ParentColor = False
+    end
+    object Label5: TLabel
+      Left = 112
+      Height = 15
+      Top = 22
+      Width = 58
+      Caption = 'Error Sign'
+      ParentColor = False
+    end
+    object Label6: TLabel
+      Left = 16
+      Height = 15
+      Top = 4
+      Width = 41
+      Caption = 'Signals'
+      ParentColor = False
+    end
+    object PID: TLabel
+      Left = 112
+      Height = 15
+      Top = 3
+      Width = 89
+      Caption = 'PID Parameters'
+      ParentColor = False
+    end
+    object Bevel4: TBevel
+      Left = 212
+      Height = 107
+      Top = 5
+      Width = 4
+    end
+    object Label11: TLabel
+      Left = 16
+      Height = 15
+      Top = 171
+      Width = 72
+      Caption = 'Error Signal:'
+      ParentColor = False
+    end
+    object ErrorSignalLabel: TLabel
+      Left = 112
+      Height = 15
+      Top = 171
+      Width = 19
+      Caption = '0.0'
+      ParentColor = False
+    end
+    object SetPointEdit: TLabeledEdit
+      Left = 112
+      Height = 24
+      Top = 80
+      Width = 42
+      EditLabel.AnchorSideLeft.Control = SetPointEdit
+      EditLabel.AnchorSideRight.Control = SetPointEdit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = SetPointEdit
+      EditLabel.Left = 112
+      EditLabel.Height = 15
+      EditLabel.Top = 62
+      EditLabel.Width = 42
+      EditLabel.Caption = 'Set Point (V)'
+      EditLabel.ParentColor = False
+      TabOrder = 0
+      Text = '3.5'
+      OnKeyPress = SetPointEditKeyPress
+    end
+    object ScanStartBtn: TBitBtn
+      Left = 16
+      Height = 44
+      Top = 118
+      Width = 74
+      Caption = 'Start scan'
+      OnClick = ScanStartBtnClick
+      TabOrder = 1
+    end
+    object EngageFeedbackBtn: TButton
+      Left = 155
+      Height = 41
+      Top = 117
+      Width = 110
+      Caption = 'Start Feedback'
+      OnClick = EngageFeedbackBtnClick
+      TabOrder = 2
+    end
+    object ErrorCorrectionSpinEdit: TSpinEdit
+      Left = 112
+      Height = 24
+      Top = 41
+      Width = 45
+      Increment = 2
+      MaxValue = 1
+      MinValue = -1
+      OnChange = ErrorCorrectionSpinEditChange
+      TabOrder = 3
+      Value = 1
+    end
+    object PropEdit: TLabeledEdit
+      Left = 231
+      Height = 24
+      Top = 8
+      Width = 47
+      EditLabel.AnchorSideLeft.Control = PropEdit
+      EditLabel.AnchorSideRight.Control = PropEdit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = PropEdit
+      EditLabel.Left = 231
+      EditLabel.Height = 15
+      EditLabel.Top = -10
+      EditLabel.Width = 47
+      EditLabel.Caption = 'Proportional'
+      EditLabel.ParentColor = False
+      TabOrder = 4
+      Text = '1'
+      OnKeyPress = PropEditKeyPress
+    end
+    object IntEdit: TLabeledEdit
+      Left = 235
+      Height = 24
+      Top = 48
+      Width = 47
+      EditLabel.AnchorSideLeft.Control = IntEdit
+      EditLabel.AnchorSideRight.Control = IntEdit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = IntEdit
+      EditLabel.Left = 235
+      EditLabel.Height = 15
+      EditLabel.Top = 30
+      EditLabel.Width = 47
+      EditLabel.Caption = 'Integral'
+      EditLabel.ParentColor = False
+      TabOrder = 5
+      Text = '1'
+      OnKeyPress = IntEditKeyPress
+    end
+    object DiffEdit: TLabeledEdit
+      Left = 231
+      Height = 24
+      Top = 85
+      Width = 47
+      EditLabel.AnchorSideLeft.Control = DiffEdit
+      EditLabel.AnchorSideRight.Control = DiffEdit
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = DiffEdit
+      EditLabel.Left = 231
+      EditLabel.Height = 15
+      EditLabel.Top = 67
+      EditLabel.Width = 47
+      EditLabel.Caption = 'Differential'
+      EditLabel.ParentColor = False
+      TabOrder = 6
+      Text = '0'
+      OnKeyPress = DiffEditKeyPress
+    end
+    object LogarithmicCheckBox: TCheckBox
+      Left = 203
+      Height = 24
+      Top = 164
+      Width = 107
+      Caption = 'Logarithmic'
+      OnClick = LogarithmicCheckBoxClick
+      TabOrder = 7
+    end
+  end
+  object GroupBox1: TGroupBox
+    Left = 544
+    Height = 188
+    Top = 464
+    Width = 241
+    Caption = 'Scan Parameters'
+    ClientHeight = 172
+    ClientWidth = 237
+    Color = clRed
+    ParentColor = False
+    TabOrder = 3
+    object Label13: TLabel
+      Left = 18
+      Height = 15
+      Top = 1
+      Width = 91
+      Caption = 'Scan Resolution'
+      ParentColor = False
+    end
+    object Label15: TLabel
+      Left = 16
+      Height = 15
+      Top = 96
+      Width = 93
+      Caption = 'Dwell time  (ms)'
+      ParentColor = False
+    end
+    object Label16: TLabel
+      Left = 130
+      Height = 15
+      Top = 96
+      Width = 54
+      Caption = 'Averages'
+      ParentColor = False
+    end
+    object Label17: TLabel
+      Left = 18
+      Height = 15
+      Top = 48
+      Width = 65
+      Caption = 'Scan range'
+      ParentColor = False
+    end
+    object Label14: TLabel
+      Left = 18
+      Height = 15
+      Top = 152
+      Width = 82
+      Caption = 'Scan Direction'
+      ParentColor = False
+    end
+    object ScanResolutionComboBox: TComboBox
+      Left = 16
+      Height = 27
+      Top = 20
+      Width = 135
+      ItemHeight = 0
+      Items.Strings = (
+        '128'
+        '256'
+        '512'
+        '1024'
+      )
+      OnSelect = ScanResolutionComboBoxSelect
+      TabOrder = 0
+      Text = 'Select a scan resolution'
+    end
+    object DwellTimeEdit: TSpinEdit
+      Left = 16
+      Height = 24
+      Top = 115
+      Width = 62
+      MaxValue = 50
+      MinValue = 1
+      OnChange = DwellTimeEditChange
+      TabOrder = 1
+      Value = 5
+    end
+    object AveragesEdit: TSpinEdit
+      Left = 130
+      Height = 24
+      Top = 115
+      Width = 62
+      MinValue = 1
+      OnChange = AveragesEditChange
+      TabOrder = 2
+      Value = 5
+    end
+    object ScanRangeComboBox: TComboBox
+      Left = 16
+      Height = 27
+      Top = 64
+      Width = 135
+      ItemHeight = 0
+      OnSelect = ScanRangeComboBoxSelect
+      TabOrder = 3
+      Text = 'Select a scan range'
+    end
+    object ScanDirectionComboBox: TComboBox
+      Left = 130
+      Height = 27
+      Top = 144
+      Width = 100
+      ItemHeight = 0
+      Items.Strings = (
+        'X Axis'
+        'Y Axis'
+      )
+      OnChange = ScanDirectionComboBoxChange
+      TabOrder = 4
+      Text = 'ScanDirectionComboBox'
+    end
+  end
+  object StatusBar: TStatusBar
+    Left = 0
+    Height = 21
+    Top = 776
+    Width = 804
+    Panels = <>
+    SimpleText = 'Idle'
+  end
+  object ScaleMaxEdit: TEdit
+    Left = 75
+    Height = 24
+    Top = 425
+    Width = 80
+    OnKeyPress = ScaleMaxEditKeyPress
+    TabOrder = 5
+    Text = 'ScaleMaxEdit'
+  end
+  object ScaleMinEdit: TEdit
+    Left = 77
+    Height = 24
+    Top = 392
+    Width = 80
+    OnKeyPress = ScaleMinEditKeyPress
+    TabOrder = 6
+    Text = 'ScaleMinEdit'
+  end
+  object RescaleButton: TButton
+    Left = 168
+    Height = 25
+    Top = 392
+    Width = 75
+    Caption = 'Rescale'
+    TabOrder = 7
+  end
+  object FileSaveGroupBox: TGroupBox
+    Left = 11
+    Height = 105
+    Top = 660
+    Width = 206
+    Caption = 'File Saving'
+    ClientHeight = 89
+    ClientWidth = 202
+    TabOrder = 8
+    object Label20: TLabel
+      Left = 13
+      Height = 15
+      Top = 54
+      Width = 90
+      Caption = 'Run Description'
+      ParentColor = False
+    end
+    object SaveAsGSFFileButton: TButton
+      Left = 8
+      Height = 38
+      Top = 7
+      Width = 91
+      Caption = 'Save As GSF'
+      OnClick = SaveAsGSFFileButtonClick
+      TabOrder = 0
+    end
+    object SaveAsTextFileButton: TButton
+      Left = 107
+      Height = 38
+      Top = 7
+      Width = 88
+      Caption = 'Save as Text'
+      OnClick = SaveAsTextFileButtonClick
+      TabOrder = 1
+    end
+    object DescriptionEdit: TEdit
+      Left = 9
+      Height = 24
+      Top = 67
+      Width = 183
+      TabOrder = 2
+      Text = 'Write brief description here'
+    end
+  end
+  object LevelImageCheckBox: TCheckBox
+    Left = 168
+    Height = 24
+    Top = 424
+    Width = 138
+    Caption = 'AutoLevel Image'
+    TabOrder = 9
+  end
+  object DataTimer: TTimer
+    Enabled = False
+    OnTimer = DataTimerTimer
+    left = 568
+    top = 328
+  end
+  object FileSaveDialog: TSaveDialog
+    DefaultExt = '.gsf'
+    Filter = 'Gwyddion Simple Files|gsf|Text Data Files|dat'
+    left = 686
+    top = 335
+  end
+end

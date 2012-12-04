@@ -1,0 +1,14 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TOscilloscopeForm','FORMDATA',[
+  'TPF0'#17'TOscilloscopeForm'#16'OscilloscopeForm'#4'Left'#3#142#4#6'Height'#3
+  +#215#0#3'Top'#3#234#0#5'Width'#3'6'#2#13'ActiveControl'#7#16'OscilloscopePlo'
+  +'t'#7'Caption'#6#12'Oscilloscope'#12'ClientHeight'#3#215#0#11'ClientWidth'#3
+  +'6'#2#10'LCLVersion'#6#8'0.9.28.2'#0#10'TPlotPanel'#16'OscilloscopePlot'#4'L'
+  +'eft'#2#0#6'Height'#3#215#0#3'Top'#2#0#5'Width'#3'6'#2#9'GridColor'#7#7'clBl'
+  +'ack'#9'BackColor'#7#7'clWhite'#6'Margin'#2#15#8'PlotMode'#7#6'pmLine'#11'La'
+  +'yerOption'#8#4'XMin'#5#0#0#0#0#0#0#0#0#0#0#4'XMax'#5#0#0#0#0#0#0#0#160#2'@'
+  +#9'XScaleLog'#8#6'XMarks'#8#9'XInterval'#5#0#0#0#0#0#0#0#128#255'?'#4'YMin'#5
+  +#0#0#0#0#0#0#0#128#255#191#4'YMax'#5#0#0#0#0#0#0#0#128#255'?'#9'YScaleLog'#8
+  +#6'YMarks'#8#9'YInterval'#5#0#0#0#0#0#0#0#128#255'?'#7'Caption'#6#1' '#0#0#0
+]);

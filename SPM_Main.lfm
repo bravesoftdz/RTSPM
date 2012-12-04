@@ -1,0 +1,116 @@
+object SPM_MainForm: TSPM_MainForm
+  Left = 645
+  Height = 192
+  Top = 203
+  Width = 540
+  Caption = 'Scanning Probe Microscope-Main Panel'
+  ClientHeight = 192
+  ClientWidth = 540
+  DefaultMonitor = dmMainForm
+  Font.Height = -11
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '1.0.2.0'
+  Visible = True
+  object Bevel1: TBevel
+    Left = 40
+    Height = 9
+    Top = 104
+    Width = 385
+  end
+  object CoarseApproachBtn: TBitBtn
+    Left = 24
+    Height = 25
+    Top = 24
+    Width = 152
+    Caption = 'Coarse Approach Tool'
+    Enabled = False
+    OnClick = CoarseApproachBtnClick
+    TabOrder = 0
+  end
+  object AFMBtn: TBitBtn
+    Left = 200
+    Height = 25
+    Top = 24
+    Width = 129
+    Caption = 'AFM'
+    Enabled = False
+    OnClick = AFMBtnClick
+    TabOrder = 1
+  end
+  object STMBtn: TBitBtn
+    Left = 352
+    Height = 25
+    Top = 24
+    Width = 129
+    Caption = 'STM'
+    Enabled = False
+    TabOrder = 2
+  end
+  object MFM_Lift_Btn: TBitBtn
+    Left = 24
+    Height = 25
+    Top = 64
+    Width = 152
+    Caption = 'MFM Lift Phase mode'
+    Enabled = False
+    TabOrder = 3
+  end
+  object Oscilloscope_Btn: TBitBtn
+    Left = 200
+    Height = 25
+    Top = 64
+    Width = 129
+    Caption = 'Oscilloscope'
+    Enabled = False
+    OnClick = Oscilloscope_BtnClick
+    TabOrder = 4
+  end
+  object EFM_Btn: TBitBtn
+    Left = 352
+    Height = 25
+    Top = 64
+    Width = 129
+    Caption = 'EFM phase mode'
+    Enabled = False
+    TabOrder = 5
+  end
+  object ExitProgram: TBitBtn
+    Left = 256
+    Height = 32
+    Top = 119
+    Width = 137
+    Caption = 'Exit'
+    OnClick = FormDestroy
+    TabOrder = 6
+  end
+  object SystemConfiguration: TBitBtn
+    Left = 64
+    Height = 32
+    Top = 119
+    Width = 137
+    Caption = 'System Configuration'
+    OnClick = SystemConfigurationClick
+    TabOrder = 7
+  end
+  object AttocubeComPort: TSdpoSerial
+    Active = False
+    BaudRate = br__9600
+    DataBits = db8bits
+    Parity = pNone
+    FlowControl = fcNone
+    StopBits = sbOne
+    Device = '/dev/ttyS0'
+    left = 448
+    top = 120
+  end
+  object FastTimer: TEpikTimer
+    StringPrecision = 6
+    WantMilliseconds = True
+    WantDays = True
+    TimebaseSource = SystemTimebase
+    CorrelationMode = OnTimebaseSelect
+    left = 231
+    top = 164
+  end
+end

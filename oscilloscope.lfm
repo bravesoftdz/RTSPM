@@ -1,0 +1,33 @@
+object OscilloscopeForm: TOscilloscopeForm
+  Left = 1166
+  Height = 215
+  Top = 234
+  Width = 566
+  ActiveControl = OscilloscopePlot
+  Caption = 'Oscilloscope'
+  ClientHeight = 215
+  ClientWidth = 566
+  LCLVersion = '0.9.28.2'
+  object OscilloscopePlot: TPlotPanel
+    Left = 0
+    Height = 215
+    Top = 0
+    Width = 566
+    GridColor = clBlack
+    BackColor = clWhite
+    Margin = 15
+    PlotMode = pmLine
+    LayerOption = False
+    XMin = 0
+    XMax = 10
+    XScaleLog = False
+    XMarks = False
+    XInterval = 1
+    YMin = -1
+    YMax = 1
+    YScaleLog = False
+    YMarks = False
+    YInterval = 1
+    Caption = ' '
+  end
+end
