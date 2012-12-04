@@ -1,4 +1,5 @@
 unit SPM_Main;
+//Checking git changes:  This version is on the PlotPanelReplacement Branch
 
 {$MODE Delphi}
 //{$mode objfpc}{$H+}
