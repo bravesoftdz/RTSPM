@@ -1,7 +1,7 @@
 object AFMTopograph: TAFMTopograph
-  Left = 318
+  Left = 813
   Height = 797
-  Top = 132
+  Top = 171
   Width = 804
   ActiveControl = ScaleMinEdit
   Caption = 'AFM Topography'
@@ -28,7 +28,7 @@ object AFMTopograph: TAFMTopograph
     Left = 21
     Height = 20
     Top = 8
-    Width = 137
+    Width = 133
     Caption = 'Forward Image'
     Font.Height = -16
     Font.Name = 'Tahoma'
@@ -40,7 +40,7 @@ object AFMTopograph: TAFMTopograph
     Left = 435
     Height = 20
     Top = 8
-    Width = 136
+    Width = 134
     Caption = 'Reverse Image'
     Font.Height = -16
     Font.Name = 'Tahoma'
@@ -66,7 +66,7 @@ object AFMTopograph: TAFMTopograph
     Left = 21
     Height = 15
     Top = 401
-    Width = 54
+    Width = 55
     Caption = 'Scale Min'
     ParentColor = False
   end
@@ -96,7 +96,7 @@ object AFMTopograph: TAFMTopograph
       Left = 8
       Height = 15
       Top = 64
-      Width = 30
+      Width = 31
       Caption = 'Set Y'
       ParentColor = False
     end
@@ -104,7 +104,7 @@ object AFMTopograph: TAFMTopograph
       Left = 8
       Height = 15
       Top = 88
-      Width = 31
+      Width = 33
       Caption = 'Set Z'
       ParentColor = False
     end
@@ -112,7 +112,7 @@ object AFMTopograph: TAFMTopograph
       Left = 16
       Height = 15
       Top = 8
-      Width = 92
+      Width = 93
       Caption = 'Change Position'
       ParentColor = False
     end
@@ -132,7 +132,7 @@ object AFMTopograph: TAFMTopograph
       Left = 125
       Height = 15
       Top = 8
-      Width = 68
+      Width = 69
       Caption = 'Current Pos'
       ParentColor = False
     end
@@ -144,7 +144,7 @@ object AFMTopograph: TAFMTopograph
     end
     object SetXEdit: TEdit
       Left = 48
-      Height = 24
+      Height = 22
       Top = 36
       Width = 57
       OnKeyPress = SetXEditKeyPress
@@ -153,7 +153,7 @@ object AFMTopograph: TAFMTopograph
     end
     object SetYEdit: TEdit
       Left = 48
-      Height = 24
+      Height = 22
       Top = 60
       Width = 57
       OnKeyPress = SetYEditKeyPress
@@ -162,7 +162,7 @@ object AFMTopograph: TAFMTopograph
     end
     object SetZEdit: TEdit
       Left = 48
-      Height = 24
+      Height = 22
       Top = 85
       Width = 57
       OnKeyPress = SetZEditKeyPress
@@ -171,7 +171,7 @@ object AFMTopograph: TAFMTopograph
     end
     object StepXEdit: TLabeledEdit
       Left = 9
-      Height = 24
+      Height = 22
       Top = 137
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepXEdit
@@ -190,7 +190,7 @@ object AFMTopograph: TAFMTopograph
     end
     object StepYEdit: TLabeledEdit
       Left = 80
-      Height = 24
+      Height = 22
       Top = 136
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepYEdit
@@ -209,7 +209,7 @@ object AFMTopograph: TAFMTopograph
     end
     object StepZEdit: TLabeledEdit
       Left = 155
-      Height = 24
+      Height = 22
       Top = 137
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepZEdit
@@ -343,7 +343,7 @@ object AFMTopograph: TAFMTopograph
       Left = 112
       Height = 15
       Top = 22
-      Width = 58
+      Width = 59
       Caption = 'Error Sign'
       ParentColor = False
     end
@@ -351,7 +351,7 @@ object AFMTopograph: TAFMTopograph
       Left = 16
       Height = 15
       Top = 4
-      Width = 41
+      Width = 43
       Caption = 'Signals'
       ParentColor = False
     end
@@ -359,7 +359,7 @@ object AFMTopograph: TAFMTopograph
       Left = 112
       Height = 15
       Top = 3
-      Width = 89
+      Width = 90
       Caption = 'PID Parameters'
       ParentColor = False
     end
@@ -373,7 +373,7 @@ object AFMTopograph: TAFMTopograph
       Left = 16
       Height = 15
       Top = 171
-      Width = 72
+      Width = 73
       Caption = 'Error Signal:'
       ParentColor = False
     end
@@ -387,7 +387,7 @@ object AFMTopograph: TAFMTopograph
     end
     object SetPointEdit: TLabeledEdit
       Left = 112
-      Height = 24
+      Height = 22
       Top = 80
       Width = 42
       EditLabel.AnchorSideLeft.Control = SetPointEdit
@@ -424,7 +424,7 @@ object AFMTopograph: TAFMTopograph
     end
     object ErrorCorrectionSpinEdit: TSpinEdit
       Left = 112
-      Height = 24
+      Height = 22
       Top = 41
       Width = 45
       Increment = 2
@@ -436,7 +436,7 @@ object AFMTopograph: TAFMTopograph
     end
     object PropEdit: TLabeledEdit
       Left = 231
-      Height = 24
+      Height = 22
       Top = 8
       Width = 47
       EditLabel.AnchorSideLeft.Control = PropEdit
@@ -455,7 +455,7 @@ object AFMTopograph: TAFMTopograph
     end
     object IntEdit: TLabeledEdit
       Left = 235
-      Height = 24
+      Height = 22
       Top = 48
       Width = 47
       EditLabel.AnchorSideLeft.Control = IntEdit
@@ -474,7 +474,7 @@ object AFMTopograph: TAFMTopograph
     end
     object DiffEdit: TLabeledEdit
       Left = 231
-      Height = 24
+      Height = 22
       Top = 85
       Width = 47
       EditLabel.AnchorSideLeft.Control = DiffEdit
@@ -493,9 +493,9 @@ object AFMTopograph: TAFMTopograph
     end
     object LogarithmicCheckBox: TCheckBox
       Left = 203
-      Height = 24
+      Height = 21
       Top = 164
-      Width = 107
+      Width = 98
       Caption = 'Logarithmic'
       OnClick = LogarithmicCheckBoxClick
       TabOrder = 7
@@ -516,7 +516,7 @@ object AFMTopograph: TAFMTopograph
       Left = 18
       Height = 15
       Top = 1
-      Width = 91
+      Width = 92
       Caption = 'Scan Resolution'
       ParentColor = False
     end
@@ -524,7 +524,7 @@ object AFMTopograph: TAFMTopograph
       Left = 16
       Height = 15
       Top = 96
-      Width = 93
+      Width = 94
       Caption = 'Dwell time  (ms)'
       ParentColor = False
     end
@@ -532,7 +532,7 @@ object AFMTopograph: TAFMTopograph
       Left = 130
       Height = 15
       Top = 96
-      Width = 54
+      Width = 53
       Caption = 'Averages'
       ParentColor = False
     end
@@ -540,7 +540,7 @@ object AFMTopograph: TAFMTopograph
       Left = 18
       Height = 15
       Top = 48
-      Width = 65
+      Width = 66
       Caption = 'Scan range'
       ParentColor = False
     end
@@ -548,13 +548,13 @@ object AFMTopograph: TAFMTopograph
       Left = 18
       Height = 15
       Top = 152
-      Width = 82
+      Width = 83
       Caption = 'Scan Direction'
       ParentColor = False
     end
     object ScanResolutionComboBox: TComboBox
       Left = 16
-      Height = 27
+      Height = 25
       Top = 20
       Width = 135
       ItemHeight = 0
@@ -570,7 +570,7 @@ object AFMTopograph: TAFMTopograph
     end
     object DwellTimeEdit: TSpinEdit
       Left = 16
-      Height = 24
+      Height = 22
       Top = 115
       Width = 62
       MaxValue = 50
@@ -581,7 +581,7 @@ object AFMTopograph: TAFMTopograph
     end
     object AveragesEdit: TSpinEdit
       Left = 130
-      Height = 24
+      Height = 22
       Top = 115
       Width = 62
       MinValue = 1
@@ -591,7 +591,7 @@ object AFMTopograph: TAFMTopograph
     end
     object ScanRangeComboBox: TComboBox
       Left = 16
-      Height = 27
+      Height = 25
       Top = 64
       Width = 135
       ItemHeight = 0
@@ -601,7 +601,7 @@ object AFMTopograph: TAFMTopograph
     end
     object ScanDirectionComboBox: TComboBox
       Left = 130
-      Height = 27
+      Height = 25
       Top = 144
       Width = 100
       ItemHeight = 0
@@ -624,7 +624,7 @@ object AFMTopograph: TAFMTopograph
   end
   object ScaleMaxEdit: TEdit
     Left = 75
-    Height = 24
+    Height = 22
     Top = 425
     Width = 80
     OnKeyPress = ScaleMaxEditKeyPress
@@ -633,7 +633,7 @@ object AFMTopograph: TAFMTopograph
   end
   object ScaleMinEdit: TEdit
     Left = 77
-    Height = 24
+    Height = 22
     Top = 392
     Width = 80
     OnKeyPress = ScaleMinEditKeyPress
@@ -685,7 +685,7 @@ object AFMTopograph: TAFMTopograph
     end
     object DescriptionEdit: TEdit
       Left = 9
-      Height = 24
+      Height = 22
       Top = 67
       Width = 183
       TabOrder = 2
@@ -694,9 +694,9 @@ object AFMTopograph: TAFMTopograph
   end
   object LevelImageCheckBox: TCheckBox
     Left = 168
-    Height = 24
+    Height = 21
     Top = 424
-    Width = 138
+    Width = 130
     Caption = 'AutoLevel Image'
     TabOrder = 9
   end

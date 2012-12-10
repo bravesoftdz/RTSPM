@@ -16,8 +16,10 @@ type
   { TCoarseApproachTool }
 
   TCoarseApproachTool = class(TForm)
+    ProbeSignal: TChart;
     DataTimer: TTimer;
-    TipSignal: TPlotPanel;
+    ProbeSignalLineSeries1: TLineSeries;
+    ProbeSignalLineSeries2: TLineSeries;
     ZApproachBar: TProgressBar;
     SignalControlGroupBox: TGroupBox;
     WalkerControlGroupBox: TGroupBox;
@@ -190,8 +192,8 @@ procedure TCoarseApproachTool.SetPointEditKeyPress(Sender: TObject;
   var Key: Char);
 begin
   if Key=Chr(13) then CoarseSP:=StrToFloat(SetPointEdit.Text);
-   TipSignal.YMax:=2*abs(CoarseSP);
-   TipSignal.YMin:=-TipSignal.YMax;
+   ProbeSignal.LeftAxis.Range.Max:=2*abs(CoarseSP);
+   ProbeSignal.LeftAxis.Range.Min:=-2*abs(CoarseSP);
 end;
 
 procedure TCoarseApproachTool.SetXEditKeyPress(Sender: TObject; var Key: Char);
@@ -277,7 +279,11 @@ begin
       StatusBar.SimpleText:='Starting coarse approach';
       CoarseApproachStepNumber:=0;      //Initialize stepnumber
       StepNumberLabel.Caption:=IntToStr(CoarseApproachStepNumber);
-      TipSignal.ClearData; //Clear the data from the graph
+
+      //Clear the data from the graph
+      ProbeSignalLineSeries1.Clear;
+      ProbeSignalLineSeries2.Clear;
+
       //Series1.Draw;
       StepByStepBtn.Caption:='Stop Approach';
       Approaching:=TRUE;
@@ -301,7 +307,7 @@ begin
           RapidZVoltage(CurrentZVoltage);
           CurrentZ:=ZVoltageToMicrons(CurrentZVoltage);
           UpdateZPositionIndicators;
-          TipSignal.AddXY(CurrentZ, FeedbackChannelReading, clRed, 0);
+          ProbeSignalLineSeries1.AddXY(CurrentZ, FeedbackChannelReading, '',clRed);
           Application.ProcessMessages; // Process any events from the program
           //Check if we are in contact
           InContact:=CheckContact;
@@ -317,8 +323,7 @@ begin
               fastdelay(350);  //wait for 10 msecs for things to settle
               Inc(CoarseApproachStepNumber);
               StepNumberLabel.Caption:=IntToStr(CoarseApproachStepNumber);
-              TipSignal.ClearData; //Clear graph
-              //Series1.Repaint;
+              ProbeSignalLineSeries1.Clear; //Need to clear only line series 1
             end;
         end;
         Approaching:=FALSE;         //reset
@@ -461,8 +466,11 @@ if Approaching then //stop the acquisition
     StatusBar.SimpleText:='Acquiring approach curve';
     DataTimer.Enabled:=FALSE;
     AcquireCurveBtn.Caption:='Stop acquisition';
-    TipSignal.ClearData; //Clear the data from the graph
-    //Series1.Repaint;
+
+    //Clear the data from the graph
+    ProbeSignalLineSeries1.Clear;
+    ProbeSignalLineSeries2.Clear;
+
     //retract scan tube completely
     MoveToZVoltage(MaxZVoltage, 100*MinZVoltageStep);
     NumbAverages:=100; //Number of readings to average
@@ -486,7 +494,7 @@ if Approaching then //stop the acquisition
         //Check if we are in contact
         InContact:=AveragedCheckContact(NumbAverages);
         FeedbackOutputLabel.Caption:=FloatToStrF(FeedbackChannelReading, ffFixed, 10, 4);
-        TipSignal.AddXY(CurrentZ, FeedbackChannelReading, clRed, 0);
+        ProbeSignalLineSeries1.AddXY(CurrentZ, FeedbackChannelReading, '', clRed);
         fastdelay(CoarseApproachWaitTime);
         Application.ProcessMessages; // Process any events from the program
       end;
@@ -507,7 +515,7 @@ if Approaching then //stop the acquisition
         //This is just to get a reading
         AveragedCheckContact(NumbAverages);
         FeedbackOutputLabel.Caption:=FloatToStrF(FeedbackChannelReading, ffFixed, 10, 4);
-        TipSignal.AddXY(CurrentZ, FeedbackChannelReading, clBlue, 1);
+        ProbeSignalLineSeries2.AddXY(CurrentZ, FeedbackChannelReading, '', clBlue);
         Application.ProcessMessages; // Process any events from the program
       end;
     //Finish and bring us back to where we were
@@ -525,15 +533,16 @@ end;
 procedure TCoarseApproachTool.FormShow(Sender: TObject);
 
 begin
-   TipSignal.LayerOptions(0,pmLine,1);
-   TipSignal.LayerOptions(1,pmLine,1);
-   TipSignal.XMin:=MinZPosition;
-   TipSignal.XMax:=MaxZPosition;
-   TipSignal.ClearData;
-   //Series1.Repaint;
+   ProbeSignal.BottomAxis.Range.Min:=MinZPosition;
+   ProbeSignal.BottomAxis.Range.Max:=MaxZPosition;
+   ProbeSignalLineSeries1.Clear;
+   ProbeSignalLineSeries2.Clear;
+
+
    CoarseSP:=0.5;
-   TipSignal.YMax:=2*abs(CoarseSP);
-   TipSignal.YMin:=-TipSignal.YMax;
+   ProbeSignal.LeftAxis.Range.Max:=2*abs(CoarseSP);
+   ProbeSignal.LeftAxis.Range.Min:=-2*abs(CoarseSP);
+
    CoarseApproachStepNumber:=0;
    SetPointEdit.Text:=FloatToStrF(CoarseSP, ffFixed, 10, 4);
    ApprCriterionEdit.Text:=FloatToStrF(ApproachCriterion, ffFixed, 10, 4);

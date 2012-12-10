@@ -1,11 +1,10 @@
 object CoarseApproachTool: TCoarseApproachTool
-  Left = 380
+  Left = 668
   Height = 663
-  Top = 138
+  Top = 92
   Width = 664
-  ActiveControl = TipSignal
   Caption = 'Tip Coarse Approach Tool'
-  ClientHeight = 663
+  ClientHeight = 636
   ClientWidth = 664
   Font.Height = -11
   Menu = MainMenu1
@@ -42,7 +41,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 16
       Height = 15
       Top = 8
-      Width = 26
+      Width = 31
       Caption = 'Ch. 0'
       ParentColor = False
     end
@@ -50,7 +49,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 64
       Height = 15
       Top = 8
-      Width = 26
+      Width = 31
       Caption = 'Ch. 1'
       ParentColor = False
     end
@@ -58,7 +57,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 16
       Height = 15
       Top = 24
-      Width = 16
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -66,7 +65,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 62
       Height = 15
       Top = 24
-      Width = 16
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -92,7 +91,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 302
       Height = 15
       Top = 68
-      Width = 63
+      Width = 75
       Caption = 'Step number'
       ParentColor = False
     end
@@ -100,7 +99,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 302
       Height = 15
       Top = 84
-      Width = 7
+      Width = 8
       Caption = '0'
       ParentColor = False
     end
@@ -108,7 +107,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 16
       Height = 15
       Top = 56
-      Width = 134
+      Width = 152
       Caption = 'Feedback Channel Reading'
       ParentColor = False
     end
@@ -116,7 +115,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 19
       Height = 15
       Top = 75
-      Width = 16
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -124,13 +123,13 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 224
       Height = 15
       Top = 56
-      Width = 45
+      Width = 53
       Caption = 'Step size'
       ParentColor = False
     end
     object SetPointEdit: TLabeledEdit
       Left = 224
-      Height = 24
+      Height = 22
       Top = 21
       Width = 58
       EditLabel.AnchorSideLeft.Control = SetPointEdit
@@ -149,7 +148,7 @@ object CoarseApproachTool: TCoarseApproachTool
     end
     object ApprCriterionEdit: TLabeledEdit
       Left = 295
-      Height = 24
+      Height = 22
       Top = 21
       Width = 63
       EditLabel.AnchorSideLeft.Control = ApprCriterionEdit
@@ -168,7 +167,7 @@ object CoarseApproachTool: TCoarseApproachTool
     end
     object UpdateTimeEditBox: TLabeledEdit
       Left = 128
-      Height = 24
+      Height = 22
       Top = 21
       Width = 40
       EditLabel.AnchorSideLeft.Control = UpdateTimeEditBox
@@ -206,7 +205,7 @@ object CoarseApproachTool: TCoarseApproachTool
     end
     object CoarseApproachStepSizeEdit: TSpinEdit
       Left = 224
-      Height = 24
+      Height = 22
       Top = 75
       Width = 45
       MinValue = 1
@@ -243,7 +242,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 120
       Height = 15
       Top = 0
-      Width = 68
+      Width = 79
       Caption = 'Timed motion'
       ParentColor = False
     end
@@ -251,7 +250,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 240
       Height = 15
       Top = -3
-      Width = 52
+      Width = 60
       Caption = 'x-y motion'
       ParentColor = False
     end
@@ -343,7 +342,7 @@ object CoarseApproachTool: TCoarseApproachTool
         Left = 8
         Height = 15
         Top = 8
-        Width = 50
+        Width = 59
         Caption = 'Time (ms)'
         ParentColor = False
       end
@@ -367,7 +366,7 @@ object CoarseApproachTool: TCoarseApproachTool
       end
       object WalkerTimeEdit: TEdit
         Left = 8
-        Height = 24
+        Height = 22
         Top = 27
         Width = 65
         OnKeyPress = WalkerTimeEditKeyPress
@@ -393,7 +392,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 8
       Height = 15
       Top = 40
-      Width = 27
+      Width = 31
       Caption = 'Set X'
       ParentColor = False
     end
@@ -401,7 +400,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 8
       Height = 15
       Top = 64
-      Width = 27
+      Width = 31
       Caption = 'Set Y'
       ParentColor = False
     end
@@ -409,7 +408,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 8
       Height = 15
       Top = 88
-      Width = 26
+      Width = 33
       Caption = 'Set Z'
       ParentColor = False
     end
@@ -417,7 +416,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 16
       Height = 15
       Top = 8
-      Width = 81
+      Width = 93
       Caption = 'Change Position'
       ParentColor = False
     end
@@ -437,7 +436,7 @@ object CoarseApproachTool: TCoarseApproachTool
       Left = 125
       Height = 15
       Top = 8
-      Width = 81
+      Width = 93
       Caption = 'Current Position'
       ParentColor = False
     end
@@ -449,7 +448,7 @@ object CoarseApproachTool: TCoarseApproachTool
     end
     object SetXEdit: TEdit
       Left = 48
-      Height = 24
+      Height = 22
       Top = 36
       Width = 57
       OnKeyPress = SetXEditKeyPress
@@ -458,7 +457,7 @@ object CoarseApproachTool: TCoarseApproachTool
     end
     object SetYEdit: TEdit
       Left = 48
-      Height = 24
+      Height = 22
       Top = 60
       Width = 57
       OnKeyPress = SetYEditKeyPress
@@ -467,7 +466,7 @@ object CoarseApproachTool: TCoarseApproachTool
     end
     object SetZEdit: TEdit
       Left = 48
-      Height = 24
+      Height = 22
       Top = 85
       Width = 57
       OnKeyPress = SetZEditKeyPress
@@ -476,7 +475,7 @@ object CoarseApproachTool: TCoarseApproachTool
     end
     object StepXEdit: TLabeledEdit
       Left = 9
-      Height = 24
+      Height = 22
       Top = 137
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepXEdit
@@ -495,7 +494,7 @@ object CoarseApproachTool: TCoarseApproachTool
     end
     object StepYEdit: TLabeledEdit
       Left = 80
-      Height = 24
+      Height = 22
       Top = 136
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepYEdit
@@ -514,7 +513,7 @@ object CoarseApproachTool: TCoarseApproachTool
     end
     object StepZEdit: TLabeledEdit
       Left = 155
-      Height = 24
+      Height = 22
       Top = 137
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepZEdit
@@ -559,34 +558,44 @@ object CoarseApproachTool: TCoarseApproachTool
   object StatusBar: TStatusBar
     Left = 0
     Height = 21
-    Top = 642
+    Top = 615
     Width = 664
     Panels = <>
     SimpleText = 'Idle'
   end
-  object TipSignal: TPlotPanel
-    Left = 8
-    Height = 200
-    Top = 8
-    Width = 648
-    GridColor = clBlack
-    BackColor = clSkyBlue
-    Margin = 15
-    PlotMode = pmLine
-    LayerOption = False
-    XMin = -1
-    XMax = 1
-    XScaleLog = False
-    XMarks = True
-    XInterval = 0.2
-    XLabel = 'Z axis position (um)'
-    YMin = -10
-    YMax = 10
-    YScaleLog = False
-    YMarks = True
-    YInterval = 4
-    YLabel = 'Feedback (V)'
-    Caption = ' '
+  object ProbeSignal: TChart
+    Left = 0
+    Height = 224
+    Top = 0
+    Width = 659
+    AxisList = <    
+      item
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.Visible = True
+        Title.Caption = 'Tip Signal'
+      end    
+      item
+        Alignment = calBottom
+        Minors = <>
+        Title.Alignment = taCenter
+        Title.Visible = True
+        Title.Caption = 'Z Axis extension (um)'
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    ParentColor = False
+    object ProbeSignalLineSeries1: TLineSeries
+      LinePen.Color = clRed
+    end
+    object ProbeSignalLineSeries2: TLineSeries
+      LinePen.Color = clBlue
+    end
   end
   object SaveDialog: TSaveDialog
     DefaultExt = '.*.txt'

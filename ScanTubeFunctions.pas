@@ -335,10 +335,9 @@ implementation
             LineData[i]:=sum/NumbAverages;
           end;
           if Step>0 then
-            OscilloscopeForm.OscilloscopePlot.AddXY(XValue,LineData[i], clRed, 0) //color red, first layer, forward scan
+            OscilloscopeForm.OscilloscopeChartLineSeries1.AddXY(XValue,LineData[i], '',clRed) //color red, first layer, forward scan
            else
-            OscilloscopeForm.OscilloscopePlot.AddXY(XValue,LineData[i], clBlue, 1); //color blue, second layer, reverse scan
-
+            OscilloscopeForm.OscilloscopeChartLineSeries2.AddXY(XValue,LineData[i], '',clBlue); //color blue, second layer, reverse scan
         XValue:=XValue+Step;
       end;
     XLineScan:=LineData;
@@ -372,10 +371,9 @@ implementation
             LineData[i]:=sum/NumbAverages;
           end;
           if Step<0 then
-            OscilloscopeForm.OscilloscopePlot.AddXY(YValue,LineData[i], clRed, 0) //color red, first layer, downward scan
+            OscilloscopeForm.OscilloscopeChartLineSeries1.AddXY(YValue,LineData[i], '',clRed) //color red, first layer, downward scan
            else
-            OscilloscopeForm.OscilloscopePlot.AddXY(YValue,LineData[i], clBlue, 1); //color blue, second layer, upward scan
-
+            OscilloscopeForm.OscilloscopeChartLineSeries2.AddXY(YValue,LineData[i], '',clBlue); //color blue, second layer, upward scan
         YValue:=YValue+Step;
       end;
     YLineScan:=LineData;

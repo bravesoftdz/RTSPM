@@ -5,15 +5,17 @@ unit Oscilloscope;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  Plotpanel;
+  Classes, SysUtils, FileUtil, TAGraph, TASeries, LResources, Forms, Controls,
+  Graphics, Dialogs, Plotpanel;
 
 type
 
   { TOscilloscopeForm }
 
   TOscilloscopeForm = class(TForm)
-    OscilloscopePlot: TPlotPanel;
+    OscilloscopeChart: TChart;
+    OscilloscopeChartLineSeries1: TLineSeries;
+    OscilloscopeChartLineSeries2: TLineSeries;
   private
     { private declarations }
   public

@@ -1,33 +1,37 @@
 object OscilloscopeForm: TOscilloscopeForm
-  Left = 1166
-  Height = 215
-  Top = 234
-  Width = 566
-  ActiveControl = OscilloscopePlot
+  Left = 539
+  Height = 305
+  Top = 155
+  Width = 676
   Caption = 'Oscilloscope'
-  ClientHeight = 215
-  ClientWidth = 566
-  LCLVersion = '0.9.28.2'
-  object OscilloscopePlot: TPlotPanel
-    Left = 0
-    Height = 215
-    Top = 0
-    Width = 566
-    GridColor = clBlack
-    BackColor = clWhite
-    Margin = 15
-    PlotMode = pmLine
-    LayerOption = False
-    XMin = 0
-    XMax = 10
-    XScaleLog = False
-    XMarks = False
-    XInterval = 1
-    YMin = -1
-    YMax = 1
-    YScaleLog = False
-    YMarks = False
-    YInterval = 1
-    Caption = ' '
+  ClientHeight = 305
+  ClientWidth = 676
+  LCLVersion = '1.0.2.0'
+  object OscilloscopeChart: TChart
+    Left = 16
+    Height = 280
+    Top = 16
+    Width = 636
+    AxisList = <    
+      item
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+      end    
+      item
+        Alignment = calBottom
+        Minors = <>
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    ParentColor = False
+    object OscilloscopeChartLineSeries1: TLineSeries
+    end
+    object OscilloscopeChartLineSeries2: TLineSeries
+    end
   end
 end

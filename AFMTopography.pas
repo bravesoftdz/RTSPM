@@ -19,7 +19,6 @@ TAFMTopograph = class(TForm)
   LogarithmicCheckBox: TCheckBox;
 DescriptionEdit: TEdit;
 Label20: TLabel;
-PlotPanel1: TPlotPanel;
 SaveAsGSFFileButton: TButton;
 SaveAsTextFileButton: TButton;
 FileSaveGroupBox: TGroupBox;
@@ -394,7 +393,7 @@ begin
       TopoIntegerScaleMax:=MicronsToProgressBar(Value);
       If ((TopoIntegerScaleMax<TopoIntegerScaleMin) and (TopoIntegerScaleMax<65535)) then
                           TopoIntegerScaleMax:=TopoIntegerScaleMin+1;
-      OscilloscopeForm.OscilloscopePlot.YMax:=Value;
+      OscilloscopeForm.OscilloscopeChart.LeftAxis.Range.Max:=Value;
       RescaleImage:=TRUE;
     end;
 end;
@@ -409,7 +408,7 @@ begin
       TopoIntegerScaleMin:=MicronsToProgressBar(Value);
       If ((TopoIntegerScaleMin>TopoIntegerScaleMax) and (TopoIntegerScaleMin>0)) then
                 TopoIntegerScaleMin:=TopoIntegerScaleMax-1;
-      OscilloscopeForm.OscilloscopePlot.YMin:=Value;
+      OscilloscopeForm.OscilloscopeChart.LeftAxis.Range.Min:=Value;
       RescaleImage:=TRUE;
     end;
 end;
@@ -693,12 +692,13 @@ begin
         XAxis:
           begin
             //Set the limits of the Oscilloscope
-            OscilloscopeForm.OscilloscopePlot.XMin:=ScanXMinusLimit;
-            OscilloscopeForm.OscilloscopePlot.XMax:=ScanXPlusLimit;
+            OscilloscopeForm.OscilloscopeChart.BottomAxis.Range.Min:=ScanXMinusLimit;
+            OscilloscopeForm.OscilloscopeChart.BottomAxis.Range.Max:=ScanXPlusLimit;
             while ((j<ScanResolution) and Scanning) do //this is the y iteration
               begin
                 //initialize the Oscilloscope Plot
-                OscilloscopeForm.OscilloscopePlot.ClearData;  //Clear all data
+                OscilloscopeForm.OscilloscopeChartLineSeries1.Clear;
+                OscilloscopeForm.OscilloscopeChartLineSeries2.Clear;
                 fastdelay(10*DwellTime); //Delay at beginning of scan to relax
                 StartX:=ScanXMinusLimit;
                 StatusBar.SimpleText:='Scanning forward line '+ IntToStr(j+1);
@@ -744,12 +744,13 @@ begin
         YAxis:
           begin
             //Set the limits of the Oscilloscope
-            OscilloscopeForm.OscilloscopePlot.XMin:=ScanYPlusLimit;
-            OscilloscopeForm.OscilloscopePlot.XMax:=ScanYMinusLimit;
+            OscilloscopeForm.OscilloscopeChart.BottomAxis.Range.Min:=ScanYPlusLimit;
+            OscilloscopeForm.OscilloscopeChart.BottomAxis.Range.Max:=ScanYMinusLimit;
             while ((j<ScanResolution) and Scanning) do //this is the x iteration
               begin
                 //initialize the Oscilloscope Plot
-                OscilloscopeForm.OscilloscopePlot.ClearData;  //Clear all data
+                OscilloscopeForm.OscilloscopeChartLineSeries1.Clear;
+                OscilloscopeForm.OscilloscopeChartLineSeries2.Clear;
                 fastdelay(10*DwellTime); //Delay at beginning of scan to relax
                 StartY:=ScanYPlusLimit;
                 StatusBar.SimpleText:='Scanning downward line '+ IntToStr(j+1);
