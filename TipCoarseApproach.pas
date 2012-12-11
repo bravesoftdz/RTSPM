@@ -9,15 +9,19 @@ uses
   {$IFNDEF LCL} Windows, Messages, {$ELSE} LclIntf, LMessages, LclType, {$ENDIF}
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   StdCtrls, ComCtrls, ExtCtrls, {TeeProcs, TeEngine, Chart,} {Series,} Menus,
-  Buttons, Spin, LResources, Plotpanel, TAGraph, TASeries;
+  Buttons, Spin, LResources, Plotpanel, TAGraph, TASeries, TATransformations;
 
 type
 
   { TCoarseApproachTool }
 
   TCoarseApproachTool = class(TForm)
+    AutoScaleCheckBox: TCheckBox;
+    YAxisTransformations: TChartAxisTransformations;
     ProbeSignal: TChart;
     DataTimer: TTimer;
+
+      YAxisTransformationsAutoScaleAxisTransform: TAutoScaleAxisTransform;
     ProbeSignalLineSeries1: TLineSeries;
     ProbeSignalLineSeries2: TLineSeries;
     ZApproachBar: TProgressBar;
@@ -81,6 +85,7 @@ type
     {Series1: TFastLineSeries;}
     CoarseApproachStepSizeEdit: TSpinEdit;
     Label11: TLabel;
+    procedure AutoScaleCheckBoxClick(Sender: TObject);
     procedure CoarseApproachStepSizeEditChange(Sender: TObject);
     procedure DataTimerTimer(Sender: TObject);
     procedure AcquireCurveBtnClick(Sender: TObject);
@@ -406,6 +411,21 @@ end;
 procedure TCoarseApproachTool.CoarseApproachStepSizeEditChange(Sender: TObject);
 begin
   CoarseApproachStepSize:=CoarseApproachStepSizeEdit.Value;
+end;
+
+procedure TCoarseApproachTool.AutoScaleCheckBoxClick(Sender: TObject);
+begin
+   if AutoScaleCheckBox.Checked then
+       begin
+         AutoScaleCheckBox.Checked:=FALSE;
+         YAxisTransformationsAutoScaleAxisTransform.Enabled:=FALSE;
+       end
+     else
+        begin
+          AutoScaleCheckBox.Checked:=TRUE;
+          YAxisTransformationsAutoScaleAxisTransform.Enabled:=TRUE;
+        end;
+
 end;
 
 procedure TCoarseApproachTool.DataTimerTimer(Sender: TObject);
