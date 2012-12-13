@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, LResources, Forms, Controls,
-  Graphics, Dialogs, Plotpanel;
+  Graphics, Dialogs, StdCtrls, Spin, Plotpanel;
 
 type
 

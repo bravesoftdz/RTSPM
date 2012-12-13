@@ -26,26 +26,29 @@
         <LaunchingApplication PathPlusParams="/usr/X11R6/bin/xterm -T 'Lazarus Run Output' -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="5">
+    <RequiredPackages Count="6">
       <Item1>
-        <PackageName Value="plot"/>
-        <MinVersion Valid="True"/>
+        <PackageName Value="BGRABitmapPack"/>
       </Item1>
       <Item2>
-        <PackageName Value="etpackage"/>
-        <MinVersion Major="1" Valid="True"/>
+        <PackageName Value="plot"/>
+        <MinVersion Valid="True"/>
       </Item2>
       <Item3>
-        <PackageName Value="SdpoSerialLaz"/>
-        <MinVersion Minor="1" Release="4" Valid="True"/>
+        <PackageName Value="etpackage"/>
+        <MinVersion Major="1" Valid="True"/>
       </Item3>
       <Item4>
-        <PackageName Value="TAChartLazarusPkg"/>
-        <MinVersion Major="1" Valid="True"/>
+        <PackageName Value="SdpoSerialLaz"/>
+        <MinVersion Minor="1" Release="4" Valid="True"/>
       </Item4>
       <Item5>
-        <PackageName Value="LCL"/>
+        <PackageName Value="TAChartLazarusPkg"/>
+        <MinVersion Major="1" Valid="True"/>
       </Item5>
+      <Item6>
+        <PackageName Value="LCL"/>
+      </Item6>
     </RequiredPackages>
     <Units Count="29">
       <Unit0>
@@ -71,8 +74,6 @@
         <TopLine Value="88"/>
         <CursorPos X="17" Y="93"/>
         <UsageCount Value="204"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit1>
       <Unit2>
@@ -82,11 +83,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="TipCoarseApproach"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="415"/>
-        <CursorPos X="95" Y="426"/>
+        <TopLine Value="563"/>
+        <CursorPos X="46" Y="598"/>
         <UsageCount Value="204"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -100,8 +100,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SystemConfiguration"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="145"/>
-        <CursorPos X="44" Y="167"/>
+        <TopLine Value="340"/>
+        <CursorPos X="1" Y="346"/>
         <UsageCount Value="204"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
@@ -110,7 +110,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="FileFunctions"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="396"/>
+        <TopLine Value="375"/>
         <CursorPos X="21" Y="418"/>
         <UsageCount Value="204"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -129,12 +129,10 @@
         <Filename Value="ScanTubeFunctions.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ScanTubeFunctions"/>
-        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="352"/>
+        <TopLine Value="1"/>
         <CursorPos X="16" Y="375"/>
         <UsageCount Value="204"/>
-        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit6>
       <Unit7>
@@ -213,7 +211,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="GlobalVariables"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="19"/>
+        <TopLine Value="2"/>
         <CursorPos X="88" Y="49"/>
         <UsageCount Value="204"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -297,6 +295,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Oscilloscope"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
@@ -358,124 +357,124 @@
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="AFMTopography.pas"/>
-        <Caret Line="700" Column="51" TopLine="675"/>
+        <Filename Value="TipCoarseApproach.pas"/>
+        <Caret Line="438" Column="14" TopLine="429"/>
       </Position1>
       <Position2>
-        <Filename Value="AFMTopography.pas"/>
-        <Caret Line="752" Column="51" TopLine="729"/>
+        <Filename Value="TipCoarseApproach.pas"/>
+        <Caret Line="425" Column="3" TopLine="422"/>
       </Position2>
       <Position3>
-        <Filename Value="ScanTubeFunctions.pas"/>
-        <Caret Line="380" Column="66" TopLine="374"/>
+        <Filename Value="TipCoarseApproach.pas"/>
+        <Caret Line="605" Column="55" TopLine="603"/>
       </Position3>
       <Position4>
-        <Filename Value="ScanTubeFunctions.pas"/>
-        <Caret Line="339" Column="16" TopLine="314"/>
+        <Filename Value="TipCoarseApproach.pas"/>
+        <Caret Line="616" Column="62" TopLine="598"/>
       </Position4>
       <Position5>
         <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="317" Column="27" TopLine="231"/>
+        <Caret Line="611" Column="10" TopLine="598"/>
       </Position5>
       <Position6>
         <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="20" Column="16" TopLine="1"/>
+        <Caret Line="441" Column="1" TopLine="429"/>
       </Position6>
       <Position7>
         <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="195" Column="63" TopLine="183"/>
+        <Caret Line="432" Column="5" TopLine="430"/>
       </Position7>
       <Position8>
         <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="286" Column="9" TopLine="261"/>
+        <Caret Line="605" Column="32" TopLine="599"/>
       </Position8>
       <Position9>
         <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="196" Column="6" TopLine="182"/>
+        <Caret Line="604" Column="32" TopLine="598"/>
       </Position9>
       <Position10>
         <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="283" Column="1" TopLine="274"/>
+        <Caret Line="427" Column="5" TopLine="417"/>
       </Position10>
       <Position11>
         <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="310" Column="37" TopLine="301"/>
+        <Caret Line="97" Column="21" TopLine="85"/>
       </Position11>
       <Position12>
         <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="326" Column="75" TopLine="318"/>
+        <Caret Line="634" Column="10" TopLine="608"/>
       </Position12>
       <Position13>
         <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="469" Column="49" TopLine="462"/>
+        <Caret Line="646" Column="10" TopLine="620"/>
       </Position13>
       <Position14>
         <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="497" Column="89" TopLine="491"/>
+        <Caret Line="602" Column="14" TopLine="580"/>
       </Position14>
       <Position15>
         <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="518" Column="90" TopLine="513"/>
+        <Caret Line="442" Column="24" TopLine="431"/>
       </Position15>
       <Position16>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="545" Column="18" TopLine="531"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="18" Column="47" TopLine="1"/>
       </Position16>
       <Position17>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="547" Column="4" TopLine="531"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="31" Column="34" TopLine="5"/>
       </Position17>
       <Position18>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="548" Column="4" TopLine="531"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="30" Column="34" TopLine="5"/>
       </Position18>
       <Position19>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="551" Column="6" TopLine="531"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="29" Column="34" TopLine="5"/>
       </Position19>
       <Position20>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="557" Column="6" TopLine="536"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="28" Column="34" TopLine="5"/>
       </Position20>
       <Position21>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="558" Column="6" TopLine="558"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="27" Column="34" TopLine="4"/>
       </Position21>
       <Position22>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="557" Column="6" TopLine="557"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="26" Column="34" TopLine="3"/>
       </Position22>
       <Position23>
-        <Filename Value="AFMTopography.pas"/>
-        <Caret Line="760" Column="34" TopLine="729"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="25" Column="34" TopLine="2"/>
       </Position23>
       <Position24>
-        <Filename Value="AFMTopography.pas"/>
-        <Caret Line="15" Column="49" TopLine="8"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="24" Column="34" TopLine="1"/>
       </Position24>
       <Position25>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="557" Column="6" TopLine="557"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="23" Column="34" TopLine="1"/>
       </Position25>
       <Position26>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="558" Column="6" TopLine="558"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="22" Column="34" TopLine="1"/>
       </Position26>
       <Position27>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="560" Column="6" TopLine="560"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="21" Column="35" TopLine="1"/>
       </Position27>
       <Position28>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="561" Column="6" TopLine="561"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="20" Column="35" TopLine="1"/>
       </Position28>
       <Position29>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="560" Column="6" TopLine="560"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="19" Column="47" TopLine="1"/>
       </Position29>
       <Position30>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="567" Column="6" TopLine="567"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="18" Column="47" TopLine="1"/>
       </Position30>
     </JumpHistory>
   </ProjectOptions>

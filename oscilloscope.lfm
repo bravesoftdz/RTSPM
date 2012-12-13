@@ -1,11 +1,11 @@
 object OscilloscopeForm: TOscilloscopeForm
-  Left = 539
-  Height = 305
-  Top = 155
-  Width = 676
+  Left = 164
+  Height = 307
+  Top = 91
+  Width = 664
   Caption = 'Oscilloscope'
-  ClientHeight = 305
-  ClientWidth = 676
+  ClientHeight = 307
+  ClientWidth = 664
   LCLVersion = '1.0.2.0'
   object OscilloscopeChart: TChart
     Left = 16

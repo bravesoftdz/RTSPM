@@ -24,7 +24,7 @@ uses
   GlobalFunctions in 'GlobalFunctions.pas', daq_comedi_functions,
   daq_comedi_types, GlobalVariables, rtai_comedi_functions, rtai_comedi_types,
   rtai_functions, rtai_types, AFMTopography, plot, etpackage, SdpoSerialLaz,
-  MFM, Oscilloscope;
+  MFM, Oscilloscope, bgrabitmappack;
 
 {$IFDEF MSWINDOWS}
 {$R *.RES}

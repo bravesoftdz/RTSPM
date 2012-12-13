@@ -16,12 +16,22 @@ type
   { TCoarseApproachTool }
 
   TCoarseApproachTool = class(TForm)
-    AutoScaleCheckBox: TCheckBox;
-    YAxisTransformations: TChartAxisTransformations;
+    XAutoScaleCheckBox: TCheckBox;
+    YAutoScaleCheckBox: TCheckBox;
+    AxisGroupBox: TGroupBox;
+    XMinSpinEdit: TFloatSpinEdit;
+    XMaxSpinEdit: TFloatSpinEdit;
+    YMinSpinEdit: TFloatSpinEdit;
+    YMaxSpinEdit: TFloatSpinEdit;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
     ProbeSignal: TChart;
     DataTimer: TTimer;
 
-      YAxisTransformationsAutoScaleAxisTransform: TAutoScaleAxisTransform;
     ProbeSignalLineSeries1: TLineSeries;
     ProbeSignalLineSeries2: TLineSeries;
     ZApproachBar: TProgressBar;
@@ -85,7 +95,7 @@ type
     {Series1: TFastLineSeries;}
     CoarseApproachStepSizeEdit: TSpinEdit;
     Label11: TLabel;
-    procedure AutoScaleCheckBoxClick(Sender: TObject);
+    procedure YAutoScaleCheckBoxClick(Sender: TObject);
     procedure CoarseApproachStepSizeEditChange(Sender: TObject);
     procedure DataTimerTimer(Sender: TObject);
     procedure AcquireCurveBtnClick(Sender: TObject);
@@ -115,6 +125,11 @@ type
     procedure SetYEditKeyPress(Sender: TObject; var Key: Char);
     procedure SetXEditKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
+    procedure XAutoScaleCheckBoxClick(Sender: TObject);
+    procedure XMaxSpinEditChange(Sender: TObject);
+    procedure XMinSpinEditChange(Sender: TObject);
+    procedure YMaxSpinEditChange(Sender: TObject);
+    procedure YMinSpinEditChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -197,8 +212,8 @@ procedure TCoarseApproachTool.SetPointEditKeyPress(Sender: TObject;
   var Key: Char);
 begin
   if Key=Chr(13) then CoarseSP:=StrToFloat(SetPointEdit.Text);
-   ProbeSignal.LeftAxis.Range.Max:=2*abs(CoarseSP);
-   ProbeSignal.LeftAxis.Range.Min:=-2*abs(CoarseSP);
+   //ProbeSignal.LeftAxis.Range.Max:=2*abs(CoarseSP);
+   //ProbeSignal.LeftAxis.Range.Min:=-2*abs(CoarseSP);
 end;
 
 procedure TCoarseApproachTool.SetXEditKeyPress(Sender: TObject; var Key: Char);
@@ -413,19 +428,18 @@ begin
   CoarseApproachStepSize:=CoarseApproachStepSizeEdit.Value;
 end;
 
-procedure TCoarseApproachTool.AutoScaleCheckBoxClick(Sender: TObject);
+procedure TCoarseApproachTool.YAutoScaleCheckBoxClick(Sender: TObject);
 begin
-   if AutoScaleCheckBox.Checked then
-       begin
-         AutoScaleCheckBox.Checked:=FALSE;
-         YAxisTransformationsAutoScaleAxisTransform.Enabled:=FALSE;
-       end
-     else
-        begin
-          AutoScaleCheckBox.Checked:=TRUE;
-          YAxisTransformationsAutoScaleAxisTransform.Enabled:=TRUE;
-        end;
-
+  if YAutoScaleCheckBox.State=cbUnchecked then
+    begin
+      ProbeSignal.LeftAxis.Range.UseMax:=TRUE;
+      ProbeSignal.LeftAxis.Range.UseMin:=TRUE;
+    end
+   else
+     begin
+       ProbeSignal.LeftAxis.Range.UseMax:=FALSE;
+       ProbeSignal.LeftAxis.Range.UseMin:=FALSE;
+     end;
 end;
 
 procedure TCoarseApproachTool.DataTimerTimer(Sender: TObject);
@@ -551,17 +565,40 @@ if Approaching then //stop the acquisition
 end;
 
 procedure TCoarseApproachTool.FormShow(Sender: TObject);
-
+var
+      YAxisMax, YAxisMin: real;
 begin
    ProbeSignal.BottomAxis.Range.Min:=MinZPosition;
    ProbeSignal.BottomAxis.Range.Max:=MaxZPosition;
-   ProbeSignalLineSeries1.Clear;
-   ProbeSignalLineSeries2.Clear;
+   XMinSpinEdit.MaxValue:=MaxZPosition-0.1;
+   XMinSpinEdit.MinValue:=MinZPosition;
+   XMinSpinEdit.Value:=MinZPosition;
+   XMaxSpinEdit.MaxValue:=MaxZPosition;
+   XMaxSpinEdit.MinValue:=MinZPosition+0.1;
+   XMaxSpinEdit.Value:=MaxZPosition;
+   XAutoScaleCheckBox.State:=cbUnChecked;
+   ProbeSignal.BottomAxis.Range.UseMax:=TRUE;
+   ProbeSignal.BottomAxis.Range.UseMin:=TRUE;
+
 
 
    CoarseSP:=0.5;
-   ProbeSignal.LeftAxis.Range.Max:=2*abs(CoarseSP);
-   ProbeSignal.LeftAxis.Range.Min:=-2*abs(CoarseSP);
+   YAxisMax:= 2*abs(CoarseSP);
+   YAxisMin:=-YAxisMax;
+   ProbeSignal.LeftAxis.Range.Max:=YAxisMax;
+   ProbeSignal.LeftAxis.Range.Min:=YAxisMin;
+   YMinSpinEdit.MaxValue:=YAxisMax-0.1;
+   YMinSpinEdit.MinValue:=YAxisMin;
+   YMinSpinEdit.Value:=YAxisMin;
+   YMaxSpinEdit.MaxValue:=YAxisMax;
+   YMaxSpinEdit.MinValue:=YAxisMin+0.1;
+   YMaxSpinEdit.Value:=YAxisMax;
+   YAutoScaleCheckBox.State:=cbChecked;
+   ProbeSignal.BottomAxis.Range.UseMax:=FALSE;
+   ProbeSignal.BottomAxis.Range.UseMin:=FALSE;
+
+   ProbeSignalLineSeries1.Clear;
+   ProbeSignalLineSeries2.Clear;
 
    CoarseApproachStepNumber:=0;
    SetPointEdit.Text:=FloatToStrF(CoarseSP, ffFixed, 10, 4);
@@ -581,6 +618,66 @@ begin
    UpdateXYPositionIndicators;
    UpdateZPositionIndicators;
 end;
+
+procedure TCoarseApproachTool.XAutoScaleCheckBoxClick(Sender: TObject);
+begin
+      if XAutoScaleCheckBox.State=cbUnchecked then
+        begin
+          ProbeSignal.BottomAxis.Range.UseMax:=TRUE;
+          ProbeSignal.BottomAxis.Range.UseMin:=TRUE;
+        end
+       else
+         begin
+           ProbeSignal.BottomAxis.Range.UseMax:=FALSE;
+           ProbeSignal.BottomAxis.Range.UseMin:=FALSE;
+         end;
+end;
+
+procedure TCoarseApproachTool.XMaxSpinEditChange(Sender: TObject);
+begin
+  if XMaxSpinEdit.Value>ProbeSignal.BottomAxis.Range.Min then
+      ProbeSignal.BottomAxis.Range.Max:=XMaxSpinEdit.Value
+    else
+      begin
+        ProbeSignal.BottomAxis.Range.Max:=ProbeSignal.BottomAxis.Range.Min+0.1;
+        XMaxSpinEdit.Value:= ProbeSignal.BottomAxis.Range.Max;
+      end;
+end;
+
+procedure TCoarseApproachTool.XMinSpinEditChange(Sender: TObject);
+begin
+  if XMinSpinEdit.Value<ProbeSignal.BottomAxis.Range.Max then
+      ProbeSignal.BottomAxis.Range.Min:=XMinSpinEdit.Value
+    else
+      begin
+        ProbeSignal.BottomAxis.Range.Min:=ProbeSignal.BottomAxis.Range.Max-0.1;
+        XMinSpinEdit.Value:= ProbeSignal.BottomAxis.Range.Min;
+      end;
+end;
+
+procedure TCoarseApproachTool.YMaxSpinEditChange(Sender: TObject);
+begin
+  if YMaxSpinEdit.Value>ProbeSignal.LeftAxis.Range.Min then
+      ProbeSignal.LeftAxis.Range.Max:=YMaxSpinEdit.Value
+    else
+      begin
+        ProbeSignal.LeftAxis.Range.Max:=ProbeSignal.LeftAxis.Range.Min+0.1;
+        YMaxSpinEdit.Value:= ProbeSignal.LeftAxis.Range.Max;
+      end;
+end;
+
+procedure TCoarseApproachTool.YMinSpinEditChange(Sender: TObject);
+begin
+  if YMinSpinEdit.Value<ProbeSignal.LeftAxis.Range.Max then
+      ProbeSignal.LeftAxis.Range.Min:=YMinSpinEdit.Value
+    else
+      begin
+        ProbeSignal.LeftAxis.Range.Min:=ProbeSignal.LeftAxis.Range.Max-0.1;
+        YMinSpinEdit.Value:= ProbeSignal.LeftAxis.Range.Min;
+      end;
+
+end;
+
 {------------------------------------------------------------------------}
   function TCoarseApproachTool.UpdateDataChannelIndicators: boolean;
   begin

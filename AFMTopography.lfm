@@ -1,11 +1,11 @@
 object AFMTopograph: TAFMTopograph
-  Left = 813
-  Height = 797
-  Top = 171
+  Left = 822
+  Height = 778
+  Top = 106
   Width = 804
   ActiveControl = ScaleMinEdit
   Caption = 'AFM Topography'
-  ClientHeight = 797
+  ClientHeight = 778
   ClientWidth = 804
   Font.Height = -11
   Font.Name = 'Tahoma'
@@ -495,7 +495,7 @@ object AFMTopograph: TAFMTopograph
       Left = 203
       Height = 21
       Top = 164
-      Width = 98
+      Width = 89
       Caption = 'Logarithmic'
       OnClick = LogarithmicCheckBoxClick
       TabOrder = 7
@@ -617,7 +617,7 @@ object AFMTopograph: TAFMTopograph
   object StatusBar: TStatusBar
     Left = 0
     Height = 21
-    Top = 776
+    Top = 757
     Width = 804
     Panels = <>
     SimpleText = 'Idle'
@@ -651,7 +651,7 @@ object AFMTopograph: TAFMTopograph
   object FileSaveGroupBox: TGroupBox
     Left = 11
     Height = 105
-    Top = 660
+    Top = 656
     Width = 206
     Caption = 'File Saving'
     ClientHeight = 89
@@ -660,7 +660,7 @@ object AFMTopograph: TAFMTopograph
     object Label20: TLabel
       Left = 13
       Height = 15
-      Top = 54
+      Top = 42
       Width = 90
       Caption = 'Run Description'
       ParentColor = False
@@ -668,7 +668,7 @@ object AFMTopograph: TAFMTopograph
     object SaveAsGSFFileButton: TButton
       Left = 8
       Height = 38
-      Top = 7
+      Top = 2
       Width = 91
       Caption = 'Save As GSF'
       OnClick = SaveAsGSFFileButtonClick
@@ -677,16 +677,16 @@ object AFMTopograph: TAFMTopograph
     object SaveAsTextFileButton: TButton
       Left = 107
       Height = 38
-      Top = 7
+      Top = 2
       Width = 88
       Caption = 'Save as Text'
       OnClick = SaveAsTextFileButtonClick
       TabOrder = 1
     end
     object DescriptionEdit: TEdit
-      Left = 9
+      Left = 11
       Height = 22
-      Top = 67
+      Top = 58
       Width = 183
       TabOrder = 2
       Text = 'Write brief description here'

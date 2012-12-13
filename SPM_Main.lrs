@@ -1,8 +1,8 @@
 { This is an automatically generated lazarus resource file }
 
 LazarusResources.Add('TSPM_MainForm','FORMDATA',[
-  'TPF0'#13'TSPM_MainForm'#12'SPM_MainForm'#4'Left'#3#133#2#6'Height'#3#192#0#3
-  +'Top'#3#203#0#5'Width'#3#28#2#7'Caption'#6'$Scanning Probe Microscope-Main P'
+  'TPF0'#13'TSPM_MainForm'#12'SPM_MainForm'#4'Left'#3'_'#3#6'Height'#3#192#0#3
+  +'Top'#3#162#0#5'Width'#3#28#2#7'Caption'#6'$Scanning Probe Microscope-Main P'
   +'anel'#12'ClientHeight'#3#192#0#11'ClientWidth'#3#28#2#14'DefaultMonitor'#7
   +#10'dmMainForm'#11'Font.Height'#2#245#8'OnCreate'#7#10'FormCreate'#9'OnDestr'
   +'oy'#7#11'FormDestroy'#10'LCLVersion'#6#7'1.0.2.0'#7'Visible'#9#0#6'TBevel'#6

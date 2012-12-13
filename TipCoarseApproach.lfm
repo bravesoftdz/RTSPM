@@ -1,11 +1,11 @@
 object CoarseApproachTool: TCoarseApproachTool
-  Left = 668
-  Height = 663
-  Top = 92
-  Width = 664
+  Left = 146
+  Height = 708
+  Top = 124
+  Width = 666
   Caption = 'Tip Coarse Approach Tool'
-  ClientHeight = 636
-  ClientWidth = 664
+  ClientHeight = 681
+  ClientWidth = 666
   Font.Height = -11
   Menu = MainMenu1
   OnShow = FormShow
@@ -14,7 +14,7 @@ object CoarseApproachTool: TCoarseApproachTool
     Left = 8
     Height = 22
     Hint = 'Z Position of the scan tube'
-    Top = 248
+    Top = 288
     Width = 651
     Max = 65535
     ParentShowHint = False
@@ -27,7 +27,7 @@ object CoarseApproachTool: TCoarseApproachTool
   object SignalControlGroupBox: TGroupBox
     Left = 8
     Height = 133
-    Top = 280
+    Top = 324
     Width = 651
     Caption = 'Coarse Approach'
     ClientHeight = 117
@@ -159,7 +159,7 @@ object CoarseApproachTool: TCoarseApproachTool
       EditLabel.Height = 15
       EditLabel.Top = 3
       EditLabel.Width = 63
-      EditLabel.Caption = 'App. Criterion'
+      EditLabel.Caption = 'App. Criter'
       EditLabel.ParentColor = False
       TabOrder = 1
       Text = '0.75'
@@ -217,7 +217,7 @@ object CoarseApproachTool: TCoarseApproachTool
   object WalkerControlGroupBox: TGroupBox
     Left = 224
     Height = 190
-    Top = 416
+    Top = 460
     Width = 435
     Caption = 'Walker Control'
     ClientHeight = 174
@@ -378,7 +378,7 @@ object CoarseApproachTool: TCoarseApproachTool
   object Scan_Tube_GroupBox: TGroupBox
     Left = 8
     Height = 190
-    Top = 416
+    Top = 460
     Width = 210
     Caption = 'Scan Tube Control'
     ClientHeight = 174
@@ -558,27 +558,28 @@ object CoarseApproachTool: TCoarseApproachTool
   object StatusBar: TStatusBar
     Left = 0
     Height = 21
-    Top = 615
-    Width = 664
+    Top = 660
+    Width = 666
     Panels = <>
     SimpleText = 'Idle'
   end
   object ProbeSignal: TChart
     Left = 0
-    Height = 224
+    Height = 235
     Top = 0
     Width = 659
     AxisList = <    
       item
+        Marks.Range.Max = 10
+        Marks.Range.Min = -10
+        Marks.Range.UseMax = True
+        Marks.Range.UseMin = True
         Minors = <>
         Range.Max = 10
         Range.Min = -10
-        Range.UseMax = True
-        Range.UseMin = True
         Title.LabelFont.Orientation = 900
         Title.Visible = True
         Title.Caption = 'Tip Signal'
-        Transformations = YAxisTransformations
       end    
       item
         Alignment = calBottom
@@ -590,7 +591,6 @@ object CoarseApproachTool: TCoarseApproachTool
         Title.Alignment = taCenter
         Title.Visible = True
         Title.Caption = 'Z Axis extension (um)'
-        Transformations = YAxisTransformations
       end>
     Foot.Brush.Color = clBtnFace
     Foot.Font.Color = clBlue
@@ -601,21 +601,145 @@ object CoarseApproachTool: TCoarseApproachTool
     )
     ParentColor = False
     object ProbeSignalLineSeries1: TLineSeries
-      AxisIndexY = 0
       LinePen.Color = clRed
     end
     object ProbeSignalLineSeries2: TLineSeries
       LinePen.Color = clBlue
     end
   end
-  object AutoScaleCheckBox: TCheckBox
-    Left = 25
-    Height = 21
-    Top = 224
-    Width = 126
-    Caption = 'Autoscale Y axis'
-    OnClick = AutoScaleCheckBoxClick
+  object AxisGroupBox: TGroupBox
+    Left = 8
+    Height = 40
+    Top = 240
+    Width = 649
+    Caption = 'Axis Parameters'
+    ClientHeight = 24
+    ClientWidth = 645
+    Color = clTeal
+    ParentColor = False
     TabOrder = 6
+    object XAutoScaleCheckBox: TCheckBox
+      Left = 235
+      Height = 21
+      Top = 1
+      Width = 88
+      Caption = 'AutoScale'
+      OnClick = XAutoScaleCheckBoxClick
+      TabOrder = 0
+    end
+    object Label3: TLabel
+      Left = 6
+      Height = 18
+      Top = 2
+      Width = 16
+      Caption = 'X:'
+      Font.Height = -13
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+    end
+    object XMinSpinEdit: TFloatSpinEdit
+      Left = 65
+      Height = 22
+      Top = 0
+      Width = 60
+      Increment = 0.1
+      MaxValue = 0.99
+      MinValue = -1
+      OnChange = XMinSpinEditChange
+      TabOrder = 1
+      Value = -1
+    end
+    object Label4: TLabel
+      Left = 30
+      Height = 15
+      Top = 3
+      Width = 24
+      Caption = 'Min:'
+      ParentColor = False
+    end
+    object Label15: TLabel
+      Left = 130
+      Height = 15
+      Top = 3
+      Width = 27
+      Caption = 'Max:'
+      ParentColor = False
+    end
+    object XMaxSpinEdit: TFloatSpinEdit
+      Left = 166
+      Height = 22
+      Top = 0
+      Width = 60
+      Increment = 0.1
+      MaxValue = 1
+      MinValue = -0.99
+      OnChange = XMaxSpinEditChange
+      TabOrder = 2
+      Value = 1
+    end
+    object Label16: TLabel
+      Left = 340
+      Height = 18
+      Top = 2
+      Width = 15
+      Caption = 'Y:'
+      Font.Height = -13
+      Font.Style = [fsBold, fsItalic]
+      ParentColor = False
+      ParentFont = False
+    end
+    object YMinSpinEdit: TFloatSpinEdit
+      Left = 395
+      Height = 22
+      Top = 0
+      Width = 60
+      Increment = 0.1
+      MaxValue = 9.9
+      MinValue = -10
+      OnChange = YMinSpinEditChange
+      TabOrder = 3
+      Value = -10
+    end
+    object Label17: TLabel
+      Left = 462
+      Height = 15
+      Top = 3
+      Width = 27
+      Caption = 'Max:'
+      ParentColor = False
+    end
+    object YMaxSpinEdit: TFloatSpinEdit
+      Left = 495
+      Height = 22
+      Top = 0
+      Width = 60
+      Increment = 0.1
+      MaxValue = 10
+      MinValue = -9.9
+      OnChange = YMaxSpinEditChange
+      TabOrder = 4
+      Value = 10
+    end
+    object YAutoScaleCheckBox: TCheckBox
+      Left = 560
+      Height = 21
+      Top = 1
+      Width = 88
+      Caption = 'AutoScale'
+      Checked = True
+      OnClick = YAutoScaleCheckBoxClick
+      State = cbChecked
+      TabOrder = 5
+    end
+    object Label18: TLabel
+      Left = 365
+      Height = 15
+      Top = 3
+      Width = 24
+      Caption = 'Min:'
+      ParentColor = False
+    end
   end
   object SaveDialog: TSaveDialog
     DefaultExt = '.*.txt'
@@ -640,14 +764,5 @@ object CoarseApproachTool: TCoarseApproachTool
     OnTimer = DataTimerTimer
     left = 466
     top = 150
-  end
-  object YAxisTransformations: TChartAxisTransformations
-    left = 184
-    top = 40
-    object YAxisTransformationsAutoScaleAxisTransform: TAutoScaleAxisTransform
-      Enabled = False
-      MaxValue = 10
-      MinValue = -10
-    end
   end
 end

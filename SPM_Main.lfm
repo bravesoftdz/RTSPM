@@ -1,7 +1,7 @@
 object SPM_MainForm: TSPM_MainForm
-  Left = 645
+  Left = 863
   Height = 192
-  Top = 203
+  Top = 162
   Width = 540
   Caption = 'Scanning Probe Microscope-Main Panel'
   ClientHeight = 192
