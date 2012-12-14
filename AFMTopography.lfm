@@ -1,7 +1,7 @@
 object AFMTopograph: TAFMTopograph
-  Left = 822
+  Left = 1103
   Height = 778
-  Top = 106
+  Top = 193
   Width = 804
   ActiveControl = ScaleMinEdit
   Caption = 'AFM Topography'
@@ -495,7 +495,7 @@ object AFMTopograph: TAFMTopograph
       Left = 203
       Height = 21
       Top = 164
-      Width = 89
+      Width = 98
       Caption = 'Logarithmic'
       OnClick = LogarithmicCheckBoxClick
       TabOrder = 7

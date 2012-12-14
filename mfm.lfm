@@ -1,12 +1,12 @@
 object MFMForm: TMFMForm
-  Left = 269
-  Height = 840
-  Top = 196
-  Width = 1133
+  Left = 851
+  Height = 901
+  Top = 272
+  Width = 1135
   ActiveControl = PropEdit
   Caption = 'MFMForm'
-  ClientHeight = 840
-  ClientWidth = 1133
+  ClientHeight = 901
+  ClientWidth = 1135
   OnClose = FormClose
   OnShow = FormShow
   LCLVersion = '1.0.2.0'
@@ -26,7 +26,7 @@ object MFMForm: TMFMForm
     Left = 21
     Height = 20
     Top = 8
-    Width = 185
+    Width = 181
     Caption = 'Forward Topo Image'
     Font.Height = -16
     Font.Name = 'Tahoma'
@@ -38,7 +38,7 @@ object MFMForm: TMFMForm
     Left = 435
     Height = 20
     Top = 8
-    Width = 184
+    Width = 182
     Caption = 'Reverse Topo Image'
     Font.Height = -16
     Font.Name = 'Tahoma'
@@ -56,7 +56,7 @@ object MFMForm: TMFMForm
     Left = 18
     Height = 15
     Top = 432
-    Width = 52
+    Width = 58
     Caption = 'Scale Max'
     Font.Height = -11
     ParentColor = False
@@ -66,7 +66,7 @@ object MFMForm: TMFMForm
     Left = 21
     Height = 15
     Top = 401
-    Width = 49
+    Width = 55
     Caption = 'Scale Min'
     Font.Height = -11
     ParentColor = False
@@ -82,7 +82,7 @@ object MFMForm: TMFMForm
     Left = 18
     Height = 20
     Top = 456
-    Width = 186
+    Width = 181
     Caption = 'Forward MFM Image'
     Font.Height = -16
     Font.Name = 'Tahoma'
@@ -100,7 +100,7 @@ object MFMForm: TMFMForm
     Left = 435
     Height = 20
     Top = 456
-    Width = 185
+    Width = 182
     Caption = 'Reverse MFM Image'
     Font.Height = -16
     Font.Name = 'Tahoma'
@@ -140,7 +140,7 @@ object MFMForm: TMFMForm
       Left = 8
       Height = 15
       Top = 64
-      Width = 30
+      Width = 31
       Caption = 'Set Y'
       ParentColor = False
     end
@@ -148,7 +148,7 @@ object MFMForm: TMFMForm
       Left = 8
       Height = 15
       Top = 88
-      Width = 31
+      Width = 33
       Caption = 'Set Z'
       ParentColor = False
     end
@@ -156,7 +156,7 @@ object MFMForm: TMFMForm
       Left = 16
       Height = 15
       Top = 8
-      Width = 92
+      Width = 93
       Caption = 'Change Position'
       ParentColor = False
     end
@@ -176,7 +176,7 @@ object MFMForm: TMFMForm
       Left = 125
       Height = 15
       Top = 8
-      Width = 68
+      Width = 69
       Caption = 'Current Pos'
       ParentColor = False
     end
@@ -188,7 +188,7 @@ object MFMForm: TMFMForm
     end
     object SetXEdit: TEdit
       Left = 48
-      Height = 24
+      Height = 22
       Top = 36
       Width = 57
       OnKeyPress = SetXEditKeyPress
@@ -197,7 +197,7 @@ object MFMForm: TMFMForm
     end
     object SetYEdit: TEdit
       Left = 48
-      Height = 24
+      Height = 22
       Top = 60
       Width = 57
       TabOrder = 1
@@ -205,7 +205,7 @@ object MFMForm: TMFMForm
     end
     object SetZEdit: TEdit
       Left = 48
-      Height = 24
+      Height = 22
       Top = 85
       Width = 57
       TabOrder = 2
@@ -213,7 +213,7 @@ object MFMForm: TMFMForm
     end
     object StepXEdit: TLabeledEdit
       Left = 9
-      Height = 24
+      Height = 22
       Top = 137
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepXEdit
@@ -232,7 +232,7 @@ object MFMForm: TMFMForm
     end
     object StepYEdit: TLabeledEdit
       Left = 80
-      Height = 24
+      Height = 22
       Top = 136
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepYEdit
@@ -251,7 +251,7 @@ object MFMForm: TMFMForm
     end
     object StepZEdit: TLabeledEdit
       Left = 155
-      Height = 24
+      Height = 22
       Top = 137
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepZEdit
@@ -385,7 +385,7 @@ object MFMForm: TMFMForm
       Left = 112
       Height = 15
       Top = 22
-      Width = 58
+      Width = 59
       Caption = 'Error Sign'
       ParentColor = False
     end
@@ -393,7 +393,7 @@ object MFMForm: TMFMForm
       Left = 16
       Height = 15
       Top = 4
-      Width = 41
+      Width = 43
       Caption = 'Signals'
       ParentColor = False
     end
@@ -401,7 +401,7 @@ object MFMForm: TMFMForm
       Left = 112
       Height = 15
       Top = 3
-      Width = 89
+      Width = 90
       Caption = 'PID Parameters'
       ParentColor = False
     end
@@ -415,7 +415,7 @@ object MFMForm: TMFMForm
       Left = 228
       Height = 15
       Top = 118
-      Width = 68
+      Width = 69
       Caption = 'Error Signal'
       ParentColor = False
     end
@@ -429,7 +429,7 @@ object MFMForm: TMFMForm
     end
     object SetPointEdit: TLabeledEdit
       Left = 112
-      Height = 24
+      Height = 22
       Top = 80
       Width = 42
       EditLabel.AnchorSideLeft.Control = SetPointEdit
@@ -465,7 +465,7 @@ object MFMForm: TMFMForm
     end
     object ErrorCorrectionSpinEdit: TSpinEdit
       Left = 112
-      Height = 24
+      Height = 22
       Top = 41
       Width = 45
       Increment = 2
@@ -477,7 +477,7 @@ object MFMForm: TMFMForm
     end
     object PropEdit: TLabeledEdit
       Left = 231
-      Height = 24
+      Height = 22
       Top = 8
       Width = 47
       EditLabel.AnchorSideLeft.Control = PropEdit
@@ -496,7 +496,7 @@ object MFMForm: TMFMForm
     end
     object IntEdit: TLabeledEdit
       Left = 231
-      Height = 24
+      Height = 22
       Top = 46
       Width = 47
       EditLabel.AnchorSideLeft.Control = IntEdit
@@ -515,7 +515,7 @@ object MFMForm: TMFMForm
     end
     object DiffEdit: TLabeledEdit
       Left = 231
-      Height = 24
+      Height = 22
       Top = 85
       Width = 47
       EditLabel.AnchorSideLeft.Control = DiffEdit
@@ -549,7 +549,7 @@ object MFMForm: TMFMForm
       Left = 18
       Height = 15
       Top = 1
-      Width = 79
+      Width = 92
       Caption = 'Scan Resolution'
       ParentColor = False
     end
@@ -557,7 +557,7 @@ object MFMForm: TMFMForm
       Left = 16
       Height = 15
       Top = 96
-      Width = 83
+      Width = 94
       Caption = 'Dwell time  (ms)'
       ParentColor = False
     end
@@ -565,7 +565,7 @@ object MFMForm: TMFMForm
       Left = 130
       Height = 15
       Top = 96
-      Width = 47
+      Width = 53
       Caption = 'Averages'
       ParentColor = False
     end
@@ -573,7 +573,7 @@ object MFMForm: TMFMForm
       Left = 18
       Height = 15
       Top = 48
-      Width = 55
+      Width = 66
       Caption = 'Scan range'
       ParentColor = False
     end
@@ -581,13 +581,13 @@ object MFMForm: TMFMForm
       Left = 18
       Height = 15
       Top = 152
-      Width = 72
+      Width = 83
       Caption = 'Scan Direction'
       ParentColor = False
     end
     object ScanResolutionComboBox: TComboBox
       Left = 16
-      Height = 27
+      Height = 25
       Top = 20
       Width = 135
       Font.Height = -11
@@ -605,7 +605,7 @@ object MFMForm: TMFMForm
     end
     object DwellTimeEdit: TSpinEdit
       Left = 16
-      Height = 24
+      Height = 22
       Top = 115
       Width = 62
       Font.Height = -11
@@ -618,7 +618,7 @@ object MFMForm: TMFMForm
     end
     object AveragesEdit: TSpinEdit
       Left = 130
-      Height = 24
+      Height = 22
       Top = 115
       Width = 62
       Font.Height = -11
@@ -630,7 +630,7 @@ object MFMForm: TMFMForm
     end
     object ScanRangeComboBox: TComboBox
       Left = 16
-      Height = 27
+      Height = 25
       Top = 64
       Width = 135
       Font.Height = -11
@@ -642,7 +642,7 @@ object MFMForm: TMFMForm
     end
     object ScanDirectionComboBox: TComboBox
       Left = 130
-      Height = 27
+      Height = 25
       Top = 144
       Width = 100
       Font.Height = -11
@@ -659,7 +659,7 @@ object MFMForm: TMFMForm
   end
   object ScaleMaxEdit: TEdit
     Left = 96
-    Height = 24
+    Height = 22
     Top = 425
     Width = 80
     Font.Height = -11
@@ -670,7 +670,7 @@ object MFMForm: TMFMForm
   end
   object ScaleMinEdit: TEdit
     Left = 96
-    Height = 24
+    Height = 22
     Top = 392
     Width = 80
     Font.Height = -11
@@ -704,7 +704,7 @@ object MFMForm: TMFMForm
       Left = 13
       Height = 15
       Top = 54
-      Width = 79
+      Width = 90
       Caption = 'Run Description'
       ParentColor = False
     end
@@ -726,7 +726,7 @@ object MFMForm: TMFMForm
     end
     object DescriptionEdit: TEdit
       Left = 9
-      Height = 24
+      Height = 22
       Top = 67
       Width = 183
       TabOrder = 2
@@ -736,8 +736,8 @@ object MFMForm: TMFMForm
   object StatusBar: TStatusBar
     Left = 0
     Height = 21
-    Top = 819
-    Width = 1133
+    Top = 880
+    Width = 1135
     Panels = <>
     SimpleText = 'Idle'
   end
