@@ -1,7 +1,7 @@
 object OscilloscopeForm: TOscilloscopeForm
-  Left = 164
+  Left = 694
   Height = 307
-  Top = 91
+  Top = 160
   Width = 664
   Caption = 'Oscilloscope'
   ClientHeight = 307

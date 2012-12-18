@@ -180,8 +180,15 @@ var
   ForwardLeveledData,
   ReverseLeveledData      : TXYData;  //these are leveled versions of the two arrays above
 
-  SecondForwardChannel,
-  SecondReverseChannel    : TXYData;  //To hold MFM, EFM or some other data
+  //To hold MFM, EFM or some other data
+  //MFM stands in for any type of secondary data
+  MFMForwardData,
+  MFMReverseData,
+  MFMForwardLeveledData,
+  MFMReverseLeveledData : TXYData;
+
+  //Other variables for MFM, EFM, STM etc
+  LiftModeHeight          :real = 20; // lift mode height, in nm
 
 
 implementation

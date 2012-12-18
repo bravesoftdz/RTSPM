@@ -25,6 +25,10 @@ interface
                         SinglePointDwellTime, NumbAverages: integer): TScanData;
   function YLineScan(ScanResolution: integer; StartPoint, Step: real;
                         SinglePointDwellTime, NumbAverages: integer): TScanData;
+  function LiftModeXLineScan(ScanResolution: integer; StartPoint, Step: real;
+                        SinglePointDwellTime, NumbAverages: integer;Heights: TScanData): TScanData;
+  function LiftModeYLineScan(ScanResolution: integer; StartPoint, Step: real;
+                        SinglePointDwellTime, NumbAverages: integer;Heights: TScanData): TScanData;
   procedure GenerateLUT(RangeIndex: integer);
   function ZMicronsToRGBColor(Z: real; min, max: word): TBGRAPixel;
 
@@ -378,7 +382,73 @@ implementation
       end;
     YLineScan:=LineData;
   end;
+{---------------------------------------------------------------------}
+function LiftModeXLineScan(ScanResolution: integer; StartPoint, Step: real;
+                      SinglePointDwellTime, NumbAverages: integer;Heights: TScanData): TScanData;
+
+var
+    LineData : TScanData;
+    i,j         : integer;
+    XValue    : real;
+    sum       : real;
+begin
+  //Heights contains the topographic information
+  SetLength(LineData, ScanResolution);
+  XValue:=StartPoint;
+  for i := 0 to ScanResolution - 1 do
+    begin
+      //First move to the z position, so that we do not crash, although the lift
+      //mode height should be high enough
+      //Note that in the forward direction, the array passed as Heights should be
+      //ForwardScanData, while for the reverse scan, it should be ReversedScanData
+      //In either case the ordering of the heights should be ok, so we do not
+      //test for the direction in lifting....
+      MoveToZ(Heights[i]+LiftModeHeight, StepZ, 0);
+      MoveToX(XValue, StepX, 0);
+      fastdelay(SinglePointDwellTime*0.5);
+      LineData[i]:=ReadAveragedFeedbackChannel(NumbAverages);
+      if Step>0 then
+        OscilloscopeForm.OscilloscopeChartLineSeries1.AddXY(XValue,LineData[i], '',clRed) //color red, first layer, forward scan
+       else
+        OscilloscopeForm.OscilloscopeChartLineSeries2.AddXY(XValue,LineData[i], '',clBlue); //color blue, second layer, reverse scan
+      XValue:=XValue+Step;
+    end;
+  LiftModeXLineScan:=LineData;
+end;
+
+{-------------------------------------------------------------------------------------------}
+function LiftModeYLineScan(ScanResolution: integer; StartPoint, Step: real;
+                      SinglePointDwellTime, NumbAverages: integer;Heights: TScanData): TScanData;
+
+var
+    LineData : TScanData;
+    i,j         : integer;
+    YValue    : real;
+    sum       : real;
+begin
+  SetLength(LineData, ScanResolution);
+  YValue:=StartPoint;
+  for i := 0 to ScanResolution - 1 do
+    begin
+      //First move to the z position, so that we do not crash, although the lift
+      //mode height should be high enough
+      //Note that in the forward direction, the array passed as Heights should be
+      //ForwardScanData, while for the reverse scan, it should be ReversedScanData
+      //In either case the ordering of the heights should be ok, so we do not
+      //test for the direction in lifting....
+      MoveToZ(Heights[i]+LiftModeHeight, StepZ, 0);
+      MoveToY(YValue, StepY, 0);
+      LineData[i]:=ReadAveragedFeedbackChannel(NumbAverages);
+      if Step<0 then
+        OscilloscopeForm.OscilloscopeChartLineSeries1.AddXY(YValue,LineData[i], '',clRed) //color red, first layer, downward scan
+       else
+        OscilloscopeForm.OscilloscopeChartLineSeries2.AddXY(YValue,LineData[i], '',clBlue); //color blue, second layer, upward scan
+      YValue:=YValue+Step;
+    end;
+  LiftModeYLineScan:=LineData;
+end;
 {--------------------------------------------------------------------}
+
   procedure GenerateLUT(RangeIndex: integer);
   //procedure to generate a LUT of X and Y displacements vs voltage for the specified range
   var

@@ -92,6 +92,7 @@ procedure DwellTimeEditChange(Sender: TObject);
 procedure DataTimerTimer(Sender: TObject);
 procedure LevelImageRadioButtonClick(Sender: TObject);
 procedure LogarithmicCheckBoxClick(Sender: TObject);
+procedure RescaleButtonClick(Sender: TObject);
 procedure SaveAsGSFFileButtonClick(Sender: TObject);
 procedure SaveAsTextFileButtonClick(Sender: TObject);
 procedure ScaleMaxEditKeyPress(Sender: TObject; var Key: char);
@@ -318,6 +319,11 @@ begin
   if LogarithmicCheckBox.State=cbChecked then Logarithmic:=1 else Logarithmic:=0;
 end;
 
+procedure TAFMTopograph.RescaleButtonClick(Sender: TObject);
+begin
+  RescaleImage:=TRUE;
+end;
+
 procedure TAFMTopograph.SaveAsGSFFileButtonClick(Sender: TObject);
 var
   ForwardFileName,
@@ -328,6 +334,8 @@ begin
     begin
       if (LowerCase(ExtractFileExt(FileSaveDialog.FileName))='.gsf') then
         begin
+          //Set the working directory to the directory of the file
+          FileSaveDialog.InitialDir:=ExtractFilePath(FileSaveDialog.FileName);
           BaseFileName:=Copy(ExtractFileName(FileSaveDialog.FileName), 1,
                                            Length(FileSaveDialog.Filename)-4);
           ForwardFileName:=BaseFileName+'-for.gsf';
@@ -360,6 +368,9 @@ begin
     begin
       if (LowerCase(ExtractFileExt(FileSaveDialog.FileName))='.dat') then
         begin
+          //Set the working directory to the directory of the file
+          FileSaveDialog.InitialDir:=ExtractFilePath(FileSaveDialog.FileName);
+
           BaseFileName:=Copy(ExtractFileName(FileSaveDialog.FileName), 1,
                                            Length(FileSaveDialog.Filename)-4);
           ForwardFileName:=BaseFileName+'-for.dat';
@@ -694,6 +705,12 @@ begin
             //Set the limits of the Oscilloscope
             OscilloscopeForm.OscilloscopeChart.BottomAxis.Range.Min:=ScanXMinusLimit;
             OscilloscopeForm.OscilloscopeChart.BottomAxis.Range.Max:=ScanXPlusLimit;
+            //Fill in XPoints with the X positions of the scan
+            //This is for the line by line leveling, and could also apply to
+            //scanning along the y direction
+            for i:=0 to ScanResolution-1 do XPoints[i]:=ScanXMinusLimit + i*ScanXStep;
+            for i:=0 to ScanResolution-1 do XPointsReversed[i]:=Xpoints[ScanResolution-1-i];
+
             while ((j<ScanResolution) and Scanning) do //this is the y iteration
               begin
                 //initialize the Oscilloscope Plot
@@ -710,12 +727,6 @@ begin
                 ReverseLineScanData:= XLineScan(ScanResolution, StartX, -ScanXStep,
                                       DwellTime, PID_Averages);  //Reverse direction
 
-                //Fill in XPoints with the X positions of the scan
-                //This is for the line by line leveling, and could also apply to
-                //scanning along the y direction
-                for i:=0 to ScanResolution-1 do XPoints[i]:=ScanXMinusLimit + i*ScanXStep;
-                for i:=0 to ScanResolution-1 do XPointsReversed[i]:=Xpoints[ScanResolution-1-i];
-
                 //Generate the leveled data
                 LeveledSingleLineForwardData:=LeveledScanData(XPoints, ForwardLineScanData);
                 LeveledSingleLineReverseData:=LeveledScanData(XPointsReversed, ReverseLineScanData);
@@ -731,6 +742,7 @@ begin
                     ReverseLeveledData[i,j]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                     inc(i);
                   end;
+
                 StartY:=StartY - ScanYStep;
                 MoveToY(StartY, StepY, 0);
                 if RescaleImage then ReplotImages(ScanAxis, j);
@@ -746,6 +758,12 @@ begin
             //Set the limits of the Oscilloscope
             OscilloscopeForm.OscilloscopeChart.BottomAxis.Range.Min:=ScanYPlusLimit;
             OscilloscopeForm.OscilloscopeChart.BottomAxis.Range.Max:=ScanYMinusLimit;
+            //Fill in XPoints with the Y positions of the scan
+            //This is for the line by line leveling, and could also apply to
+            //scanning along the y direction
+
+            for i:=0 to ScanResolution-1 do XPoints[i]:=ScanYPlusLimit - i*ScanYStep;
+            for i:=0 to ScanResolution-1 do XPointsReversed[i]:=Xpoints[ScanResolution-1-i];
             while ((j<ScanResolution) and Scanning) do //this is the x iteration
               begin
                 //initialize the Oscilloscope Plot
@@ -761,12 +779,6 @@ begin
                 StatusBar.SimpleText:='Scanning downward line '+ IntToStr(j+1);
                 ReverseLineScanData:= YLineScan(ScanResolution, StartY, +ScanXStep,
                                       DwellTime, PID_Averages);  //Upward direction
-
-                //Fill in XPoints with the X positions of the scan
-                //This is for the line by line leveling, and could also apply to
-                //scanning along the y direction
-                for i:=0 to ScanResolution-1 do XPoints[i]:=ScanYPlusLimit - i*ScanYStep;
-                for i:=0 to ScanResolution-1 do XPointsReversed[i]:=Xpoints[ScanResolution-1-i];
 
                 //Generate the leveled data
                 LeveledSingleLineForwardData:=LeveledScanData(XPoints, ForwardLineScanData);

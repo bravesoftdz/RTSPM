@@ -1,7 +1,7 @@
 object AFMTopograph: TAFMTopograph
-  Left = 1103
+  Left = 830
   Height = 778
-  Top = 193
+  Top = 188
   Width = 804
   ActiveControl = ScaleMinEdit
   Caption = 'AFM Topography'
@@ -389,7 +389,7 @@ object AFMTopograph: TAFMTopograph
       Left = 112
       Height = 22
       Top = 80
-      Width = 42
+      Width = 51
       EditLabel.AnchorSideLeft.Control = SetPointEdit
       EditLabel.AnchorSideRight.Control = SetPointEdit
       EditLabel.AnchorSideRight.Side = asrBottom
@@ -397,7 +397,7 @@ object AFMTopograph: TAFMTopograph
       EditLabel.Left = 112
       EditLabel.Height = 15
       EditLabel.Top = 62
-      EditLabel.Width = 42
+      EditLabel.Width = 51
       EditLabel.Caption = 'Set Point (V)'
       EditLabel.ParentColor = False
       TabOrder = 0
@@ -646,6 +646,7 @@ object AFMTopograph: TAFMTopograph
     Top = 392
     Width = 75
     Caption = 'Rescale'
+    OnClick = RescaleButtonClick
     TabOrder = 7
   end
   object FileSaveGroupBox: TGroupBox
@@ -698,6 +699,7 @@ object AFMTopograph: TAFMTopograph
     Top = 424
     Width = 130
     Caption = 'AutoLevel Image'
+    OnClick = LevelImageRadioButtonClick
     TabOrder = 9
   end
   object DataTimer: TTimer
@@ -708,7 +710,8 @@ object AFMTopograph: TAFMTopograph
   end
   object FileSaveDialog: TSaveDialog
     DefaultExt = '.gsf'
-    Filter = 'Gwyddion Simple Files|gsf|Text Data Files|dat'
+    Filter = 'Gwyddion Simple Files|*.gsf|Text Data Files|*.dat'
+    InitialDir = '~/'
     left = 686
     top = 335
   end

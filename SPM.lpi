@@ -54,13 +54,10 @@
       <Unit0>
         <Filename Value="SPM.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="12"/>
+        <TopLine Value="2"/>
         <CursorPos X="1" Y="38"/>
         <UsageCount Value="204"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
@@ -70,10 +67,14 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SPM_Main"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="88"/>
-        <CursorPos X="17" Y="93"/>
+        <CursorPos X="78" Y="121"/>
+        <ComponentState Value="1"/>
         <UsageCount Value="204"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit1>
       <Unit2>
@@ -83,13 +84,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="TipCoarseApproach"/>
-        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="563"/>
-        <CursorPos X="46" Y="598"/>
+        <TopLine Value="426"/>
+        <CursorPos X="3" Y="428"/>
         <UsageCount Value="204"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit2>
       <Unit3>
@@ -109,30 +107,36 @@
         <Filename Value="FileFunctions.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="FileFunctions"/>
+        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
         <TopLine Value="375"/>
         <CursorPos X="21" Y="418"/>
         <UsageCount Value="204"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit4>
       <Unit5>
         <Filename Value="DAQFunctions.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="DAQFunctions"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="10"/>
-        <CursorPos X="24" Y="111"/>
+        <TopLine Value="100"/>
+        <CursorPos X="10" Y="23"/>
         <UsageCount Value="204"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
       <Unit6>
         <Filename Value="ScanTubeFunctions.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ScanTubeFunctions"/>
+        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="16" Y="375"/>
+        <TopLine Value="384"/>
+        <CursorPos X="26" Y="406"/>
         <UsageCount Value="204"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit6>
       <Unit7>
@@ -161,10 +165,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MFM"/>
-        <EditorIndex Value="3"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="273"/>
-        <CursorPos X="3" Y="277"/>
+        <TopLine Value="721"/>
+        <CursorPos X="73" Y="726"/>
         <UsageCount Value="204"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -185,8 +190,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="GlobalFunctions"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="119"/>
-        <CursorPos X="1" Y="138"/>
+        <TopLine Value="15"/>
+        <CursorPos X="10" Y="23"/>
         <UsageCount Value="204"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit11>
@@ -213,10 +218,12 @@
         <Filename Value="globalvariables.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="GlobalVariables"/>
+        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="2"/>
-        <CursorPos X="88" Y="49"/>
+        <TopLine Value="150"/>
+        <CursorPos X="49" Y="184"/>
         <UsageCount Value="204"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit14>
       <Unit15>
@@ -264,7 +271,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="2384"/>
         <CursorPos X="1" Y="2403"/>
-        <UsageCount Value="108"/>
+        <UsageCount Value="107"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit19>
       <Unit20>
@@ -272,7 +279,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1974"/>
         <CursorPos X="1" Y="1993"/>
-        <UsageCount Value="721"/>
+        <UsageCount Value="720"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit20>
       <Unit21>
@@ -282,11 +289,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AFMTopography"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="121"/>
-        <CursorPos X="41" Y="153"/>
+        <TopLine Value="330"/>
+        <CursorPos X="73" Y="372"/>
         <UsageCount Value="1450"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -299,13 +305,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Oscilloscope"/>
-        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="47" Y="18"/>
         <UsageCount Value="1444"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit22>
       <Unit23>
@@ -313,7 +316,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="2196"/>
         <CursorPos X="1" Y="2228"/>
-        <UsageCount Value="75"/>
+        <UsageCount Value="74"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit23>
       <Unit24>
@@ -322,7 +325,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="49"/>
         <CursorPos X="3" Y="71"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="24"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit24>
       <Unit25>
@@ -330,7 +333,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="136" Y="33"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="24"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit25>
       <Unit26>
@@ -339,14 +342,14 @@
         <WindowIndex Value="0"/>
         <TopLine Value="211"/>
         <CursorPos X="1" Y="233"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="24"/>
       </Unit26>
       <Unit27>
         <Filename Value="/usr/lib/lazarus/0.9.30.2/lcl/interfaces/gtk2/gtk2widgetset.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1354"/>
         <CursorPos X="66" Y="1367"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit27>
       <Unit28>
@@ -354,130 +357,130 @@
         <WindowIndex Value="0"/>
         <TopLine Value="153"/>
         <CursorPos X="1" Y="177"/>
-        <UsageCount Value="21"/>
+        <UsageCount Value="20"/>
         <DefaultSyntaxHighlighter Value="C++"/>
       </Unit28>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="432" Column="5" TopLine="430"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="308" Column="26" TopLine="287"/>
       </Position1>
       <Position2>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="605" Column="32" TopLine="599"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="444" Column="13" TopLine="423"/>
       </Position2>
       <Position3>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="604" Column="32" TopLine="598"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="445" Column="3" TopLine="423"/>
       </Position3>
       <Position4>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="427" Column="5" TopLine="417"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="474" Column="20" TopLine="452"/>
       </Position4>
       <Position5>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="97" Column="21" TopLine="85"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="476" Column="16" TopLine="452"/>
       </Position5>
       <Position6>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="634" Column="10" TopLine="608"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="478" Column="17" TopLine="452"/>
       </Position6>
       <Position7>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="646" Column="10" TopLine="620"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="479" Column="7" TopLine="452"/>
       </Position7>
       <Position8>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="602" Column="14" TopLine="580"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="483" Column="16" TopLine="452"/>
       </Position8>
       <Position9>
-        <Filename Value="TipCoarseApproach.pas"/>
-        <Caret Line="442" Column="24" TopLine="431"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="460" Column="78" TopLine="452"/>
       </Position9>
       <Position10>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="18" Column="47" TopLine="1"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="133" Column="24" TopLine="127"/>
       </Position10>
       <Position11>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="31" Column="34" TopLine="5"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="285" Column="47" TopLine="243"/>
       </Position11>
       <Position12>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="30" Column="34" TopLine="5"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="848" Column="26" TopLine="812"/>
       </Position12>
       <Position13>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="29" Column="34" TopLine="5"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="344" Column="11" TopLine="252"/>
       </Position13>
       <Position14>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="28" Column="34" TopLine="5"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="849" Column="19" TopLine="813"/>
       </Position14>
       <Position15>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="27" Column="34" TopLine="4"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="346" Column="18" TopLine="324"/>
       </Position15>
       <Position16>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="26" Column="34" TopLine="3"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="366" Column="41" TopLine="344"/>
       </Position16>
       <Position17>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="25" Column="34" TopLine="2"/>
+        <Filename Value="AFMTopography.pas"/>
+        <Caret Line="938" Column="78" TopLine="902"/>
       </Position17>
       <Position18>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="24" Column="34" TopLine="1"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="931" Column="51" TopLine="895"/>
       </Position18>
       <Position19>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="23" Column="34" TopLine="1"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="436" Column="3" TopLine="425"/>
       </Position19>
       <Position20>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="22" Column="34" TopLine="1"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="446" Column="16" TopLine="424"/>
       </Position20>
       <Position21>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="21" Column="35" TopLine="1"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="849" Column="85" TopLine="836"/>
       </Position21>
       <Position22>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="20" Column="35" TopLine="1"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="155" Column="113" TopLine="140"/>
       </Position22>
       <Position23>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="19" Column="47" TopLine="1"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="934" Column="51" TopLine="829"/>
       </Position23>
       <Position24>
-        <Filename Value="oscilloscope.pas"/>
-        <Caret Line="18" Column="47" TopLine="1"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="664" Column="24" TopLine="642"/>
       </Position24>
       <Position25>
         <Filename Value="AFMTopography.pas"/>
-        <Caret Line="21" Column="17" TopLine="8"/>
+        <Caret Line="30" Column="15" TopLine="8"/>
       </Position25>
       <Position26>
-        <Filename Value="AFMTopography.pas"/>
-        <Caret Line="575" Column="3" TopLine="573"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="901" Column="82" TopLine="880"/>
       </Position26>
       <Position27>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="344" Column="7" TopLine="323"/>
+        <Filename Value="AFMTopography.pas"/>
+        <Caret Line="387" Column="15" TopLine="356"/>
       </Position27>
       <Position28>
-        <Filename Value="AFMTopography.pas"/>
-        <Caret Line="598" Column="3" TopLine="627"/>
+        <Filename Value="mfm.pas"/>
+        <Caret Line="761" Column="33" TopLine="720"/>
       </Position28>
       <Position29>
         <Filename Value="AFMTopography.pas"/>
-        <Caret Line="408" Column="7" TopLine="401"/>
+        <Caret Line="356" Column="9" TopLine="327"/>
       </Position29>
       <Position30>
         <Filename Value="AFMTopography.pas"/>
-        <Caret Line="151" Column="3" TopLine="129"/>
+        <Caret Line="373" Column="1" TopLine="343"/>
       </Position30>
     </JumpHistory>
   </ProjectOptions>

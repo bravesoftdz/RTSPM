@@ -14,21 +14,20 @@ LazarusResources.Add('TSPM_MainForm','FORMDATA',[
   +#8#7'OnClick'#7#11'AFMBtnClick'#8'TabOrder'#2#1#0#0#7'TBitBtn'#6'STMBtn'#4'L'
   +'eft'#3'`'#1#6'Height'#2#25#3'Top'#2#24#5'Width'#3#129#0#7'Caption'#6#3'STM'
   +#7'Enabled'#8#8'TabOrder'#2#2#0#0#7'TBitBtn'#12'MFM_Lift_Btn'#4'Left'#2#24#6
-  +'Height'#2#25#3'Top'#2'@'#5'Width'#3#152#0#7'Caption'#6#19'MFM Lift Phase mo'
-  +'de'#7'Enabled'#8#8'TabOrder'#2#3#0#0#7'TBitBtn'#16'Oscilloscope_Btn'#4'Left'
-  +#3#200#0#6'Height'#2#25#3'Top'#2'@'#5'Width'#3#129#0#7'Caption'#6#12'Oscillo'
-  +'scope'#7'Enabled'#8#7'OnClick'#7#21'Oscilloscope_BtnClick'#8'TabOrder'#2#4#0
-  +#0#7'TBitBtn'#7'EFM_Btn'#4'Left'#3'`'#1#6'Height'#2#25#3'Top'#2'@'#5'Width'#3
-  +#129#0#7'Caption'#6#14'EFM phase mode'#7'Enabled'#8#8'TabOrder'#2#5#0#0#7'TB'
-  +'itBtn'#11'ExitProgram'#4'Left'#3#0#1#6'Height'#2' '#3'Top'#2'w'#5'Width'#3
-  +#137#0#7'Caption'#6#4'Exit'#7'OnClick'#7#11'FormDestroy'#8'TabOrder'#2#6#0#0
-  +#7'TBitBtn'#19'SystemConfiguration'#4'Left'#2'@'#6'Height'#2' '#3'Top'#2'w'#5
-  +'Width'#3#137#0#7'Caption'#6#20'System Configuration'#7'OnClick'#7#24'System'
-  +'ConfigurationClick'#8'TabOrder'#2#7#0#0#11'TSdpoSerial'#15'AttocubeComPort'
-  +#6'Active'#8#8'BaudRate'#7#8'br__9600'#8'DataBits'#7#7'db8bits'#6'Parity'#7#5
-  +'pNone'#11'FlowControl'#7#6'fcNone'#8'StopBits'#7#5'sbOne'#6'Device'#6#10'/d'
-  +'ev/ttyS0'#4'left'#3#192#1#3'top'#2'x'#0#0#10'TEpikTimer'#9'FastTimer'#15'St'
-  +'ringPrecision'#2#6#16'WantMilliseconds'#9#8'WantDays'#9#14'TimebaseSource'#7
-  +#14'SystemTimebase'#15'CorrelationMode'#7#16'OnTimebaseSelect'#4'left'#3#231
-  +#0#3'top'#3#164#0#0#0#0
+  +'Height'#2#25#3'Top'#2'@'#5'Width'#3#152#0#7'Caption'#6#3'MFM'#7'Enabled'#8#8
+  +'TabOrder'#2#3#0#0#7'TBitBtn'#16'Oscilloscope_Btn'#4'Left'#3#200#0#6'Height'
+  +#2#25#3'Top'#2'@'#5'Width'#3#129#0#7'Caption'#6#12'Oscilloscope'#7'Enabled'#8
+  +#7'OnClick'#7#21'Oscilloscope_BtnClick'#8'TabOrder'#2#4#0#0#7'TBitBtn'#7'EFM'
+  +'_Btn'#4'Left'#3'`'#1#6'Height'#2#25#3'Top'#2'@'#5'Width'#3#129#0#7'Caption'
+  +#6#3'EFM'#7'Enabled'#8#8'TabOrder'#2#5#0#0#7'TBitBtn'#11'ExitProgram'#4'Left'
+  +#3#0#1#6'Height'#2' '#3'Top'#2'w'#5'Width'#3#137#0#7'Caption'#6#4'Exit'#7'On'
+  +'Click'#7#11'FormDestroy'#8'TabOrder'#2#6#0#0#7'TBitBtn'#19'SystemConfigurat'
+  +'ion'#4'Left'#2'@'#6'Height'#2' '#3'Top'#2'w'#5'Width'#3#137#0#7'Caption'#6
+  +#20'System Configuration'#7'OnClick'#7#24'SystemConfigurationClick'#8'TabOrd'
+  +'er'#2#7#0#0#11'TSdpoSerial'#15'AttocubeComPort'#6'Active'#8#8'BaudRate'#7#8
+  +'br__9600'#8'DataBits'#7#7'db8bits'#6'Parity'#7#5'pNone'#11'FlowControl'#7#6
+  +'fcNone'#8'StopBits'#7#5'sbOne'#6'Device'#6#10'/dev/ttyS0'#4'left'#3#192#1#3
+  +'top'#2'x'#0#0#10'TEpikTimer'#9'FastTimer'#15'StringPrecision'#2#6#16'WantMi'
+  +'lliseconds'#9#8'WantDays'#9#14'TimebaseSource'#7#14'SystemTimebase'#15'Corr'
+  +'elationMode'#7#16'OnTimebaseSelect'#4'left'#3#231#0#3'top'#3#164#0#0#0#0
 ]);

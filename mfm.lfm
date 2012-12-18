@@ -1,22 +1,22 @@
 object MFMForm: TMFMForm
-  Left = 851
-  Height = 901
-  Top = 272
-  Width = 1135
+  Left = 416
+  Height = 892
+  Top = 175
+  Width = 1129
   ActiveControl = PropEdit
   Caption = 'MFMForm'
-  ClientHeight = 901
-  ClientWidth = 1135
+  ClientHeight = 892
+  ClientWidth = 1129
   OnClose = FormClose
   OnShow = FormShow
   LCLVersion = '1.0.2.0'
-  object ForwardTopoImage: TImage
+  object ForwardImage: TImage
     Left = 21
     Height = 350
     Top = 33
     Width = 350
   end
-  object ReverseTopoImage: TImage
+  object ReverseImage: TImage
     Left = 435
     Height = 350
     Top = 33
@@ -46,7 +46,7 @@ object MFMForm: TMFMForm
     ParentColor = False
     ParentFont = False
   end
-  object TopoIndicatorImage: TImage
+  object IndicatorImage: TImage
     Left = 392
     Height = 350
     Top = 33
@@ -72,7 +72,7 @@ object MFMForm: TMFMForm
     ParentColor = False
     ParentFont = False
   end
-  object ForwardMFMImage: TImage
+  object MFMForwardImage: TImage
     Left = 18
     Height = 350
     Top = 481
@@ -90,7 +90,7 @@ object MFMForm: TMFMForm
     ParentColor = False
     ParentFont = False
   end
-  object ReverseMFMImage: TImage
+  object MFMReverseImage: TImage
     Left = 435
     Height = 350
     Top = 481
@@ -117,7 +117,7 @@ object MFMForm: TMFMForm
   object Scan_Tube_GroupBox: TGroupBox
     Left = 808
     Height = 190
-    Top = 464
+    Top = 520
     Width = 210
     Caption = 'Scan Tube Control'
     ClientHeight = 174
@@ -431,7 +431,7 @@ object MFMForm: TMFMForm
       Left = 112
       Height = 22
       Top = 80
-      Width = 42
+      Width = 54
       EditLabel.AnchorSideLeft.Control = SetPointEdit
       EditLabel.AnchorSideRight.Control = SetPointEdit
       EditLabel.AnchorSideRight.Side = asrBottom
@@ -439,7 +439,7 @@ object MFMForm: TMFMForm
       EditLabel.Left = 112
       EditLabel.Height = 15
       EditLabel.Top = 62
-      EditLabel.Width = 42
+      EditLabel.Width = 54
       EditLabel.Caption = 'Set Point (V)'
       EditLabel.ParentColor = False
       TabOrder = 0
@@ -452,6 +452,7 @@ object MFMForm: TMFMForm
       Top = 118
       Width = 74
       Caption = 'Start scan'
+      OnClick = ScanStartBtnClick
       TabOrder = 1
     end
     object EngageFeedbackBtn: TButton
@@ -530,6 +531,7 @@ object MFMForm: TMFMForm
       EditLabel.ParentColor = False
       TabOrder = 6
       Text = '0'
+      OnKeyPress = DiffEditKeyPress
     end
   end
   object GroupBox1: TGroupBox
@@ -614,7 +616,7 @@ object MFMForm: TMFMForm
       OnChange = DwellTimeEditChange
       ParentFont = False
       TabOrder = 1
-      Value = 1
+      Value = 5
     end
     object AveragesEdit: TSpinEdit
       Left = 130
@@ -626,7 +628,7 @@ object MFMForm: TMFMForm
       OnChange = AveragesEditChange
       ParentFont = False
       TabOrder = 2
-      Value = 1
+      Value = 5
     end
     object ScanRangeComboBox: TComboBox
       Left = 16
@@ -657,42 +659,43 @@ object MFMForm: TMFMForm
       Text = 'ScanDirectionComboBox'
     end
   end
-  object ScaleMaxEdit: TEdit
+  object TopoScaleMaxEdit: TEdit
     Left = 96
     Height = 22
     Top = 425
     Width = 80
     Font.Height = -11
-    OnKeyPress = ScaleMaxEditKeyPress
+    OnKeyPress = TopoScaleMaxEditKeyPress
     ParentFont = False
     TabOrder = 4
-    Text = 'ScaleMaxEdit'
+    Text = 'TopoScaleMaxEdit'
   end
-  object ScaleMinEdit: TEdit
+  object TopoScaleMinEdit: TEdit
     Left = 96
     Height = 22
     Top = 392
     Width = 80
     Font.Height = -11
-    OnKeyPress = ScaleMinEditKeyPress
+    OnKeyPress = TopoScaleMinEditKeyPress
     ParentFont = False
     TabOrder = 5
-    Text = 'ScaleMinEdit'
+    Text = 'TopoScaleMinEdit'
   end
-  object RescaleButton: TButton
+  object TopoRescaleButton: TButton
     Left = 293
     Height = 25
     Top = 392
     Width = 75
     Caption = 'Rescale'
     Font.Height = -11
+    OnClick = TopoRescaleButtonClick
     ParentFont = False
     TabOrder = 6
   end
   object FileSaveGroupBox: TGroupBox
     Left = 808
     Height = 105
-    Top = 672
+    Top = 728
     Width = 206
     Caption = 'File Saving'
     ClientHeight = 89
@@ -714,6 +717,7 @@ object MFMForm: TMFMForm
       Top = 7
       Width = 91
       Caption = 'Save As GSF'
+      OnClick = SaveAsGSFFileButtonClick
       TabOrder = 0
     end
     object SaveAsTextFileButton: TButton
@@ -722,6 +726,7 @@ object MFMForm: TMFMForm
       Top = 7
       Width = 88
       Caption = 'Save as Text'
+      OnClick = SaveAsTextFileButtonClick
       TabOrder = 1
     end
     object DescriptionEdit: TEdit
@@ -736,10 +741,126 @@ object MFMForm: TMFMForm
   object StatusBar: TStatusBar
     Left = 0
     Height = 21
-    Top = 880
-    Width = 1135
+    Top = 871
+    Width = 1129
     Panels = <>
     SimpleText = 'Idle'
+  end
+  object Label23: TLabel
+    Left = 19
+    Height = 15
+    Top = 849
+    Width = 55
+    Caption = 'Scale Min'
+    Font.Height = -11
+    ParentColor = False
+    ParentFont = False
+  end
+  object MFMScaleMinEdit: TEdit
+    Left = 94
+    Height = 22
+    Top = 840
+    Width = 80
+    Font.Height = -11
+    OnKeyPress = MFMScaleMinEditKeyPress
+    ParentFont = False
+    TabOrder = 9
+    Text = 'ScaleMinEdit'
+  end
+  object MFMScaleMaxEdit: TEdit
+    Left = 318
+    Height = 22
+    Top = 842
+    Width = 80
+    Font.Height = -11
+    OnKeyPress = MFMScaleMaxEditKeyPress
+    ParentFont = False
+    TabOrder = 10
+    Text = 'ScaleMaxEdit'
+  end
+  object Label24: TLabel
+    Left = 240
+    Height = 15
+    Top = 849
+    Width = 58
+    Caption = 'Scale Max'
+    Font.Height = -11
+    ParentColor = False
+    ParentFont = False
+  end
+  object MFMRescaleButton: TButton
+    Left = 704
+    Height = 25
+    Top = 839
+    Width = 75
+    Caption = 'Rescale'
+    Font.Height = -11
+    OnClick = MFMRescaleButtonClick
+    ParentFont = False
+    TabOrder = 11
+  end
+  object LiftModeHeightSpinEdit: TFloatSpinEdit
+    Left = 985
+    Height = 25
+    Top = 464
+    Width = 64
+    Increment = 0.1
+    MaxValue = 100
+    MinValue = 0
+    OnChange = LiftModeHeightSpinEditChange
+    TabOrder = 12
+    Value = 20
+  end
+  object Label25: TLabel
+    Left = 979
+    Height = 18
+    Top = 440
+    Width = 140
+    Caption = 'Lift mode height (nm)'
+    ParentColor = False
+  end
+  object LevelTopoImageCheckBox: TCheckBox
+    Left = 240
+    Height = 21
+    Top = 426
+    Width = 130
+    Caption = 'AutoLevel Image'
+    OnClick = LevelTopoImageCheckBoxClick
+    TabOrder = 13
+  end
+  object LevelMFMImageCheckBox: TCheckBox
+    Left = 472
+    Height = 21
+    Top = 840
+    Width = 130
+    Caption = 'AutoLevel Image'
+    OnClick = LevelMFMImageCheckBoxClick
+    TabOrder = 14
+  end
+  object MFMModeRadioGroup: TRadioGroup
+    Left = 816
+    Height = 73
+    Top = 432
+    Width = 152
+    AutoFill = True
+    Caption = 'MFM Mode'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 54
+    ClientWidth = 148
+    ItemIndex = 0
+    Items.Strings = (
+      'Lift Mode'
+      'Constant Height'
+    )
+    OnClick = MFMModeRadioGroupClick
+    TabOrder = 15
   end
   object DataTimer: TTimer
     Enabled = False
@@ -749,7 +870,8 @@ object MFMForm: TMFMForm
   end
   object FileSaveDialog: TSaveDialog
     DefaultExt = '.gsf'
-    Filter = 'Gwyddion Simple Files|gsf|Text Data Files|dat'
+    Filter = 'Gwyddion Simple Files|*.gsf|Text Data Files|*.dat'
+    InitialDir = '~/'
     left = 714
     top = 363
   end

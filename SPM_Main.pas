@@ -118,7 +118,7 @@ begin
 
   //allow nonroot access
   rt_allow_nonroot_hrt;
-  //start the main task as a soft real time task with a priority of 10, higher
+  //start the main task as a soft real time task with a priority of 10, lower
   //than any other real-time task
   GlobalTaskStarted:=StartMainTask(10);
   //SysConfig.Show;

@@ -52,7 +52,7 @@ object SPM_MainForm: TSPM_MainForm
     Height = 25
     Top = 64
     Width = 152
-    Caption = 'MFM Lift Phase mode'
+    Caption = 'MFM'
     Enabled = False
     TabOrder = 3
   end
@@ -71,7 +71,7 @@ object SPM_MainForm: TSPM_MainForm
     Height = 25
     Top = 64
     Width = 129
-    Caption = 'EFM phase mode'
+    Caption = 'EFM'
     Enabled = False
     TabOrder = 5
   end
