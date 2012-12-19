@@ -44,6 +44,8 @@ volatile double MinZVoltage = 10;
 volatile Acquisition_channel FeedbackChannel; //Channel for reading the input signal
 volatile Acquisition_channel ControlChannel; //Channel for controlling the system
 volatile int PIDParametersChanged = TRUE; //Flag to signal that PID parameters have changed
+volatile Acquisition_channel Chan1Input; //channel 1 input, used for reading ac EFM signal, etc
+volatile Acquisition_channel Chan2Input; //another averaged channel, for future use
 volatile double PropCoff; //PID proportional coefficient
 volatile double IntTime; //PID integral time constant
 volatile double DiffTime; //PID differential time constant
@@ -54,12 +56,16 @@ volatile int PLLGenerationOn = TRUE;  //Set to TRUE (non zero value)
 volatile double PIDOutput; //output in volts of the PID
 volatile double AveragedPIDOutput; //PID output averaged over PID_averagess
 volatile double AveragedFeedbackReading; //Averaged Feedback reading
-volatile double FeedbackReading;
+volatile double FeedbackReading, Chan1Reading, Chan2Reading;
+volatile double AveragedChan1Reading;
+volatile double AveragedChan2Reading;
 volatile double SetPoint; //SetPoint for the PID
 volatile int FirstPIDPass =  TRUE ; //this tells us if this is the first pass, set to TRUE
 volatile int OutputPhase = -1; //Sets the sign of the output, depending on response
 volatile double PIDOutputVariance; //variance of the pid output
 volatile int Logarithmic = TRUE; //Flag to signal that feedback should be done on a logarithmic scale (set to TRUE)
+volatile int DoChan1Average = FALSE; //Flag to signal that we should perform averages on Chan 1 input
+volatile int DoChan2Average = FALSE; //Flag to signal that we should perform averages on Chan 1 input
 
 
 //PLL parameters

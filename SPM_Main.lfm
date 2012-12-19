@@ -71,7 +71,7 @@ object SPM_MainForm: TSPM_MainForm
     Height = 25
     Top = 64
     Width = 129
-    Caption = 'EFM'
+    Caption = 'EFM/SGM'
     Enabled = False
     TabOrder = 5
   end

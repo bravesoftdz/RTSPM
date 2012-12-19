@@ -30,8 +30,16 @@ object OscilloscopeForm: TOscilloscopeForm
     )
     ParentColor = False
     object OscilloscopeChartLineSeries1: TLineSeries
+      LinePen.Color = clRed
     end
     object OscilloscopeChartLineSeries2: TLineSeries
+      LinePen.Color = clBlue
+    end
+    object OscilloscopeChartLineSeries3: TLineSeries
+      LinePen.Color = clGreen
+    end
+    object OscilloscopeChartLineSeries4: TLineSeries
+      LinePen.Color = clFuchsia
     end
   end
 end

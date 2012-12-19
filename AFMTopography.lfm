@@ -1,7 +1,7 @@
 object AFMTopograph: TAFMTopograph
-  Left = 830
+  Left = 728
   Height = 778
-  Top = 188
+  Top = 321
   Width = 804
   ActiveControl = ScaleMinEdit
   Caption = 'AFM Topography'

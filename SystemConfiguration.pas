@@ -20,6 +20,7 @@ type
     Device1Edit: TLabeledEdit;
     Device3Edit: TLabeledEdit;
     Device2Edit: TLabeledEdit;
+    GroupBox7: TGroupBox;
     LockInGPIBAddressSpinEdit: TSpinEdit;
     Label2: TLabel;
     LockInCheckBox: TCheckBox;
@@ -49,11 +50,13 @@ type
     GroupBox5: TGroupBox;
     FeedbackComboBox: TComboBox;
     LogCheckBox: TCheckBox;
+    SampleVoltageComboBox: TComboBox;
     procedure LogCheckBoxClick(Sender: TObject);
     procedure FeedbackComboBoxSelect(Sender: TObject);
     procedure Ch2ComboBoxSelect(Sender: TObject);
     procedure Ch1ComboBoxSelect(Sender: TObject);
     procedure Ch0ComboBoxSelect(Sender: TObject);
+    procedure SampleVoltageComboBoxSelect(Sender: TObject);
     procedure ScanZComboBoxSelect(Sender: TObject);
     procedure ScanYComboBoxSelect(Sender: TObject);
     procedure ScanXComboBoxSelect(Sender: TObject);
@@ -121,6 +124,13 @@ begin
   SomethingChanged:=TRUE;
 end;
 
+procedure TSysConfig.SampleVoltageComboBoxSelect(Sender: TObject);
+begin
+  SampleVoltageChannelName:=SampleVoltageComboBox.Text;
+  SampleVoltageChannel:=OutputChannels[SampleVoltageComboBox.ItemIndex];
+  SomethingChanged:=TRUE;
+end;
+
 procedure TSysConfig.Ch1ComboBoxSelect(Sender: TObject);
 begin
   Ch1InputName:=Ch1ComboBox.Text;
@@ -150,6 +160,7 @@ begin
   if ScanYComboBox.ItemIndex>=0 then ScanYOut:=OutputChannels[ScanYComboBox.ItemIndex];
   if ScanZComboBox.ItemIndex>=0 then ScanZOut:=OutputChannels[ScanZComboBox.ItemIndex];
   if ScanZComboBox.ItemIndex>=0 then ControlChannel:=OutputChannels[ScanZComboBox.ItemIndex];
+  if SampleVoltageComboBox.ItemIndex>=0 then SampleVoltageChannel:=OutputChannels[SampleVoltageComboBox.ItemIndex];
 
   //then input channels
   if Ch0ComboBox.ItemIndex>=0 then Ch0Input:=InputChannels[Ch0ComboBox.ItemIndex];
@@ -279,6 +290,7 @@ begin
    ScanXComboBox.Items:=OutputChannelNames;
    ScanYComboBox.Items:=OutputChannelNames;
    ScanZComboBox.Items:=OutputChannelNames;
+   SampleVoltageComboBox.Items:=OutputChannelNames;
 
    //Populate the combo boxes from the values already assigned
    ScanXComboBox.ItemIndex:=ScanXComboBox.Items.IndexOf(ScanXOutName);
@@ -292,6 +304,13 @@ begin
    ScanZComboBox.ItemIndex:=ScanZComboBox.Items.IndexOf(ScanZOutName);
    if ScanZComboBox.ItemIndex>=0 then
                    ScanZOut:=OutputChannels[ScanZComboBox.ItemIndex];
+
+   SampleVoltageComboBox.ItemIndex:=SampleVoltageComboBox.Items.IndexOf(SampleVoltageChannelName);
+
+   //Need to put in correction here so that it is not mixed with XYZ channels!!!!!
+   if SampleVoltageComboBox.ItemIndex>=0 then
+       SampleVoltageChannel:=OutputChannels[SampleVoltageComboBox.ItemIndex]
+    else SampleVoltageChannelName:='';
 
    Ch0ComboBox.Items:=InputChannelNames;
    Ch1ComboBox.Items:=InputChannelNames;

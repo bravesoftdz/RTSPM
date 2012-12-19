@@ -1,10 +1,10 @@
 object MFMForm: TMFMForm
-  Left = 416
+  Left = 382
   Height = 892
-  Top = 175
+  Top = 146
   Width = 1129
   ActiveControl = PropEdit
-  Caption = 'MFMForm'
+  Caption = 'Magnetic Force MIcroscopy'
   ClientHeight = 892
   ClientWidth = 1129
   OnClose = FormClose
@@ -200,6 +200,7 @@ object MFMForm: TMFMForm
       Height = 22
       Top = 60
       Width = 57
+      OnKeyPress = SetYEditKeyPress
       TabOrder = 1
       Text = '0'
     end
@@ -208,6 +209,7 @@ object MFMForm: TMFMForm
       Height = 22
       Top = 85
       Width = 57
+      OnKeyPress = SetZEditKeyPress
       TabOrder = 2
       Text = '0'
     end

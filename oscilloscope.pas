@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, LResources, Forms, Controls,
-  Graphics, Dialogs, StdCtrls, Spin, Plotpanel;
+  Graphics, Dialogs, StdCtrls, Spin, Plotpanel, types, TACustomSeries;
 
 type
 
@@ -16,6 +16,9 @@ type
     OscilloscopeChart: TChart;
     OscilloscopeChartLineSeries1: TLineSeries;
     OscilloscopeChartLineSeries2: TLineSeries;
+    OscilloscopeChartLineSeries3: TLineSeries;
+    OscilloscopeChartLineSeries4: TLineSeries;
+
   private
     { private declarations }
   public
@@ -28,6 +31,7 @@ var
 implementation
 
 { TOscilloscopeForm }
+
 
 
 

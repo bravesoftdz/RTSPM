@@ -50,7 +50,7 @@
         <PackageName Value="LCL"/>
       </Item6>
     </RequiredPackages>
-    <Units Count="29">
+    <Units Count="31">
       <Unit0>
         <Filename Value="SPM.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -70,8 +70,7 @@
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="88"/>
-        <CursorPos X="78" Y="121"/>
-        <ComponentState Value="1"/>
+        <CursorPos X="3" Y="112"/>
         <UsageCount Value="204"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -97,20 +96,23 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SystemConfiguration"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="340"/>
-        <CursorPos X="1" Y="346"/>
+        <TopLine Value="279"/>
+        <CursorPos X="39" Y="313"/>
         <UsageCount Value="204"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
       <Unit4>
         <Filename Value="FileFunctions.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="FileFunctions"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="375"/>
-        <CursorPos X="21" Y="418"/>
+        <TopLine Value="374"/>
+        <CursorPos X="70" Y="417"/>
         <UsageCount Value="204"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -119,10 +121,10 @@
         <Filename Value="DAQFunctions.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="DAQFunctions"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="100"/>
-        <CursorPos X="10" Y="23"/>
+        <TopLine Value="9"/>
+        <CursorPos X="33" Y="23"/>
         <UsageCount Value="204"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -131,10 +133,10 @@
         <Filename Value="ScanTubeFunctions.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ScanTubeFunctions"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="384"/>
-        <CursorPos X="26" Y="406"/>
+        <TopLine Value="396"/>
+        <CursorPos X="94" Y="527"/>
         <UsageCount Value="204"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -165,14 +167,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MFM"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="721"/>
-        <CursorPos X="73" Y="726"/>
+        <TopLine Value="1131"/>
+        <CursorPos X="68" Y="1146"/>
         <UsageCount Value="204"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit9>
       <Unit10>
@@ -208,20 +208,22 @@
         <Filename Value="rtai_types.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="rtai_types"/>
+        <EditorIndex Value="12"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit13>
       <Unit14>
         <Filename Value="globalvariables.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="GlobalVariables"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="10"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="150"/>
-        <CursorPos X="49" Y="184"/>
+        <TopLine Value="77"/>
+        <CursorPos X="81" Y="123"/>
         <UsageCount Value="204"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -250,10 +252,12 @@
         <Filename Value="rtai_comedi_types.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="rtai_comedi_types"/>
+        <EditorIndex Value="11"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
+        <TopLine Value="2"/>
+        <CursorPos X="76" Y="36"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit17>
       <Unit18>
@@ -271,7 +275,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="2384"/>
         <CursorPos X="1" Y="2403"/>
-        <UsageCount Value="107"/>
+        <UsageCount Value="106"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit19>
       <Unit20>
@@ -279,7 +283,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1974"/>
         <CursorPos X="1" Y="1993"/>
-        <UsageCount Value="720"/>
+        <UsageCount Value="719"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit20>
       <Unit21>
@@ -289,10 +293,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AFMTopography"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="330"/>
-        <CursorPos X="73" Y="372"/>
+        <TopLine Value="747"/>
+        <CursorPos X="48" Y="756"/>
         <UsageCount Value="1450"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -305,10 +309,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Oscilloscope"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="47" Y="18"/>
+        <CursorPos X="5" Y="21"/>
         <UsageCount Value="1444"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit22>
       <Unit23>
@@ -316,7 +323,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="2196"/>
         <CursorPos X="1" Y="2228"/>
-        <UsageCount Value="74"/>
+        <UsageCount Value="73"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit23>
       <Unit24>
@@ -325,7 +332,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="49"/>
         <CursorPos X="3" Y="71"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="23"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit24>
       <Unit25>
@@ -333,7 +340,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="136" Y="33"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="23"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit25>
       <Unit26>
@@ -342,14 +349,14 @@
         <WindowIndex Value="0"/>
         <TopLine Value="211"/>
         <CursorPos X="1" Y="233"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="23"/>
       </Unit26>
       <Unit27>
         <Filename Value="/usr/lib/lazarus/0.9.30.2/lcl/interfaces/gtk2/gtk2widgetset.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1354"/>
         <CursorPos X="66" Y="1367"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="5"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit27>
       <Unit28>
@@ -357,130 +364,157 @@
         <WindowIndex Value="0"/>
         <TopLine Value="153"/>
         <CursorPos X="1" Y="177"/>
-        <UsageCount Value="20"/>
+        <UsageCount Value="19"/>
         <DefaultSyntaxHighlighter Value="C++"/>
       </Unit28>
+      <Unit29>
+        <Filename Value="efm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="EFMForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="EFM"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1463"/>
+        <CursorPos X="1" Y="1509"/>
+        <UsageCount Value="37"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="conf/spm_parameters.cfg"/>
+        <EditorIndex Value="6"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="37" Y="13"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit30>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="308" Column="26" TopLine="287"/>
+        <Filename Value="oscilloscope.pas"/>
+        <Caret Line="20" Column="5" TopLine="1"/>
       </Position1>
       <Position2>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="444" Column="13" TopLine="423"/>
+        <Filename Value="AFMTopography.pas"/>
+        <Caret Line="251" Column="7" TopLine="229"/>
       </Position2>
       <Position3>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="445" Column="3" TopLine="423"/>
+        <Filename Value="AFMTopography.pas"/>
+        <Caret Line="720" Column="62" TopLine="694"/>
       </Position3>
       <Position4>
         <Filename Value="mfm.pas"/>
-        <Caret Line="474" Column="20" TopLine="452"/>
+        <Caret Line="1082" Column="53" TopLine="1104"/>
       </Position4>
       <Position5>
         <Filename Value="mfm.pas"/>
-        <Caret Line="476" Column="16" TopLine="452"/>
+        <Caret Line="956" Column="60" TopLine="930"/>
       </Position5>
       <Position6>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="478" Column="17" TopLine="452"/>
+        <Filename Value="ScanTubeFunctions.pas"/>
+        <Caret Line="439" Column="81" TopLine="405"/>
       </Position6>
       <Position7>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="479" Column="7" TopLine="452"/>
+        <Filename Value="ScanTubeFunctions.pas"/>
+        <Caret Line="346" Column="30" TopLine="315"/>
       </Position7>
       <Position8>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="483" Column="16" TopLine="452"/>
+        <Filename Value="ScanTubeFunctions.pas"/>
+        <Caret Line="348" Column="30" TopLine="315"/>
       </Position8>
       <Position9>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="460" Column="78" TopLine="452"/>
+        <Filename Value="ScanTubeFunctions.pas"/>
+        <Caret Line="382" Column="30" TopLine="347"/>
       </Position9>
       <Position10>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="133" Column="24" TopLine="127"/>
+        <Filename Value="ScanTubeFunctions.pas"/>
+        <Caret Line="384" Column="30" TopLine="347"/>
       </Position10>
       <Position11>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="285" Column="47" TopLine="243"/>
+        <Filename Value="ScanTubeFunctions.pas"/>
+        <Caret Line="414" Column="120" TopLine="390"/>
       </Position11>
       <Position12>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="848" Column="26" TopLine="812"/>
+        <Filename Value="ScanTubeFunctions.pas"/>
+        <Caret Line="412" Column="28" TopLine="390"/>
       </Position12>
       <Position13>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="344" Column="11" TopLine="252"/>
+        <Filename Value="ScanTubeFunctions.pas"/>
+        <Caret Line="396" Column="97" TopLine="350"/>
       </Position13>
       <Position14>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="849" Column="19" TopLine="813"/>
+        <Filename Value="ScanTubeFunctions.pas"/>
+        <Caret Line="434" Column="3" TopLine="400"/>
       </Position14>
       <Position15>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="346" Column="18" TopLine="324"/>
+        <Filename Value="ScanTubeFunctions.pas"/>
+        <Caret Line="424" Column="99" TopLine="401"/>
       </Position15>
       <Position16>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="366" Column="41" TopLine="344"/>
+        <Filename Value="ScanTubeFunctions.pas"/>
+        <Caret Line="467" Column="3" TopLine="427"/>
       </Position16>
       <Position17>
-        <Filename Value="AFMTopography.pas"/>
-        <Caret Line="938" Column="78" TopLine="902"/>
+        <Filename Value="ScanTubeFunctions.pas"/>
+        <Caret Line="469" Column="9" TopLine="423"/>
       </Position17>
       <Position18>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="931" Column="51" TopLine="895"/>
+        <Filename Value="efm.pas"/>
+        <Caret Line="933" Column="14" TopLine="894"/>
       </Position18>
       <Position19>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="436" Column="3" TopLine="425"/>
+        <Filename Value="efm.pas"/>
+        <Caret Line="988" Column="54" TopLine="1073"/>
       </Position19>
       <Position20>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="446" Column="16" TopLine="424"/>
+        <Filename Value="SystemConfiguration.pas"/>
+        <Caret Line="126" Column="3" TopLine="250"/>
       </Position20>
       <Position21>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="849" Column="85" TopLine="836"/>
+        <Filename Value="SystemConfiguration.pas"/>
+        <Caret Line="127" Column="3" TopLine="127"/>
       </Position21>
       <Position22>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="155" Column="113" TopLine="140"/>
+        <Filename Value="SystemConfiguration.pas"/>
+        <Caret Line="143" Column="3" TopLine="127"/>
       </Position22>
       <Position23>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="934" Column="51" TopLine="829"/>
+        <Filename Value="SystemConfiguration.pas"/>
+        <Caret Line="300" Column="73" TopLine="257"/>
       </Position23>
       <Position24>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="664" Column="24" TopLine="642"/>
+        <Filename Value="SystemConfiguration.pas"/>
+        <Caret Line="363" Column="1" TopLine="322"/>
       </Position24>
       <Position25>
-        <Filename Value="AFMTopography.pas"/>
-        <Caret Line="30" Column="15" TopLine="8"/>
+        <Filename Value="SystemConfiguration.pas"/>
+        <Caret Line="380" Column="3" TopLine="352"/>
       </Position25>
       <Position26>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="901" Column="82" TopLine="880"/>
+        <Filename Value="efm.pas"/>
+        <Caret Line="975" Column="52" TopLine="952"/>
       </Position26>
       <Position27>
-        <Filename Value="AFMTopography.pas"/>
-        <Caret Line="387" Column="15" TopLine="356"/>
+        <Filename Value="efm.pas"/>
+        <Caret Line="976" Column="52" TopLine="953"/>
       </Position27>
       <Position28>
-        <Filename Value="mfm.pas"/>
-        <Caret Line="761" Column="33" TopLine="720"/>
+        <Filename Value="efm.pas"/>
+        <Caret Line="977" Column="52" TopLine="173"/>
       </Position28>
       <Position29>
-        <Filename Value="AFMTopography.pas"/>
-        <Caret Line="356" Column="9" TopLine="327"/>
+        <Filename Value="efm.pas"/>
+        <Caret Line="1338" Column="45" TopLine="1296"/>
       </Position29>
       <Position30>
-        <Filename Value="AFMTopography.pas"/>
-        <Caret Line="373" Column="1" TopLine="343"/>
+        <Filename Value="efm.pas"/>
+        <Caret Line="535" Column="66" TopLine="528"/>
       </Position30>
     </JumpHistory>
   </ProjectOptions>
@@ -503,7 +537,6 @@
         <OverflowChecks Value="True"/>
         <StackChecks Value="True"/>
       </Checks>
-      <VerifyObjMethodCallValidity Value="True"/>
       <TargetCPU Value="x86_64"/>
       <TargetOS Value="linux"/>
     </CodeGeneration>
@@ -521,6 +554,15 @@
     </Other>
   </CompilerOptions>
   <Debugging>
+    <BreakPoints Count="1">
+      <Item1>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="mfm.pas"/>
+        <Line Value="138"/>
+      </Item1>
+    </BreakPoints>
     <Watches Count="2">
       <Item1>
         <Expression Value="data"/>

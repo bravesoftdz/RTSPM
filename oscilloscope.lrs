@@ -10,5 +10,8 @@ LazarusResources.Add('TOscilloscopeForm','FORMDATA',[
   +'r'#7#9'clBtnFace'#15'Foot.Font.Color'#7#6'clBlue'#17'Title.Brush.Color'#7#9
   +'clBtnFace'#16'Title.Font.Color'#7#6'clBlue'#18'Title.Text.Strings'#1#6#7'TA'
   +'Chart'#0#11'ParentColor'#8#0#11'TLineSeries'#28'OscilloscopeChartLineSeries'
-  +'1'#0#0#11'TLineSeries'#28'OscilloscopeChartLineSeries2'#0#0#0#0
+  +'1'#13'LinePen.Color'#7#5'clRed'#0#0#11'TLineSeries'#28'OscilloscopeChartLin'
+  +'eSeries2'#13'LinePen.Color'#7#6'clBlue'#0#0#11'TLineSeries'#28'Oscilloscope'
+  +'ChartLineSeries3'#13'LinePen.Color'#7#7'clGreen'#0#0#11'TLineSeries'#28'Osc'
+  +'illoscopeChartLineSeries4'#13'LinePen.Color'#7#9'clFuchsia'#0#0#0#0
 ]);

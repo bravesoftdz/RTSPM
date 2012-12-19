@@ -366,6 +366,8 @@ if FileExists(SysConfig_file) then
      ReadFreeFormLineValue(Config_file, ScanYOutName);
       //Scan Z Out
      ReadFreeFormLineValue(Config_file, ScanZOutName);
+     //Sample Voltage Channel
+     ReadFreeFormLineValue(Config_file, SampleVoltageChannelName);
      //Feedback channel
      ReadFreeFormLineValue(Config_file, FeedbackChannelName);
 
@@ -413,6 +415,7 @@ procedure WriteSysConfigFile;
     writeln(F, 'Scan X output: '+ ScanXOutName);
     writeln(F, 'Scan Y output: '+ ScanYOutName);
     writeln(F, 'Scan Z output: '+ ScanZOutName);
+    writeln(F, 'Sample voltage channel: '+ SampleVoltageChannelName);
     writeln(F, 'Feedback channel: '+ FeedbackChannelName);
     if Logarithmic=1 then
        writeln(F, 'Logarithmic feedback? (y,n)): y ')

@@ -1,7 +1,7 @@
 object SysConfig: TSysConfig
-  Left = 928
+  Left = 706
   Height = 441
-  Top = 634
+  Top = 265
   Width = 702
   ActiveControl = AttocubeCheckBox
   Caption = 'Scanning Probe Microscope - Global System Configuration'
@@ -268,10 +268,10 @@ object SysConfig: TSysConfig
     Left = 200
     Height = 51
     Top = 172
-    Width = 316
+    Width = 264
     Caption = 'Feedback Channel'
     ClientHeight = 35
-    ClientWidth = 312
+    ClientWidth = 260
     Color = clRed
     ParentColor = False
     TabOrder = 5
@@ -286,10 +286,10 @@ object SysConfig: TSysConfig
       Text = 'Choose feedback channel'
     end
     object LogCheckBox: TCheckBox
-      Left = 190
+      Left = 166
       Height = 21
       Top = 6
-      Width = 98
+      Width = 89
       Caption = 'Logarithmic'
       OnClick = LogCheckBoxClick
       TabOrder = 1
@@ -362,8 +362,30 @@ object SysConfig: TSysConfig
       Text = 'None'
     end
   end
+  object GroupBox7: TGroupBox
+    Left = 472
+    Height = 51
+    Top = 172
+    Width = 206
+    Caption = 'Sample voltage channel'
+    ClientHeight = 35
+    ClientWidth = 202
+    Color = clPurple
+    ParentColor = False
+    TabOrder = 7
+    object SampleVoltageComboBox: TComboBox
+      Left = 6
+      Height = 25
+      Top = 2
+      Width = 173
+      ItemHeight = 0
+      OnSelect = SampleVoltageComboBoxSelect
+      TabOrder = 0
+      Text = 'Choose output channel'
+    end
+  end
   object ScannerFileOpenDialog: TOpenDialog
-    left = 627
-    top = 201
+    left = 616
+    top = 408
   end
 end

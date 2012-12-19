@@ -716,6 +716,8 @@ begin
                 //initialize the Oscilloscope Plot
                 OscilloscopeForm.OscilloscopeChartLineSeries1.Clear;
                 OscilloscopeForm.OscilloscopeChartLineSeries2.Clear;
+                OscilloscopeForm.OscilloscopeChartLineSeries3.Clear;
+                OscilloscopeForm.OscilloscopeChartLineSeries4.Clear;
                 fastdelay(10*DwellTime); //Delay at beginning of scan to relax
                 StartX:=ScanXMinusLimit;
                 StatusBar.SimpleText:='Scanning forward line '+ IntToStr(j+1);
@@ -769,6 +771,8 @@ begin
                 //initialize the Oscilloscope Plot
                 OscilloscopeForm.OscilloscopeChartLineSeries1.Clear;
                 OscilloscopeForm.OscilloscopeChartLineSeries2.Clear;
+                OscilloscopeForm.OscilloscopeChartLineSeries3.Clear;
+                OscilloscopeForm.OscilloscopeChartLineSeries4.Clear;
                 fastdelay(10*DwellTime); //Delay at beginning of scan to relax
                 StartY:=ScanYPlusLimit;
                 StatusBar.SimpleText:='Scanning downward line '+ IntToStr(j+1);

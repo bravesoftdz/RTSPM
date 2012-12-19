@@ -31,6 +31,7 @@ type
    device_name_type = array[0..MaxBoards-1] of PChar;
    Channel_array = array[0..MaxChannels-1] of Acquisition_channel;
    InterpolationArray = array[0..LUTPoints-1] of real;
+   TScanData2DArray = array[0..1] of TScanData;
 
    ScanRangeParameters = record
      Range             : real; //the range in microns
@@ -93,6 +94,7 @@ var
   ScanXOutName        : string = 'NI6733/ao0';
   ScanYOutName        : string = 'NI6733/ao1';
   ScanZOutName        : string = 'NI6733/ao2';
+  SampleVoltageChannelName : string = 'NI6733/ao3';
   FeedbackChannelName : string = 'NI6014/ai0'; //input channel on which to perform feedback
   //Now the actual channels
   Ch0Input,
@@ -100,7 +102,8 @@ var
   Ch2Input,
   ScanXOut,
   ScanYOut,
-  ScanZOut            : Acquisition_channel;
+  ScanZOut,
+  SampleVoltageChannel     : Acquisition_channel;
 
   board_it        : board_it_type;
   device_names    : device_name_type;   //filenames of the boards, e.g., /dev/comedi0
@@ -117,6 +120,7 @@ var
   CurrentXVoltage         : real =0.0;     //corresponding values in DAQ voltages
   CurrentYVoltage         : real = 0.0;
   CurrentZVoltage         : real = 0.0;
+  SampleVoltage           : real = 0.0;  //voltage on the Sample voltage channel
 
   SetX                    : real = 0.0;
   SetY                    : real = 0.0;

@@ -27,6 +27,8 @@ var
   sample_time        : RTIME; external name 'sample_time';
   AnalogInputChannel : Acquisition_channel; external name 'AnalogInputChannel';
   AnalogOutputChannel: Acquisition_channel; external name 'AnalogOutputChannel';
+  Chan1Input         : Acquisition_channel; external name 'Chan1Input'; //for ac EFM channel
+  Chan2Input         : Acquisition_channel; external name 'Chan2Input'; //for future use
   dev1               : Pcomedi_t; external name 'dev1';
 
   //Variables associated with real-time PID control
@@ -44,6 +46,10 @@ var
   AveragedPIDOutput  : double; external name 'AveragedPIDOutput'; //output in volts of the PID
   FeedbackReading    : double; external name 'FeedbackReading'; //Feedback channel reading during PID operation
   AveragedFeedbackReading  : double; external name 'AveragedFeedbackReading'; //
+  AveragedChan1Reading     : double; external name 'AveragedChan1Reading'; //
+  AveragedChan2Reading     : double; external name 'AveragedChan2Reading'; //
+  DoChan1Average           : integer; external name 'DoChan1Average'; //do the Chan1 averaging
+  DoChan2Average           : integer; external name 'DoChan2Average'; //do the Chan2 averaging
   SetPoint           : double; external name 'SetPoint';  //SetPoint for the PID
   FirstPIDPass       : integer; external name 'FirstPIDPass'; //this tells us if this is the first pass, set to FALSE
   OutputPhase        : integer; external name 'OutputPhase'; //sign of the control signal..depends on response

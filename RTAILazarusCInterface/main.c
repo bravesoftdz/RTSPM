@@ -439,7 +439,7 @@ int pid_loop()
 
     int m;
     lsampl_t data_to_card, data_from_card;
-    static comedi_t * dev_output, * dev_input;
+    static comedi_t * dev_output, * dev_input, * dev_chan1, * dev_chan2;
     static double bi, ad, bd; //PID coefficients
     static double Pcontrib, Icontrib, Dcontrib; //individual PID contributions
     static double FeedbackReading; //Readings of the error chann
@@ -453,16 +453,19 @@ int pid_loop()
     //static double SummedPIDOutput; //Summed PID Output
     static double SummedFeedbackReading; //Summed FeedbackReading
     //static double SummedVariance;
+    static double SummedChan1Reading, SummedChan2Reading;
     static double M2_n;
     static double delta;
     static double alpha;
     static struct queue PIDOutput_queue;//these are two queues to calculate the moving mean and variance
     static struct queue FeedbackReadingVar_queue;
     static struct queue FeedbackReading_queue;
+    static struct queue Chan1Input_queue;
+    static struct queue Chan2Input_queue;
     static int NumbFirstSteps;
     static double InitialStepSizeVoltage = 0.1;
     static double InitialVoltageStep;
-    double last_mean, last_var, new_var; //popped values of mean and variance
+    double last_mean, last_var, new_var, Chan1_mean, Chan2_mean; //popped values of mean and variance
 
 
 
@@ -470,6 +473,8 @@ int pid_loop()
     init_queue(&PIDOutput_queue);
     init_queue(&FeedbackReadingVar_queue);
     init_queue(&FeedbackReading_queue);
+    init_queue(&Chan1Input_queue);
+    init_queue(&Chan2Input_queue);
 
     //rt_printk("Control channel device name is %s \n",device_names[ControlChannel.board_number]);
     //rt_printk("Control channel subdevice %d and channel %d \n", ControlChannel.subdevice, ControlChannel.channel);
@@ -481,6 +486,12 @@ int pid_loop()
     dev_output = comedi_open(device_names[ControlChannel.board_number]);
     //dev_input is the channel from which the error signal is read
     dev_input = comedi_open(device_names[FeedbackChannel.board_number]);
+
+
+    //Open channels 1 and 2 only if we are going to use them
+    if(DoChan1Average){dev_chan1=comedi_open(device_names[Chan1Input.board_number]);}
+    if(DoChan2Average){dev_chan1=comedi_open(device_names[Chan2Input.board_number]);}
+
 
     //initialize the task
     if(!(PIDloop_Task = rt_task_init_schmod(nam2num( "PIDLoop" ), // Name
@@ -595,6 +606,37 @@ int pid_loop()
       }
     AveragedFeedbackReading =SummedFeedbackReading/PID_averages;
 
+    if(DoChan1Average) {
+      SummedChan1Reading = 0;
+      for (j=0;j<PID_averages;j++)
+        {
+
+        //make a first reading
+        comedi_lock(dev_chan1, Chan1Input.subdevice);
+        m = comedi_data_read(dev_chan1, Chan1Input.subdevice, Chan1Input.channel, AI_RANGE, AREF_DIFF, &data_from_card);
+        comedi_unlock(dev_chan1, Chan1Input.subdevice);
+
+        //Convert to a voltage reading
+        SummedChan1Reading += ((((float) data_from_card)/MaxInputBits)*InputRange + MinInputVoltage);
+        }
+      AveragedChan1Reading=SummedChan1Reading/PID_averages;
+    }
+
+    if(DoChan2Average) {
+      SummedChan2Reading = 0;
+      for (j=0;j<PID_averages;j++)
+        {
+
+        //make a first reading
+        comedi_lock(dev_chan2, Chan2Input.subdevice);
+        m = comedi_data_read(dev_chan2, Chan2Input.subdevice, Chan2Input.channel, AI_RANGE, AREF_DIFF, &data_from_card);
+        comedi_unlock(dev_chan2, Chan2Input.subdevice);
+
+        //Convert to a voltage reading
+        SummedChan2Reading += ((((float) data_from_card)/MaxInputBits)*InputRange + MinInputVoltage);
+        }
+      AveragedChan2Reading=SummedChan2Reading/PID_averages;
+    }
 
     //Since we are not changing the output, the mean has not changed, and the variance is 0
     M2_n = 0;
@@ -606,6 +648,8 @@ int pid_loop()
         push_queue(&FeedbackReading_queue, AveragedFeedbackReading);
         push_queue(&FeedbackReadingVar_queue, PIDOutputVariance);
         push_queue(&PIDOutput_queue, LastOutput);
+        push_queue(&Chan1Input_queue, AveragedChan1Reading);
+        push_queue(&Chan2Input_queue, AveragedChan2Reading);
       }
 
     //Now do the regular loop
@@ -665,6 +709,34 @@ int pid_loop()
       PIDOutputVariance += (new_var - last_var)/PID_averages;
       push_queue(&FeedbackReadingVar_queue, new_var);
 
+      //Now read and average Chan1 and Chan2 inputs only if we need to
+      if(DoChan1Average) {
+        comedi_lock(dev_chan1, Chan1Input.subdevice);
+        m = comedi_data_read(dev_chan1, Chan1Input.subdevice, Chan1Input.channel, AI_RANGE, AREF_DIFF, &data_from_card);
+        comedi_unlock(dev_chan1, Chan1Input.subdevice);
+
+      //Convert to a voltage reading
+      Chan1Reading = ((((float) data_from_card)/MaxInputBits)*InputRange + MinInputVoltage);
+
+      //Calculate the averaged quantities
+      pop_queue(&Chan1Input_queue, &Chan1_mean);
+      AveragedChan1Reading += (Chan1Reading - Chan1_mean)/PID_averages;
+      push_queue(&Chan1Input_queue, Chan1Reading);
+      }
+
+      if(DoChan2Average) {
+        comedi_lock(dev_chan2, Chan2Input.subdevice);
+        m = comedi_data_read(dev_chan2, Chan2Input.subdevice, Chan2Input.channel, AI_RANGE, AREF_DIFF, &data_from_card);
+        comedi_unlock(dev_chan2, Chan2Input.subdevice);
+
+      //Convert to a voltage reading
+      Chan2Reading = ((((float) data_from_card)/MaxInputBits)*InputRange + MinInputVoltage);
+
+      //Calculate the averaged quantities
+      pop_queue(&Chan2Input_queue, &Chan2_mean);
+      AveragedChan2Reading += (Chan2Reading - Chan2_mean)/PID_averages;
+      push_queue(&Chan2Input_queue, Chan2Reading);
+      }
       //send the control signal
       //rt_printk("FeedbackReading is %f \n", FeedbackReading);
       //rt_printk("v is %f \n", v);

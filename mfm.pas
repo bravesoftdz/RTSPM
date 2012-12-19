@@ -118,6 +118,8 @@ type
     procedure SaveAsGSFFileButtonClick(Sender: TObject);
     procedure SaveAsTextFileButtonClick(Sender: TObject);
     procedure ScanStartBtnClick(Sender: TObject);
+    procedure SetYEditKeyPress(Sender: TObject; var Key: char);
+    procedure SetZEditKeyPress(Sender: TObject; var Key: char);
     procedure TopoRescaleButtonClick(Sender: TObject);
     procedure TopoScaleMaxEditKeyPress(Sender: TObject; var Key: char);
     procedure TopoScaleMinEditKeyPress(Sender: TObject; var Key: char);
@@ -811,7 +813,6 @@ begin
                              MFMReverseData);
         end;
     end;
-
 end;
 
 procedure TMFMForm.ScanStartBtnClick(Sender: TObject);
@@ -951,6 +952,8 @@ if Scanning then //stop the scan
               //initialize the Oscilloscope Plot
               OscilloscopeForm.OscilloscopeChartLineSeries1.Clear;
               OscilloscopeForm.OscilloscopeChartLineSeries2.Clear;
+              OscilloscopeForm.OscilloscopeChartLineSeries3.Clear;
+              OscilloscopeForm.OscilloscopeChartLineSeries4.Clear;
               fastdelay(10*DwellTime); //Delay at beginning of scan to relax
               StartX:=ScanXMinusLimit;
               StatusBar.SimpleText:='Scanning forward topography '+ IntToStr(j+1);
@@ -1021,11 +1024,12 @@ if Scanning then //stop the scan
 
               //end of the MFM part of the scan
 
-              StartY:=StartY - ScanYStep;
-              MoveToY(StartY, StepY, 0);
               //Re-engage feedback, then wait for it to settle, based on the integral time of the PID
               EngageFeedbackBtnClick(Self);
               fastdelay(10*IntTime);
+
+              StartY:=StartY - ScanYStep;
+              MoveToY(StartY, StepY, 0);
 
               if RescaleImage then ReplotImages(ScanAxis, j);
               if RescaleMFMImage then ReplotMFMImages(ScanAxis, j);
@@ -1048,14 +1052,16 @@ if Scanning then //stop the scan
               //initialize the Oscilloscope Plot
               OscilloscopeForm.OscilloscopeChartLineSeries1.Clear;
               OscilloscopeForm.OscilloscopeChartLineSeries2.Clear;
+              OscilloscopeForm.OscilloscopeChartLineSeries3.Clear;
+              OscilloscopeForm.OscilloscopeChartLineSeries4.Clear;
               fastdelay(10*DwellTime); //Delay at beginning of scan to relax
               StartY:=ScanYPlusLimit;
-              StatusBar.SimpleText:='Scanning downward line '+ IntToStr(j+1);
+              StatusBar.SimpleText:='Scanning downward topo line '+ IntToStr(j+1);
               ForwardLineScanData:= YLineScan(ScanResolution, StartY, -ScanYStep,
                                     DwellTime, PID_Averages);  //Downward direction
               fastdelay(10*DwellTime); //Delay at beginning of scan to relax
               StartY:=ScanYMinusLimit;
-              StatusBar.SimpleText:='Scanning downward line '+ IntToStr(j+1);
+              StatusBar.SimpleText:='Scanning upward topo line '+ IntToStr(j+1);
               ReverseLineScanData:= YLineScan(ScanResolution, StartY, +ScanXStep,
                                     DwellTime, PID_Averages);  //Upward direction
 
@@ -1080,9 +1086,64 @@ if Scanning then //stop the scan
                   ReverseLeveledData[i,j]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                   inc(i);
                 end;
+
+              //Now do this for the MFM scan
+              //First turn off Feedback!
+              EngageFeedbackBtnClick(Self);  //Use the button to click it
+              fastdelay(10*DwellTime); //Delay at beginning of scan to relax
+              StartY:=ScanYPlusLimit;
+              StatusBar.SimpleText:='Scanning downward MFM line '+ IntToStr(j+1);
+
+              if UseLiftMode then
+                MFMForwardLineScanData:= LiftModeYLineScan(ScanResolution, StartY, -ScanYStep,
+                                    DwellTime, PID_Averages, ForwardLineScanData)
+               else
+                MFMForwardLineScanData:= YLineScan(ScanResolution, StartY, -ScanYStep,
+                                    DwellTime, PID_Averages);  //Downward direction
+
+              fastdelay(10*DwellTime); //Delay at beginning of scan to relax
+              StartY:=ScanYMinusLimit;
+              StatusBar.SimpleText:='Scanning upward MFM line '+ IntToStr(j+1);
+
+              if UseLiftMode then
+                MFMReverseLineScanData:= LiftModeYLineScan(ScanResolution, StartY, +ScanXStep,
+                                    DwellTime, PID_Averages, ReverseLineScanData)
+               else
+                MFMReverseLineScanData:= YLineScan(ScanResolution, StartY, +ScanXStep,
+                                    DwellTime, PID_Averages);  //Upward direction
+
+              //Fill in XPoints with the X positions of the scan
+              //This is for the line by line leveling, and could also apply to
+              //scanning along the y direction
+              for i:=0 to ScanResolution-1 do XPoints[i]:=ScanYPlusLimit - i*ScanYStep;
+              for i:=0 to ScanResolution-1 do XPointsReversed[i]:=Xpoints[ScanResolution-1-i];
+
+              //Generate the leveled data
+              LeveledSingleLineForwardData:=LeveledScanData(XPoints, ForwardLineScanData);
+              LeveledSingleLineReverseData:=LeveledScanData(XPointsReversed, ReverseLineScanData);
+
+              i:=0;
+              while ((i<ScanResolution) and Scanning) do  //this is the Y iteration
+                begin
+                  ForwardData[j,i]:=ForwardLineScanData[i];
+                  ReverseData[j,i]:=ReverseLineScanData[ScanResolution-1-i];//Need to reverse
+                  ForwardLeveledData[j,i]:=LeveledSingleLineForwardData[i];
+                  //Manan changed to see if it helps in giving identical forward and reverse images
+                  //ReverseData[j,i]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
+                  ReverseLeveledData[i,j]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
+                  inc(i);
+                end;
+
+              //end of MFM part for YScan axis
+
+              //Re-engage feedback, then wait for it to settle, based on the integral time of the PID
+              EngageFeedbackBtnClick(Self);
+              fastdelay(10*IntTime);
+
               StartX:=StartX + ScanXStep;
               MoveToX(StartX, StepX, 0);
               if RescaleImage then ReplotImages(ScanAxis, j);
+              if RescaleMFMImage then ReplotMFMImages(ScanAxis, j);
               UpdateScanImages(ScanAxis, i, j);
               UpdateXYPositionIndicators;
               UpdateZPositionIndicators;
@@ -1109,6 +1170,32 @@ if Scanning then //stop the scan
     AveragesEdit.Enabled:=TRUE;
     ScanDirectionComboBox.Enabled:=TRUE;
 
+  end;
+end;
+
+procedure TMFMForm.SetYEditKeyPress(Sender: TObject; var Key: char);
+var EditCaption: string;
+begin
+if Key=chr(13) then
+  begin
+    EditCaption:=SetYEdit.Text;
+    RespondToAxisKeyPress(SetY, SetYVoltage, EditCaption, YAxis);
+    SetYEdit.Text:=EditCaption;
+    MoveToY(SetY,StepY, StepDelay);
+    UpdateXYPositionIndicators;
+  end;
+end;
+
+procedure TMFMForm.SetZEditKeyPress(Sender: TObject; var Key: char);
+var EditCaption: string;
+begin
+if Key=chr(13) then
+  begin
+    EditCaption:=SetZEdit.Text;
+    RespondToAxisKeyPress(SetZ, SetZVoltage, EditCaption, ZAxis);
+    SetZEdit.Text:=EditCaption;
+    MoveToZ(SetZ,StepZ, StepDelay);
+    UpdateZPositionIndicators;
   end;
 end;
 
@@ -1172,7 +1259,6 @@ begin
   ScanRange:=ScanRanges[ScanRangeIndex].Range;  //in microns
   ScanRangeVoltage:=ScanRanges[ScanRangeIndex].Voltage;
   GenerateLUT(ScanRangeIndex);
-
 end;
 
 procedure TMFMForm.ScanResolutionComboBoxSelect(Sender: TObject);

@@ -19,6 +19,7 @@ interface
 procedure InitializeBoards;
 procedure ReleaseBoards;
 procedure WriteChannel(Channel: Axis; Voltage: double);
+procedure DirectWriteChannel(OutChannel: Acquisition_channel; Voltage: double);
 procedure WriteZChannel(Voltage: double);
 function ReadChannel(Channel: Acquisition_channel): real;
 function ReadFeedbackChannel: real;
@@ -71,6 +72,16 @@ begin
    comedi_data_write(OutChannel.board_id, OutChannel.subdevice, OutChannel.channel, 0, AREF_DIFF, data);
 
 end;
+
+{------------------------------------------------------------------}
+procedure DirectWriteChannel(OutChannel: Acquisition_channel; Voltage: double);
+   var    data : lsampl_t;
+begin
+    //First convert the voltage into an integer
+  data :=  round(((voltage - MinDAQVoltage)/DAQVoltageRange)*MaxBits);
+  comedi_data_write(OutChannel.board_id, OutChannel.subdevice, OutChannel.channel, 0, AREF_DIFF, data);
+end;
+
 {------------------------------------------------------------------}
 procedure WriteZChannel(Voltage: double);
   var

@@ -25,6 +25,10 @@ interface
                         SinglePointDwellTime, NumbAverages: integer): TScanData;
   function YLineScan(ScanResolution: integer; StartPoint, Step: real;
                         SinglePointDwellTime, NumbAverages: integer): TScanData;
+  function XLineacEFMScan(ScanResolution: integer; StartPoint, Step: real;
+                        SinglePointDwellTime, NumbAverages: integer): TScanData2DArray;
+  function YLineacEFMScan(ScanResolution: integer; StartPoint, Step: real;
+                        SinglePointDwellTime, NumbAverages: integer): TScanData2DArray;
   function LiftModeXLineScan(ScanResolution: integer; StartPoint, Step: real;
                         SinglePointDwellTime, NumbAverages: integer;Heights: TScanData): TScanData;
   function LiftModeYLineScan(ScanResolution: integer; StartPoint, Step: real;
@@ -339,9 +343,15 @@ implementation
             LineData[i]:=sum/NumbAverages;
           end;
           if Step>0 then
-            OscilloscopeForm.OscilloscopeChartLineSeries1.AddXY(XValue,LineData[i], '',clRed) //color red, first layer, forward scan
+            if InFeedback then //this is a topographic image, and we use line series 1
+              OscilloscopeForm.OscilloscopeChartLineSeries1.AddXY(XValue,LineData[i], '',clRed) //color red, first layer, forward scan
+             else //this is a secondary line, and we use line series 3
+              OscilloscopeForm.OscilloscopeChartLineSeries3.AddXY(XValue,LineData[i], '',clGreen) //color red, first layer, forward scan
            else
-            OscilloscopeForm.OscilloscopeChartLineSeries2.AddXY(XValue,LineData[i], '',clBlue); //color blue, second layer, reverse scan
+            if InFeedback then //same for the other direction
+              OscilloscopeForm.OscilloscopeChartLineSeries2.AddXY(XValue,LineData[i], '',clBlue) //color blue, second layer, reverse scan
+             else
+              OscilloscopeForm.OscilloscopeChartLineSeries4.AddXY(XValue,LineData[i], '',clFuchsia); //color blue, second layer, reverse scan
         XValue:=XValue+Step;
       end;
     XLineScan:=LineData;
@@ -375,14 +385,86 @@ implementation
             LineData[i]:=sum/NumbAverages;
           end;
           if Step<0 then
-            OscilloscopeForm.OscilloscopeChartLineSeries1.AddXY(YValue,LineData[i], '',clRed) //color red, first layer, downward scan
+            if InFeedback then //Topo image, plot in Line Series1
+              OscilloscopeForm.OscilloscopeChartLineSeries1.AddXY(YValue,LineData[i], '',clRed) //color red, first layer, downward scan
+             else
+              OscilloscopeForm.OscilloscopeChartLineSeries3.AddXY(YValue,LineData[i], '',clGreen) //color red, first layer, downward scan
            else
-            OscilloscopeForm.OscilloscopeChartLineSeries2.AddXY(YValue,LineData[i], '',clBlue); //color blue, second layer, upward scan
+            if InFeedback then
+              OscilloscopeForm.OscilloscopeChartLineSeries2.AddXY(YValue,LineData[i], '',clBlue) //color blue, second layer, upward scan
+             else
+              OscilloscopeForm.OscilloscopeChartLineSeries4.AddXY(YValue,LineData[i], '',clFuchsia); //color blue, second layer, upward scan
         YValue:=YValue+Step;
       end;
     YLineScan:=LineData;
   end;
 {---------------------------------------------------------------------}
+{-------------------------------------------------------------------}
+  function XLineacEFMScan(ScanResolution: integer; StartPoint, Step: real;
+                        SinglePointDwellTime, NumbAverages: integer): TScanData2DArray;
+  var
+      LineData : TScanData2DArray;
+      i,j         : integer;
+      XValue    : real;
+      sum       : real;
+  begin
+    SetLength(LineData[0], ScanResolution);
+    SetLength(LineData[1], ScanResolution);
+    XValue:=StartPoint;
+    for i := 0 to ScanResolution - 1 do
+      begin
+        MoveToX(XValue, StepX, 0);
+        fastdelay(SinglePointDwellTime);
+        //while (PIDOutputVariance>1E-7) do Application.ProcessMessages;
+        LineData[0,i]:=ZVoltageToMicrons(AveragedPIDOutput);
+        LineData[1,i]:=AveragedChan1Reading;
+        if Step>0 then
+          begin
+            OscilloscopeForm.OscilloscopeChartLineSeries1.AddXY(XValue,LineData[0,i], '',clRed); //color red, topo layer, forward scan
+            OscilloscopeForm.OscilloscopeChartLineSeries3.AddXY(XValue,LineData[1,i], '',clGreen); //color green, efm layer, forward scan
+          end
+         else
+          begin
+            OscilloscopeForm.OscilloscopeChartLineSeries2.AddXY(XValue,LineData[0,i], '',clBlue); //color blue, second topo layer, reverse scan
+            OscilloscopeForm.OscilloscopeChartLineSeries4.AddXY(XValue,LineData[1,i], '',clFuchsia); //color fuchsia, efm layer, reverse scan
+          end;
+        XValue:=XValue+Step;
+      end;
+    XLineacEFMScan:=LineData;
+  end;
+
+{-------------------------------------------------------------------}
+  function YLineacEFMScan(ScanResolution: integer; StartPoint, Step: real;
+                        SinglePointDwellTime, NumbAverages: integer): TScanData2DArray;
+  var
+      LineData : TScanData2DArray;
+      i,j         : integer;
+      YValue    : real;
+      sum       : real;
+  begin
+    SetLength(LineData[0], ScanResolution);
+    SetLength(LineData[1], ScanResolution);
+    YValue:=StartPoint;
+    for i := 0 to ScanResolution - 1 do
+      begin
+        MoveToY(YValue, StepY, 0);
+        fastdelay(SinglePointDwellTime*0.8);
+        LineData[0,i]:=ZVoltageToMicrons(AveragedPIDOutput);
+        LineData[1,i]:=AveragedChan1Reading;
+        if Step<0 then
+          begin
+            OscilloscopeForm.OscilloscopeChartLineSeries1.AddXY(YValue,LineData[0,i], '',clRed); //color red, first layer, downward scan
+            OscilloscopeForm.OscilloscopeChartLineSeries4.AddXY(YValue,LineData[1,i], '',clGreen); //color green, efm layer, downward scan
+          end
+         else
+          begin
+            OscilloscopeForm.OscilloscopeChartLineSeries2.AddXY(YValue,LineData[0,i], '',clBlue); //color blue, second layer, upward scan
+            OscilloscopeForm.OscilloscopeChartLineSeries4.AddXY(YValue,LineData[1,i], '',clFuchsia);  //color fuchsia, second layer, upward scan
+          end;
+        YValue:=YValue+Step;
+      end;
+    YLineacEFMScan:=LineData;
+  end;
 function LiftModeXLineScan(ScanResolution: integer; StartPoint, Step: real;
                       SinglePointDwellTime, NumbAverages: integer;Heights: TScanData): TScanData;
 
@@ -408,9 +490,9 @@ begin
       fastdelay(SinglePointDwellTime*0.5);
       LineData[i]:=ReadAveragedFeedbackChannel(NumbAverages);
       if Step>0 then
-        OscilloscopeForm.OscilloscopeChartLineSeries1.AddXY(XValue,LineData[i], '',clRed) //color red, first layer, forward scan
+        OscilloscopeForm.OscilloscopeChartLineSeries3.AddXY(XValue,LineData[i], '',clGreen) //color green, first layer, forward scan
        else
-        OscilloscopeForm.OscilloscopeChartLineSeries2.AddXY(XValue,LineData[i], '',clBlue); //color blue, second layer, reverse scan
+        OscilloscopeForm.OscilloscopeChartLineSeries4.AddXY(XValue,LineData[i], '',clFuchsia); //color fuchsia, second layer, reverse scan
       XValue:=XValue+Step;
     end;
   LiftModeXLineScan:=LineData;
@@ -440,9 +522,9 @@ begin
       MoveToY(YValue, StepY, 0);
       LineData[i]:=ReadAveragedFeedbackChannel(NumbAverages);
       if Step<0 then
-        OscilloscopeForm.OscilloscopeChartLineSeries1.AddXY(YValue,LineData[i], '',clRed) //color red, first layer, downward scan
+        OscilloscopeForm.OscilloscopeChartLineSeries3.AddXY(YValue,LineData[i], '',clGreen) //color green, first layer, downward scan
        else
-        OscilloscopeForm.OscilloscopeChartLineSeries2.AddXY(YValue,LineData[i], '',clBlue); //color blue, second layer, upward scan
+        OscilloscopeForm.OscilloscopeChartLineSeries4.AddXY(YValue,LineData[i], '',clFuchsia); //color fuchsia, second layer, upward scan
       YValue:=YValue+Step;
     end;
   LiftModeYLineScan:=LineData;
