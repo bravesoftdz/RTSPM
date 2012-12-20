@@ -45,6 +45,7 @@ object SPM_MainForm: TSPM_MainForm
     Width = 129
     Caption = 'STM'
     Enabled = False
+    OnClick = STMBtnClick
     TabOrder = 2
   end
   object MFM_Lift_Btn: TBitBtn
@@ -54,6 +55,7 @@ object SPM_MainForm: TSPM_MainForm
     Width = 152
     Caption = 'MFM'
     Enabled = False
+    OnClick = MFM_Lift_BtnClick
     TabOrder = 3
   end
   object Oscilloscope_Btn: TBitBtn
@@ -73,6 +75,7 @@ object SPM_MainForm: TSPM_MainForm
     Width = 129
     Caption = 'EFM/SGM'
     Enabled = False
+    OnClick = EFM_BtnClick
     TabOrder = 5
   end
   object ExitProgram: TBitBtn

@@ -31,7 +31,10 @@ type
     Bevel1: TBevel;
     ExitProgram: TBitBtn;
     SystemConfiguration: TBitBtn;
+    procedure EFM_BtnClick(Sender: TObject);
+    procedure MFM_Lift_BtnClick(Sender: TObject);
     procedure Oscilloscope_BtnClick(Sender: TObject);
+    procedure STMBtnClick(Sender: TObject);
     procedure SystemConfigurationClick(Sender: TObject);
     procedure CoarseApproachBtnClick(Sender: TObject);
     procedure AFMBtnClick(Sender: TObject);
@@ -55,7 +58,7 @@ var
 implementation
 
 uses TipCoarseApproach, GlobalVariables, SystemConfiguration, DAQFunctions,
-     FileFunctions, AttocubeFunctions, AFMTopography, Oscilloscope,
+     FileFunctions, AttocubeFunctions, AFMTopography, Oscilloscope, MFM, EFM, STM,
      rtai_comedi_functions, rtai_comedi_types, rtai_functions;
 
 {$IFNDEF LCL}
@@ -147,6 +150,21 @@ end;
 procedure TSPM_MainForm.Oscilloscope_BtnClick(Sender: TObject);
 begin
   OscilloscopeForm.Show;
+end;
+
+procedure TSPM_MainForm.MFM_Lift_BtnClick(Sender: TObject);
+begin
+  MFMForm.Show;
+end;
+
+procedure TSPM_MainForm.EFM_BtnClick(Sender: TObject);
+begin
+  EFMForm.Show;
+end;
+
+procedure TSPM_MainForm.STMBtnClick(Sender: TObject);
+begin
+  STMForm.Show;
 end;
 
 initialization

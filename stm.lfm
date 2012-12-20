@@ -1,12 +1,11 @@
-object MFMForm: TMFMForm
-  Left = 463
-  Height = 892
-  Top = 47
-  Width = 1129
-  ActiveControl = PropEdit
-  Caption = 'Magnetic Force MIcroscopy'
-  ClientHeight = 892
-  ClientWidth = 1129
+object STMForm: TSTMForm
+  Left = 1081
+  Height = 792
+  Top = 186
+  Width = 802
+  Caption = 'Scanning Tunneling Microscopy'
+  ClientHeight = 792
+  ClientWidth = 802
   OnClose = FormClose
   OnShow = FormShow
   LCLVersion = '1.0.2.0'
@@ -26,8 +25,8 @@ object MFMForm: TMFMForm
     Left = 21
     Height = 20
     Top = 8
-    Width = 181
-    Caption = 'Forward Topo Image'
+    Width = 133
+    Caption = 'Forward Image'
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
@@ -38,8 +37,8 @@ object MFMForm: TMFMForm
     Left = 435
     Height = 20
     Top = 8
-    Width = 182
-    Caption = 'Reverse Topo Image'
+    Width = 134
+    Caption = 'Reverse Image'
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
@@ -54,70 +53,24 @@ object MFMForm: TMFMForm
   end
   object Label18: TLabel
     Left = 18
-    Height = 15
+    Height = 18
     Top = 432
-    Width = 58
+    Width = 66
     Caption = 'Scale Max'
-    Font.Height = -11
     ParentColor = False
-    ParentFont = False
   end
   object Label19: TLabel
     Left = 21
-    Height = 15
+    Height = 18
     Top = 401
-    Width = 55
+    Width = 62
     Caption = 'Scale Min'
-    Font.Height = -11
     ParentColor = False
-    ParentFont = False
-  end
-  object MFMForwardImage: TImage
-    Left = 18
-    Height = 350
-    Top = 481
-    Width = 350
-  end
-  object Label21: TLabel
-    Left = 18
-    Height = 20
-    Top = 456
-    Width = 181
-    Caption = 'Forward MFM Image'
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentColor = False
-    ParentFont = False
-  end
-  object MFMReverseImage: TImage
-    Left = 435
-    Height = 350
-    Top = 481
-    Width = 350
-  end
-  object Label22: TLabel
-    Left = 435
-    Height = 20
-    Top = 456
-    Width = 182
-    Caption = 'Reverse MFM Image'
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentColor = False
-    ParentFont = False
-  end
-  object MFMIndicatorImage: TImage
-    Left = 392
-    Height = 350
-    Top = 481
-    Width = 15
   end
   object Scan_Tube_GroupBox: TGroupBox
-    Left = 808
+    Left = 11
     Height = 190
-    Top = 520
+    Top = 464
     Width = 210
     Caption = 'Scan Tube Control'
     ClientHeight = 174
@@ -200,7 +153,6 @@ object MFMForm: TMFMForm
       Height = 22
       Top = 60
       Width = 57
-      OnKeyPress = SetYEditKeyPress
       TabOrder = 1
       Text = '0'
     end
@@ -310,12 +262,12 @@ object MFMForm: TMFMForm
     TabOrder = 1
   end
   object ScanStartGroupBox: TGroupBox
-    Left = 808
-    Height = 199
-    Top = 33
+    Left = 227
+    Height = 232
+    Top = 464
     Width = 311
     Caption = 'Scan Control'
-    ClientHeight = 183
+    ClientHeight = 216
     ClientWidth = 307
     Color = clYellow
     Font.Height = -11
@@ -326,7 +278,7 @@ object MFMForm: TMFMForm
     object Label3: TLabel
       Left = 16
       Height = 15
-      Top = 28
+      Top = 44
       Width = 31
       Caption = 'Ch. 0'
       ParentColor = False
@@ -334,7 +286,7 @@ object MFMForm: TMFMForm
     object Label4: TLabel
       Left = 65
       Height = 15
-      Top = 28
+      Top = 44
       Width = 31
       Caption = 'Ch. 1'
       ParentColor = False
@@ -342,7 +294,7 @@ object MFMForm: TMFMForm
     object Ch0OutputLabel: TLabel
       Left = 16
       Height = 15
-      Top = 47
+      Top = 65
       Width = 19
       Caption = '0.0'
       ParentColor = False
@@ -350,7 +302,7 @@ object MFMForm: TMFMForm
     object Ch1OutputLabel: TLabel
       Left = 62
       Height = 15
-      Top = 47
+      Top = 65
       Width = 19
       Caption = '0.0'
       ParentColor = False
@@ -370,7 +322,7 @@ object MFMForm: TMFMForm
     object Label7: TLabel
       Left = 16
       Height = 15
-      Top = 72
+      Top = 85
       Width = 53
       Caption = 'Feedback'
       ParentColor = False
@@ -378,7 +330,7 @@ object MFMForm: TMFMForm
     object FeedbackOutputLabel: TLabel
       Left = 19
       Height = 15
-      Top = 91
+      Top = 106
       Width = 19
       Caption = '0.0'
       ParentColor = False
@@ -394,7 +346,7 @@ object MFMForm: TMFMForm
     object Label6: TLabel
       Left = 16
       Height = 15
-      Top = 1
+      Top = 14
       Width = 43
       Caption = 'Signals'
       ParentColor = False
@@ -402,7 +354,7 @@ object MFMForm: TMFMForm
     object PID: TLabel
       Left = 112
       Height = 15
-      Top = 15
+      Top = 12
       Width = 90
       Caption = 'PID Parameters'
       ParentColor = False
@@ -414,17 +366,17 @@ object MFMForm: TMFMForm
       Width = 4
     end
     object Label11: TLabel
-      Left = 228
+      Left = 16
       Height = 15
-      Top = 130
-      Width = 69
-      Caption = 'Error Signal'
+      Top = 190
+      Width = 73
+      Caption = 'Error Signal:'
       ParentColor = False
     end
     object ErrorSignalLabel: TLabel
-      Left = 228
+      Left = 112
       Height = 15
-      Top = 149
+      Top = 192
       Width = 19
       Caption = '0.0'
       ParentColor = False
@@ -432,16 +384,16 @@ object MFMForm: TMFMForm
     object SetPointEdit: TLabeledEdit
       Left = 112
       Height = 22
-      Top = 77
-      Width = 54
+      Top = 98
+      Width = 51
       EditLabel.AnchorSideLeft.Control = SetPointEdit
       EditLabel.AnchorSideRight.Control = SetPointEdit
       EditLabel.AnchorSideRight.Side = asrBottom
       EditLabel.AnchorSideBottom.Control = SetPointEdit
       EditLabel.Left = 112
       EditLabel.Height = 15
-      EditLabel.Top = 59
-      EditLabel.Width = 54
+      EditLabel.Top = 80
+      EditLabel.Width = 51
       EditLabel.Caption = 'Set Point (V)'
       EditLabel.ParentColor = False
       TabOrder = 0
@@ -450,17 +402,17 @@ object MFMForm: TMFMForm
     end
     object ScanStartBtn: TBitBtn
       Left = 16
-      Height = 44
-      Top = 115
+      Height = 49
+      Top = 133
       Width = 74
       Caption = 'Start scan'
       OnClick = ScanStartBtnClick
       TabOrder = 1
     end
     object EngageFeedbackBtn: TButton
-      Left = 112
-      Height = 41
-      Top = 115
+      Left = 155
+      Height = 45
+      Top = 132
       Width = 110
       Caption = 'Start Feedback'
       OnClick = EngageFeedbackBtnClick
@@ -469,7 +421,7 @@ object MFMForm: TMFMForm
     object ErrorCorrectionSpinEdit: TSpinEdit
       Left = 112
       Height = 22
-      Top = 53
+      Top = 55
       Width = 45
       Increment = 2
       MaxValue = 1
@@ -481,7 +433,7 @@ object MFMForm: TMFMForm
     object PropEdit: TLabeledEdit
       Left = 231
       Height = 22
-      Top = 20
+      Top = 18
       Width = 47
       EditLabel.AnchorSideLeft.Control = PropEdit
       EditLabel.AnchorSideRight.Control = PropEdit
@@ -489,7 +441,7 @@ object MFMForm: TMFMForm
       EditLabel.AnchorSideBottom.Control = PropEdit
       EditLabel.Left = 231
       EditLabel.Height = 15
-      EditLabel.Top = 2
+      EditLabel.Top = 0
       EditLabel.Width = 47
       EditLabel.Caption = 'Proportional'
       EditLabel.ParentColor = False
@@ -500,7 +452,7 @@ object MFMForm: TMFMForm
     object IntEdit: TLabeledEdit
       Left = 231
       Height = 22
-      Top = 58
+      Top = 55
       Width = 47
       EditLabel.AnchorSideLeft.Control = IntEdit
       EditLabel.AnchorSideRight.Control = IntEdit
@@ -508,7 +460,7 @@ object MFMForm: TMFMForm
       EditLabel.AnchorSideBottom.Control = IntEdit
       EditLabel.Left = 231
       EditLabel.Height = 15
-      EditLabel.Top = 40
+      EditLabel.Top = 37
       EditLabel.Width = 47
       EditLabel.Caption = 'Integral'
       EditLabel.ParentColor = False
@@ -519,7 +471,7 @@ object MFMForm: TMFMForm
     object DiffEdit: TLabeledEdit
       Left = 231
       Height = 22
-      Top = 97
+      Top = 95
       Width = 47
       EditLabel.AnchorSideLeft.Control = DiffEdit
       EditLabel.AnchorSideRight.Control = DiffEdit
@@ -527,7 +479,7 @@ object MFMForm: TMFMForm
       EditLabel.AnchorSideBottom.Control = DiffEdit
       EditLabel.Left = 231
       EditLabel.Height = 15
-      EditLabel.Top = 79
+      EditLabel.Top = 77
       EditLabel.Width = 47
       EditLabel.Caption = 'Differential'
       EditLabel.ParentColor = False
@@ -535,66 +487,72 @@ object MFMForm: TMFMForm
       Text = '0'
       OnKeyPress = DiffEditKeyPress
     end
+    object LogarithmicCheckBox: TCheckBox
+      Left = 203
+      Height = 21
+      Top = 184
+      Width = 98
+      Caption = 'Logarithmic'
+      OnClick = LogarithmicCheckBoxClick
+      TabOrder = 7
+    end
   end
   object GroupBox1: TGroupBox
-    Left = 808
+    Left = 544
     Height = 188
-    Top = 240
+    Top = 464
     Width = 241
     Caption = 'Scan Parameters'
-    ClientHeight = 172
+    ClientHeight = 169
     ClientWidth = 237
     Color = clRed
-    Font.Height = -11
     ParentColor = False
-    ParentFont = False
     TabOrder = 3
     object Label13: TLabel
       Left = 18
-      Height = 15
+      Height = 18
       Top = 1
-      Width = 92
+      Width = 102
       Caption = 'Scan Resolution'
       ParentColor = False
     end
     object Label15: TLabel
       Left = 16
-      Height = 15
+      Height = 18
       Top = 96
-      Width = 94
+      Width = 105
       Caption = 'Dwell time  (ms)'
       ParentColor = False
     end
     object Label16: TLabel
       Left = 130
-      Height = 15
+      Height = 18
       Top = 96
-      Width = 53
+      Width = 60
       Caption = 'Averages'
       ParentColor = False
     end
     object Label17: TLabel
       Left = 18
-      Height = 15
+      Height = 18
       Top = 48
-      Width = 66
+      Width = 74
       Caption = 'Scan range'
       ParentColor = False
     end
     object Label14: TLabel
       Left = 18
-      Height = 15
+      Height = 18
       Top = 152
-      Width = 83
+      Width = 94
       Caption = 'Scan Direction'
       ParentColor = False
     end
     object ScanResolutionComboBox: TComboBox
       Left = 16
-      Height = 25
+      Height = 27
       Top = 20
       Width = 135
-      Font.Height = -11
       ItemHeight = 0
       Items.Strings = (
         '128'
@@ -603,120 +561,111 @@ object MFMForm: TMFMForm
         '1024'
       )
       OnSelect = ScanResolutionComboBoxSelect
-      ParentFont = False
       TabOrder = 0
       Text = 'Select a scan resolution'
     end
     object DwellTimeEdit: TSpinEdit
       Left = 16
-      Height = 22
+      Height = 25
       Top = 115
       Width = 62
-      Font.Height = -11
       MaxValue = 50
       MinValue = 1
       OnChange = DwellTimeEditChange
-      ParentFont = False
       TabOrder = 1
       Value = 5
     end
     object AveragesEdit: TSpinEdit
       Left = 130
-      Height = 22
+      Height = 25
       Top = 115
       Width = 62
-      Font.Height = -11
       MinValue = 1
       OnChange = AveragesEditChange
-      ParentFont = False
       TabOrder = 2
       Value = 5
     end
     object ScanRangeComboBox: TComboBox
       Left = 16
-      Height = 25
+      Height = 27
       Top = 64
       Width = 135
-      Font.Height = -11
       ItemHeight = 0
       OnSelect = ScanRangeComboBoxSelect
-      ParentFont = False
       TabOrder = 3
       Text = 'Select a scan range'
     end
     object ScanDirectionComboBox: TComboBox
       Left = 130
-      Height = 25
+      Height = 27
       Top = 144
       Width = 100
-      Font.Height = -11
       ItemHeight = 0
       Items.Strings = (
         'X Axis'
         'Y Axis'
       )
       OnChange = ScanDirectionComboBoxChange
-      ParentFont = False
       TabOrder = 4
       Text = 'ScanDirectionComboBox'
     end
   end
-  object TopoScaleMaxEdit: TEdit
-    Left = 96
-    Height = 22
+  object StatusBar: TStatusBar
+    Left = 0
+    Height = 21
+    Top = 771
+    Width = 802
+    Panels = <>
+    SimpleText = 'Idle'
+  end
+  object ScaleMaxEdit: TEdit
+    Left = 75
+    Height = 25
     Top = 425
     Width = 80
-    Font.Height = -11
-    OnKeyPress = TopoScaleMaxEditKeyPress
-    ParentFont = False
-    TabOrder = 4
-    Text = 'TopoScaleMaxEdit'
+    OnKeyPress = ScaleMaxEditKeyPress
+    TabOrder = 5
+    Text = 'ScaleMaxEdit'
   end
-  object TopoScaleMinEdit: TEdit
-    Left = 96
-    Height = 22
+  object ScaleMinEdit: TEdit
+    Left = 77
+    Height = 25
     Top = 392
     Width = 80
-    Font.Height = -11
-    OnKeyPress = TopoScaleMinEditKeyPress
-    ParentFont = False
-    TabOrder = 5
-    Text = 'TopoScaleMinEdit'
+    OnKeyPress = ScaleMinEditKeyPress
+    TabOrder = 6
+    Text = 'ScaleMinEdit'
   end
-  object TopoRescaleButton: TButton
-    Left = 293
+  object RescaleButton: TButton
+    Left = 168
     Height = 25
     Top = 392
     Width = 75
     Caption = 'Rescale'
-    Font.Height = -11
-    OnClick = TopoRescaleButtonClick
-    ParentFont = False
-    TabOrder = 6
+    OnClick = RescaleButtonClick
+    TabOrder = 7
   end
   object FileSaveGroupBox: TGroupBox
-    Left = 808
+    Left = 11
     Height = 105
-    Top = 728
+    Top = 656
     Width = 206
     Caption = 'File Saving'
-    ClientHeight = 89
+    ClientHeight = 86
     ClientWidth = 202
-    Font.Height = -11
-    ParentFont = False
-    TabOrder = 7
+    TabOrder = 8
     object Label20: TLabel
       Left = 13
-      Height = 15
-      Top = 54
-      Width = 90
+      Height = 18
+      Top = 42
+      Width = 100
       Caption = 'Run Description'
       ParentColor = False
     end
     object SaveAsGSFFileButton: TButton
       Left = 8
       Height = 38
-      Top = 7
+      Top = 2
       Width = 91
       Caption = 'Save As GSF'
       OnClick = SaveAsGSFFileButtonClick
@@ -725,144 +674,49 @@ object MFMForm: TMFMForm
     object SaveAsTextFileButton: TButton
       Left = 107
       Height = 38
-      Top = 7
+      Top = 2
       Width = 88
       Caption = 'Save as Text'
       OnClick = SaveAsTextFileButtonClick
       TabOrder = 1
     end
     object DescriptionEdit: TEdit
-      Left = 9
-      Height = 22
-      Top = 67
+      Left = 11
+      Height = 25
+      Top = 58
       Width = 183
       TabOrder = 2
       Text = 'Write brief description here'
     end
   end
-  object StatusBar: TStatusBar
-    Left = 0
+  object LevelImageCheckBox: TCheckBox
+    Left = 168
     Height = 21
-    Top = 871
-    Width = 1129
-    Panels = <>
-    SimpleText = 'Idle'
-  end
-  object Label23: TLabel
-    Left = 19
-    Height = 15
-    Top = 849
-    Width = 55
-    Caption = 'Scale Min'
-    Font.Height = -11
-    ParentColor = False
-    ParentFont = False
-  end
-  object MFMScaleMinEdit: TEdit
-    Left = 94
-    Height = 22
-    Top = 840
-    Width = 80
-    Font.Height = -11
-    OnKeyPress = MFMScaleMinEditKeyPress
-    ParentFont = False
+    Top = 424
+    Width = 130
+    Caption = 'AutoLevel Image'
+    OnClick = LevelImageCheckBoxClick
     TabOrder = 9
-    Text = 'ScaleMinEdit'
   end
-  object MFMScaleMaxEdit: TEdit
-    Left = 318
-    Height = 22
-    Top = 842
-    Width = 80
-    Font.Height = -11
-    OnKeyPress = MFMScaleMaxEditKeyPress
-    ParentFont = False
-    TabOrder = 10
-    Text = 'ScaleMaxEdit'
-  end
-  object Label24: TLabel
-    Left = 240
-    Height = 15
-    Top = 849
-    Width = 58
-    Caption = 'Scale Max'
-    Font.Height = -11
-    ParentColor = False
-    ParentFont = False
-  end
-  object MFMRescaleButton: TButton
-    Left = 704
+  object SampleVoltageSpinEdit: TFloatSpinEdit
+    Left = 454
     Height = 25
-    Top = 839
-    Width = 75
-    Caption = 'Rescale'
-    Font.Height = -11
-    OnClick = MFMRescaleButtonClick
-    ParentFont = False
-    TabOrder = 11
-  end
-  object LiftModeHeightSpinEdit: TFloatSpinEdit
-    Left = 985
-    Height = 25
-    Top = 464
-    Width = 64
+    Top = 720
+    Width = 66
     Increment = 0.1
-    MaxValue = 100
-    MinValue = 0
-    OnChange = LiftModeHeightSpinEditChange
-    TabOrder = 12
-    Value = 20
+    MaxValue = 10
+    MinValue = -10
+    OnChange = SampleVoltageSpinEditChange
+    TabOrder = 10
+    Value = 0
   end
-  object Label25: TLabel
-    Left = 979
+  object Label26: TLabel
+    Left = 384
     Height = 18
-    Top = 440
-    Width = 140
-    Caption = 'Lift mode height (nm)'
+    Top = 704
+    Width = 136
+    Caption = 'Samp/Tip Voltage (V)'
     ParentColor = False
-  end
-  object LevelTopoImageCheckBox: TCheckBox
-    Left = 240
-    Height = 21
-    Top = 426
-    Width = 130
-    Caption = 'AutoLevel Image'
-    OnClick = LevelTopoImageCheckBoxClick
-    TabOrder = 13
-  end
-  object LevelMFMImageCheckBox: TCheckBox
-    Left = 472
-    Height = 21
-    Top = 840
-    Width = 130
-    Caption = 'AutoLevel Image'
-    OnClick = LevelMFMImageCheckBoxClick
-    TabOrder = 14
-  end
-  object MFMModeRadioGroup: TRadioGroup
-    Left = 816
-    Height = 73
-    Top = 432
-    Width = 152
-    AutoFill = True
-    Caption = 'MFM Mode'
-    ChildSizing.LeftRightSpacing = 6
-    ChildSizing.TopBottomSpacing = 6
-    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
-    ChildSizing.EnlargeVertical = crsHomogenousChildResize
-    ChildSizing.ShrinkHorizontal = crsScaleChilds
-    ChildSizing.ShrinkVertical = crsScaleChilds
-    ChildSizing.Layout = cclLeftToRightThenTopToBottom
-    ChildSizing.ControlsPerLine = 1
-    ClientHeight = 54
-    ClientWidth = 148
-    ItemIndex = 0
-    Items.Strings = (
-      'Lift Mode'
-      'Constant Height'
-    )
-    OnClick = MFMModeRadioGroupClick
-    TabOrder = 15
   end
   object DataTimer: TTimer
     Enabled = False
