@@ -16,6 +16,11 @@ type
   { TCoarseApproachTool }
 
   TCoarseApproachTool = class(TForm)
+    CoarseApproachStepEdit: TEdit;
+    Label19: TLabel;
+    Label20: TLabel;
+    ShowIndicatorCheckBox: TCheckBox;
+    ShowPlotCheckBox: TCheckBox;
     XAutoScaleCheckBox: TCheckBox;
     YAutoScaleCheckBox: TCheckBox;
     AxisGroupBox: TGroupBox;
@@ -95,6 +100,9 @@ type
     {Series1: TFastLineSeries;}
     CoarseApproachStepSizeEdit: TSpinEdit;
     Label11: TLabel;
+    procedure CoarseApproachStepEditKeyPress(Sender: TObject; var Key: char);
+    procedure ShowIndicatorCheckBoxClick(Sender: TObject);
+    procedure ShowPlotCheckBoxClick(Sender: TObject);
     procedure YAutoScaleCheckBoxClick(Sender: TObject);
     procedure CoarseApproachStepSizeEditChange(Sender: TObject);
     procedure DataTimerTimer(Sender: TObject);
@@ -176,9 +184,16 @@ var
   WalkerTimedMoveTime : integer = 50; //time in milliseconds walkers should move
   FeedbackChannelReading  : real;
   NumbAverages            : integer = 100;  //averages to take in averaged reading
-  CoarseApproachStepSize  : integer = 15; //Step size to take on coarse approach
+  CoarseApproachStepSize  : integer = 1; //Step size to take on coarse approach
   StartReading            : real;
   FeedbackCondition       : integer;
+  ShowCoarseApproachPlot  : boolean = FALSE;  // Plot data during close approach
+  ShowCoarseApproachZIndicator : boolean = FALSE; // Show Z indicator during close approach
+  CoarseApproachStep      : real; //Distance in um that the coarse approach mechanism goes in 1 step on approach
+  RestrictedZExtension    : real;// restricted range of Z extension when Coarse approach is less than full Z extension
+  ZExtensionScaleFactor   : real; //Restricted Z is extended by this percentage over CoarseApproachStep
+  RestrictedMaxZVoltage,
+  RestrictedMinZVoltage   : real; //Restricted voltages if CoarseApproachStep is less than z extension
 {-----------------------------------------------------------------------------}
 
 function CheckContact: boolean;
@@ -275,14 +290,20 @@ begin
   if MaxZVoltage>MinZVoltage then
     begin
       Direction:=-1;
+      MaxVoltage:=RestrictedMaxZVoltage;
+      MinVoltage:=RestrictedMinZVoltage;
+      {was
       MaxVoltage:=MaxZVoltage;
-      MinVoltage:=MinZVoltage;
+      MinVoltage:=MinZVoltage;}
     end
       else
         begin
           Direction:=1;
+          MaxVoltage:=RestrictedMinZVoltage;
+          MinVoltage:=RestrictedMaxZVoltage;
+          {was
           MaxVoltage:=MinZVoltage;
-          MinVoltage:=MaxZVoltage;
+          MinVoltage:=MaxZVoltage;}
         end;
   if Approaching then //stop the approach
     begin
@@ -310,7 +331,9 @@ begin
 
       //First, retract the tube all the way
       StatusBar.SimpleText:='Retracting';
-      MoveToZVoltage(MaxZVoltage, 100*MinZVoltageStep);
+      MoveToZVoltage(MaxVoltage, 100*MinZVoltageStep);
+      {was
+      MoveToZVoltage(MaxZVoltage, 100*MinZVoltageStep);}
       FullyExtended:= FALSE;
       InContact:=CheckContact;
       FeedbackOutputLabel.Caption:=FloatToStrF(FeedbackChannelReading, ffFixed, 6, 3);
@@ -326,18 +349,25 @@ begin
           if CurrentZVoltage<MinVoltage then CurrentZVoltage:=MinVoltage;
           RapidZVoltage(CurrentZVoltage);
           CurrentZ:=ZVoltageToMicrons(CurrentZVoltage);
-          UpdateZPositionIndicators;
-          ProbeSignalLineSeries1.AddXY(CurrentZ, FeedbackChannelReading, '',clRed);
+          if ShowCoarseApproachZIndicator then ZApproachBar.Position:=MicronsToProgressBar(CurrentZ);
+          ZPositionText.Caption:='Z: '+ FloatToStrF(CurrentZ, ffFixed, 10, 4);
+          //was UpdateZPositionIndicators;
+          if ShowCoarseApproachPlot then ProbeSignalLineSeries1.AddXY(CurrentZ, FeedbackChannelReading, '',clRed);
           Application.ProcessMessages; // Process any events from the program
           //Check if we are in contact
           InContact:=CheckContact;
           FeedbackOutputLabel.Caption:=FloatToStrF(FeedbackChannelReading, ffFixed, 6, 3);
+          if (((Direction=1) and (CurrentZVoltage>=MinVoltage)) or
+             ((Direction=-1) and (CurrentZVoltage<=MinVoltage))) then FullyExtended:=TRUE;
+          {was
           if (((Direction=1) and (CurrentZVoltage>=MinZVoltage)) or
-             ((Direction=-1) and (CurrentZVoltage<=MinZVoltage))) then FullyExtended:=TRUE;
+             ((Direction=-1) and (CurrentZVoltage<=MinZVoltage))) then FullyExtended:=TRUE; }
           if (FullyExtended and (not InContact)) then
             begin
               StatusBar.SimpleText:='Retracting';
-              MoveToZVoltage(MaxZVoltage, 100*MinZVoltageStep);   //Retract piezo
+              MoveToZVoltage(MaxVoltage, 100*MinZVoltageStep);   //Retract piezo
+              {was
+              MoveToZVoltage(MaxZVoltage, 100*MinZVoltageStep);   //Retract piezo}
               FullyExtended:=FALSE;
               WalkerTimedZApproach(200); //Approach for 200 msec
               fastdelay(350);  //wait for 10 msecs for things to settle
@@ -442,6 +472,48 @@ begin
      end;
 end;
 
+procedure TCoarseApproachTool.ShowPlotCheckBoxClick(Sender: TObject);
+begin
+  if ShowCoarseApproachPlot then
+    begin
+      ShowPlotCheckBox.State:=cbUnchecked;
+      ShowCoarseApproachPlot:=FALSE;
+    end
+   else
+    begin
+      ShowPlotCheckBox.State:=cbChecked;
+      ShowCoarseApproachPlot:=TRUE;
+    end;
+end;
+
+procedure TCoarseApproachTool.ShowIndicatorCheckBoxClick(Sender: TObject);
+begin
+  if ShowCoarseApproachZIndicator then
+    begin
+      ShowIndicatorCheckBox.State:=cbUnchecked;
+      ShowCoarseApproachZIndicator:=FALSE;
+    end
+   else
+   begin
+     ShowIndicatorCheckBox.State:=cbChecked;
+     ShowCoarseApproachZIndicator:=TRUE;
+   end;
+end;
+
+procedure TCoarseApproachTool.CoarseApproachStepEditKeyPress(Sender: TObject;
+  var Key: char);
+begin
+  if Key=Chr(13) then
+    begin
+      CoarseApproachStep:=StrToFloat(CoarseApproachStepEdit.Text);
+      RestrictedZExtension:=CoarseApproachStep*ZExtensionScaleFactor;
+      RestrictedMaxZVoltage:=MicronsToVoltageUpScan(RestrictedZExtension/2, ZAxis);
+      RestrictedMinZVoltage:=MicronsToVoltageUpScan(-RestrictedZExtension/2, ZAxis);
+      ProbeSignal.BottomAxis.Range.Min:=-RestrictedZExtension/2;
+      ProbeSignal.BottomAxis.Range.Max:=RestrictedZExtension/2;
+    end;
+end;
+
 procedure TCoarseApproachTool.DataTimerTimer(Sender: TObject);
   var
     Ch0Reading,
@@ -473,21 +545,29 @@ begin
   if MaxZVoltage>MinZVoltage then
     begin
       Direction:=-1;
+      MaxVoltage:=RestrictedMaxZVoltage;
+      MinVoltage:=RestrictedMinZVoltage;
+      {was
       MaxVoltage:=MaxZVoltage;
-      MinVoltage:=MinZVoltage;
+      MinVoltage:=MinZVoltage;}
     end
       else
         begin
           Direction:=1;
+          MaxVoltage:=RestrictedMinZVoltage;
+          MinVoltage:=RestrictedMaxZVoltage;
+          {was
           MaxVoltage:=MinZVoltage;
-          MinVoltage:=MaxZVoltage;
+          MinVoltage:=MaxZVoltage;}
         end;
 if Approaching then //stop the acquisition
   begin
     Approaching:=FALSE;
     AcquireCurveBtn.Caption:='Acquire approach curve';
     //retract scan tube completely
-    MoveToZVoltage(MaxZVoltage, 100*MinZVoltageStep);
+    MoveToZVoltage(MaxVoltage, 100*MinZVoltageStep);
+    {was
+    MoveToZVoltage(MaxZVoltage, 100*MinZVoltageStep);}
     UpdateZPositionIndicators;
     StatusBar.SimpleText:='Idle';
     DataTimer.Enabled:=TRUE;
@@ -506,7 +586,9 @@ if Approaching then //stop the acquisition
     ProbeSignalLineSeries2.Clear;
 
     //retract scan tube completely
-    MoveToZVoltage(MaxZVoltage, 100*MinZVoltageStep);
+    MoveToZVoltage(MaxVoltage, 100*MinZVoltageStep);
+    {was
+    MoveToZVoltage(MaxZVoltage, 100*MinZVoltageStep);}
     NumbAverages:=100; //Number of readings to average
     InContact:=AveragedCheckContact(NumbAverages);
     FeedbackOutputLabel.Caption:=FloatToStrF(FeedbackChannelReading, ffFixed, 10, 4);
@@ -517,8 +599,11 @@ if Approaching then //stop the acquisition
     FullyExtended:=FALSE;
     while (Approaching and (not InContact) and (not FullyExtended)) do
       begin
+        if (((Direction=1) and (CurrentZVoltage>=MinVoltage)) or
+             ((Direction=-1) and (CurrentZVoltage<=MinVoltage))) then FullyExtended:=TRUE;
+        {was
         if (((Direction=1) and (CurrentZVoltage>=MinZVoltage)) or
-             ((Direction=-1) and (CurrentZVoltage<=MinZVoltage))) then FullyExtended:=TRUE;
+             ((Direction=-1) and (CurrentZVoltage<=MinZVoltage))) then FullyExtended:=TRUE;}
         CurrentZVoltage:=CurrentZVoltage + CoarseApproachStepSize*Direction*MinZVoltageStep;
         if CurrentZVoltage>MaxVoltage then CurrentZVoltage:=MaxVoltage;
         if CurrentZVoltage<MinVoltage then CurrentZVoltage:=MinVoltage;
@@ -536,9 +621,13 @@ if Approaching then //stop the acquisition
     StartingPointReached:=FALSE;
     while (Approaching and (not StartingPointReached))do
       begin
+        if (((Direction=1) and (CurrentZVoltage<=MaxVoltage)) or
+             ((Direction=-1) and (CurrentZVoltage>=MaxVoltage))) then
+                                            StartingPointReached:=TRUE;
+        {was
         if (((Direction=1) and (CurrentZVoltage<=MaxZVoltage)) or
              ((Direction=-1) and (CurrentZVoltage>=MaxZVoltage))) then
-                                            StartingPointReached:=TRUE;
+                                            StartingPointReached:=TRUE; }
 
         CurrentZVoltage:=CurrentZVoltage - CoarseApproachStepSize*Direction*MinZVoltageStep;
         if CurrentZVoltage>MaxVoltage then CurrentZVoltage:=MaxVoltage;
@@ -556,7 +645,9 @@ if Approaching then //stop the acquisition
     Approaching:=FALSE;
     AcquireCurveBtn.Caption:='Acquire approach curve';
     //retract scan tube completely
-    MoveToZVoltage(MaxZVoltage, MinZVoltageStep);
+    MoveToZVoltage(MaxVoltage, MinZVoltageStep);
+    {was
+    MoveToZVoltage(MaxZVoltage, MinZVoltageStep);}
     UpdateZPositionIndicators;
     StatusBar.SimpleText:='Idle';
     DataTimer.Enabled:=TRUE;
@@ -579,7 +670,17 @@ begin
    XAutoScaleCheckBox.State:=cbUnChecked;
    ProbeSignal.BottomAxis.Range.UseMax:=TRUE;
    ProbeSignal.BottomAxis.Range.UseMin:=TRUE;
-
+   if ShowCoarseApproachPlot then ShowPlotCheckBox.State:=cbChecked
+                           else ShowPlotCheckBox.State:=cbUnchecked;
+   if ShowCoarseApproachZIndicator then ShowIndicatorCheckBox.State:=cbChecked
+                           else ShowIndicatorCheckBox.State:=cbUnchecked;
+   CoarseApproachStep:=0.5; //in microns
+   RestrictedZExtension:=CoarseApproachStep*ZExtensionScaleFactor;
+   CoarseApproachStepEdit.Text:=FloatToStr(CoarseApproachStep);
+   RestrictedMaxZVoltage:=MicronsToVoltageUpScan(RestrictedZExtension/2, ZAxis);
+   RestrictedMinZVoltage:=MicronsToVoltageUpScan(-RestrictedZExtension/2, ZAxis);
+   ProbeSignal.BottomAxis.Range.Min:=-RestrictedZExtension/2;
+   ProbeSignal.BottomAxis.Range.Max:=RestrictedZExtension/2;
 
 
    CoarseSP:=0.5;

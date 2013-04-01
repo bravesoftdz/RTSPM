@@ -1,16 +1,16 @@
 { This is an automatically generated lazarus resource file }
 
 LazarusResources.Add('TCoarseApproachTool','FORMDATA',[
-  'TPF0'#19'TCoarseApproachTool'#18'CoarseApproachTool'#4'Left'#3#146#0#6'Heigh'
-  +'t'#3#196#2#3'Top'#2'|'#5'Width'#3#154#2#7'Caption'#6#24'Tip Coarse Approach'
-  +' Tool'#12'ClientHeight'#3#169#2#11'ClientWidth'#3#154#2#11'Font.Height'#2
-  +#245#4'Menu'#7#9'MainMenu1'#6'OnShow'#7#8'FormShow'#10'LCLVersion'#6#7'1.0.2'
-  +'.0'#0#12'TProgressBar'#12'ZApproachBar'#4'Left'#2#8#6'Height'#2#22#4'Hint'#6
-  +#27'Z Position of the scan tube'#3'Top'#3' '#1#5'Width'#3#139#2#3'Max'#4#255
-  +#255#0#0#14'ParentShowHint'#8#8'Position'#4#0#128#0#0#8'ShowHint'#9#6'Smooth'
-  +#9#4'Step'#2' '#8'TabOrder'#2#1#0#0#9'TGroupBox'#21'SignalControlGroupBox'#4
-  +'Left'#2#8#6'Height'#3#133#0#3'Top'#3'D'#1#5'Width'#3#139#2#7'Caption'#6#15
-  +'Coarse Approach'#12'ClientHeight'#2'u'#11'ClientWidth'#3#135#2#5'Color'#7#8
+  'TPF0'#19'TCoarseApproachTool'#18'CoarseApproachTool'#4'Left'#3#2#4#6'Height'
+  +#3#240#2#3'Top'#2'N'#5'Width'#3#155#2#7'Caption'#6#24'Tip Coarse Approach To'
+  +'ol'#12'ClientHeight'#3#213#2#11'ClientWidth'#3#155#2#11'Font.Height'#2#245#4
+  +'Menu'#7#9'MainMenu1'#6'OnShow'#7#8'FormShow'#10'LCLVersion'#6#7'1.0.2.0'#0
+  +#12'TProgressBar'#12'ZApproachBar'#4'Left'#2#8#6'Height'#2#22#4'Hint'#6#27'Z'
+  +' Position of the scan tube'#3'Top'#3' '#1#5'Width'#3#139#2#3'Max'#4#255#255
+  +#0#0#14'ParentShowHint'#8#8'Position'#4#0#128#0#0#8'ShowHint'#9#6'Smooth'#9#4
+  +'Step'#2' '#8'TabOrder'#2#1#0#0#9'TGroupBox'#21'SignalControlGroupBox'#4'Lef'
+  +'t'#2#8#6'Height'#3#173#0#3'Top'#3'D'#1#5'Width'#3#139#2#7'Caption'#6#15'Coa'
+  +'rse Approach'#12'ClientHeight'#3#157#0#11'ClientWidth'#3#135#2#5'Color'#7#8
   +'clYellow'#11'Font.Height'#2#245#11'ParentColor'#8#10'ParentFont'#8#8'TabOrd'
   +'er'#2#2#0#6'TLabel'#6'Label1'#4'Left'#2#16#6'Height'#2#15#3'Top'#2#8#5'Widt'
   +'h'#2#31#7'Caption'#6#5'Ch. 0'#11'ParentColor'#8#0#0#6'TLabel'#6'Label2'#4'L'
@@ -60,12 +60,24 @@ LazarusResources.Add('TCoarseApproachTool','FORMDATA',[
   +'n'#6#22'Acquire approach curve'#7'OnClick'#7#20'AcquireCurveBtnClick'#8'Tab'
   +'Order'#2#4#0#0#9'TSpinEdit'#26'CoarseApproachStepSizeEdit'#4'Left'#3#224#0#6
   +'Height'#2#22#3'Top'#2'K'#5'Width'#2'-'#8'MinValue'#2#1#8'OnChange'#7' Coars'
-  +'eApproachStepSizeEditChange'#8'TabOrder'#2#5#5'Value'#2#1#0#0#0#9'TGroupBox'
-  +#21'WalkerControlGroupBox'#4'Left'#3#224#0#6'Height'#3#190#0#3'Top'#3#204#1#5
+  +'eApproachStepSizeEditChange'#8'TabOrder'#2#5#5'Value'#2#1#0#0#9'TCheckBox'
+  +#16'ShowPlotCheckBox'#4'Left'#2#13#6'Height'#2#21#3'Top'#2'~'#5'Width'#2'b'#7
+  +'Caption'#6#11'Update plot'#7'OnClick'#7#21'ShowPlotCheckBoxClick'#8'TabOrde'
+  +'r'#2#6#0#0#9'TCheckBox'#21'ShowIndicatorCheckBox'#4'Left'#3#140#0#6'Height'
+  +#2#21#3'Top'#2'~'#5'Width'#2't'#7'Caption'#6#14'Show Indicator'#7'OnClick'#7
+  ,#26'ShowIndicatorCheckBoxClick'#8'TabOrder'#2#7#0#0#6'TLabel'#7'Label19'#4'L'
+  +'eft'#2#14#6'Height'#2#18#3'Top'#2'k'#5'Width'#3#179#0#7'Caption'#6#22'Durin'
+  +'g coarse approach'#11'Font.Height'#2#243#10'Font.Style'#11#6'fsBold'#0#11'P'
+  +'arentColor'#8#10'ParentFont'#8#0#0#5'TEdit'#22'CoarseApproachStepEdit'#4'Le'
+  +'ft'#3'!'#2#6'Height'#2#22#3'Top'#2'v'#5'Width'#2'P'#10'OnKeyPress'#7#30'Coa'
+  +'rseApproachStepEditKeyPress'#8'TabOrder'#2#8#4'Text'#6#3'0.5'#0#0#6'TLabel'
+  +#7'Label20'#4'Left'#3'f'#1#6'Height'#2#15#3'Top'#2'}'#5'Width'#3#158#0#7'Cap'
+  +'tion'#6#25'Coarse approach step (um)'#11'ParentColor'#8#0#0#0#9'TGroupBox'
+  +#21'WalkerControlGroupBox'#4'Left'#3#224#0#6'Height'#3#190#0#3'Top'#3#248#1#5
   +'Width'#3#179#1#7'Caption'#6#14'Walker Control'#12'ClientHeight'#3#174#0#11
   +'ClientWidth'#3#175#1#5'Color'#7#5'clRed'#11'ParentColor'#8#8'TabOrder'#2#0#7
   +'TabStop'#9#0#6'TBevel'#6'Bevel4'#4'Left'#2'i'#6'Height'#3#145#0#3'Top'#2#16
-  ,#5'Width'#2#1#0#0#6'TBevel'#6'Bevel5'#4'Left'#3#233#0#6'Height'#3#145#0#3'To'
+  +#5'Width'#2#1#0#0#6'TBevel'#6'Bevel5'#4'Left'#3#233#0#6'Height'#3#145#0#3'To'
   +'p'#2#16#5'Width'#2#1#0#0#6'TLabel'#7'Label13'#4'Left'#2'x'#6'Height'#2#15#3
   +'Top'#2#0#5'Width'#2'O'#7'Caption'#6#12'Timed motion'#11'ParentColor'#8#0#0#6
   +'TLabel'#7'Label14'#4'Left'#3#240#0#6'Height'#2#15#3'Top'#2#253#5'Width'#2'<'
@@ -101,7 +113,7 @@ LazarusResources.Add('TCoarseApproachTool','FORMDATA',[
   +#7'OnClick'#7#21'TimedApproachBtnClick'#8'TabOrder'#2#1#0#0#5'TEdit'#14'Walk'
   +'erTimeEdit'#4'Left'#2#8#6'Height'#2#22#3'Top'#2#27#5'Width'#2'A'#10'OnKeyPr'
   +'ess'#7#22'WalkerTimeEditKeyPress'#8'TabOrder'#2#2#4'Text'#6#2'50'#0#0#0#0#9
-  +'TGroupBox'#18'Scan_Tube_GroupBox'#4'Left'#2#8#6'Height'#3#190#0#3'Top'#3#204
+  +'TGroupBox'#18'Scan_Tube_GroupBox'#4'Left'#2#8#6'Height'#3#190#0#3'Top'#3#248
   +#1#5'Width'#3#210#0#7'Caption'#6#17'Scan Tube Control'#12'ClientHeight'#3#174
   +#0#11'ClientWidth'#3#206#0#5'Color'#7#8'clSilver'#11'Font.Height'#2#245#11'P'
   +'arentColor'#8#10'ParentFont'#8#8'TabOrder'#2#3#0#6'TLabel'#9'SetXLabel'#4'L'
@@ -117,7 +129,7 @@ LazarusResources.Add('TCoarseApproachTool','FORMDATA',[
   +'th'#2']'#7'Caption'#6#16'Current Position'#11'ParentColor'#8#0#0#6'TBevel'#6
   +'Bevel2'#4'Left'#3#208#0#6'Height'#3#142#0#3'Top'#2#8#5'Width'#2#2#0#0#5'TEd'
   +'it'#8'SetXEdit'#4'Left'#2'0'#6'Height'#2#22#3'Top'#2'$'#5'Width'#2'9'#10'On'
-  +'KeyPress'#7#16'SetXEditKeyPress'#8'TabOrder'#2#0#4'Text'#6#1'0'#0#0#5'TEdit'
+  ,'KeyPress'#7#16'SetXEditKeyPress'#8'TabOrder'#2#0#4'Text'#6#1'0'#0#0#5'TEdit'
   +#8'SetYEdit'#4'Left'#2'0'#6'Height'#2#22#3'Top'#2'<'#5'Width'#2'9'#10'OnKeyP'
   +'ress'#7#16'SetYEditKeyPress'#8'TabOrder'#2#1#4'Text'#6#1'0'#0#0#5'TEdit'#8
   +'SetZEdit'#4'Left'#2'0'#6'Height'#2#22#3'Top'#2'U'#5'Width'#2'9'#10'OnKeyPre'
@@ -129,7 +141,7 @@ LazarusResources.Add('TCoarseApproachTool','FORMDATA',[
   +'Label.Height'#2#15#13'EditLabel.Top'#2'w'#15'EditLabel.Width'#2'/'#17'EditL'
   +'abel.Caption'#6#6'Step X'#21'EditLabel.ParentColor'#8#8'TabOrder'#2#3#4'Tex'
   +'t'#6#3'0.1'#10'OnKeyPress'#7#17'StepXEditKeyPress'#0#0#12'TLabeledEdit'#9'S'
-  ,'tepYEdit'#4'Left'#2'P'#6'Height'#2#22#3'Top'#3#136#0#5'Width'#2'/ EditLabel'
+  +'tepYEdit'#4'Left'#2'P'#6'Height'#2#22#3'Top'#3#136#0#5'Width'#2'/ EditLabel'
   +'.AnchorSideLeft.Control'#7#9'StepYEdit!EditLabel.AnchorSideRight.Control'#7
   +#9'StepYEdit'#30'EditLabel.AnchorSideRight.Side'#7#9'asrBottom"EditLabel.Anc'
   +'horSideBottom.Control'#7#9'StepYEdit'#14'EditLabel.Left'#2'P'#16'EditLabel.'
@@ -148,8 +160,8 @@ LazarusResources.Add('TCoarseApproachTool','FORMDATA',[
   +#128#0#6'Height'#2#17#3'Top'#2'Y'#5'Width'#2'F'#7'Caption'#6#3'Z: '#8'TabOrd'
   +'er'#2#7#0#0#11'TStaticText'#13'YPositionText'#4'Left'#3#128#0#6'Height'#2#17
   +#3'Top'#2'B'#5'Width'#2'F'#7'Caption'#6#3'Y: '#8'TabOrder'#2#8#0#0#0#10'TSta'
-  +'tusBar'#9'StatusBar'#4'Left'#2#0#6'Height'#2#21#3'Top'#3#148#2#5'Width'#3
-  +#154#2#6'Panels'#14#0#10'SimpleText'#6#4'Idle'#0#0#6'TChart'#11'ProbeSignal'
+  +'tusBar'#9'StatusBar'#4'Left'#2#0#6'Height'#2#21#3'Top'#3#192#2#5'Width'#3
+  +#155#2#6'Panels'#14#0#10'SimpleText'#6#4'Idle'#0#0#6'TChart'#11'ProbeSignal'
   +#4'Left'#2#0#6'Height'#3#235#0#3'Top'#2#0#5'Width'#3#147#2#8'AxisList'#14#1
   +#15'Marks.Range.Max'#5#0#0#0#0#0#0#0#160#2'@'#15'Marks.Range.Min'#5#0#0#0#0#0
   +#0#0#160#2#192#18'Marks.Range.UseMax'#9#18'Marks.Range.UseMin'#9#6'Minors'#14
@@ -181,7 +193,7 @@ LazarusResources.Add('TCoarseApproachTool','FORMDATA',[
   +'p'#2#3#5'Width'#2#27#7'Caption'#6#4'Max:'#11'ParentColor'#8#0#0#14'TFloatSp'
   +'inEdit'#12'XMaxSpinEdit'#4'Left'#3#166#0#6'Height'#2#22#3'Top'#2#0#5'Width'
   +#2'<'#9'Increment'#5#0#208#204#204#204#204#204#204#251'?'#8'MaxValue'#5#0#0#0
-  +#0#0#0#0#128#255'?'#8'MinValue'#5#0'p='#10#215#163'p'#253#254#191#8'OnChange'
+  ,#0#0#0#0#128#255'?'#8'MinValue'#5#0'p='#10#215#163'p'#253#254#191#8'OnChange'
   +#7#18'XMaxSpinEditChange'#8'TabOrder'#2#2#5'Value'#5#0#0#0#0#0#0#0#128#255'?'
   +#0#0#6'TLabel'#7'Label16'#4'Left'#3'T'#1#6'Height'#2#18#3'Top'#2#2#5'Width'#2
   +#15#7'Caption'#6#2'Y:'#11'Font.Height'#2#243#10'Font.Style'#11#6'fsBold'#8'f'
@@ -193,7 +205,7 @@ LazarusResources.Add('TCoarseApproachTool','FORMDATA',[
   +'Left'#3#206#1#6'Height'#2#15#3'Top'#2#3#5'Width'#2#27#7'Caption'#6#4'Max:'
   +#11'ParentColor'#8#0#0#14'TFloatSpinEdit'#12'YMaxSpinEdit'#4'Left'#3#239#1#6
   +'Height'#2#22#3'Top'#2#0#5'Width'#2'<'#9'Increment'#5#0#208#204#204#204#204
-  ,#204#204#251'?'#8'MaxValue'#5#0#0#0#0#0#0#0#160#2'@'#8'MinValue'#5#0'hfffff'
+  +#204#204#251'?'#8'MaxValue'#5#0#0#0#0#0#0#0#160#2'@'#8'MinValue'#5#0'hfffff'
   +#158#2#192#8'OnChange'#7#18'YMaxSpinEditChange'#8'TabOrder'#2#4#5'Value'#5#0
   +#0#0#0#0#0#0#160#2'@'#0#0#9'TCheckBox'#18'YAutoScaleCheckBox'#4'Left'#3'0'#2
   +#6'Height'#2#21#3'Top'#2#1#5'Width'#2'X'#7'Caption'#6#9'AutoScale'#7'Checked'

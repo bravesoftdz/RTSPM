@@ -1,11 +1,11 @@
 object CoarseApproachTool: TCoarseApproachTool
-  Left = 146
-  Height = 708
-  Top = 124
-  Width = 666
+  Left = 1026
+  Height = 752
+  Top = 78
+  Width = 667
   Caption = 'Tip Coarse Approach Tool'
-  ClientHeight = 681
-  ClientWidth = 666
+  ClientHeight = 725
+  ClientWidth = 667
   Font.Height = -11
   Menu = MainMenu1
   OnShow = FormShow
@@ -26,11 +26,11 @@ object CoarseApproachTool: TCoarseApproachTool
   end
   object SignalControlGroupBox: TGroupBox
     Left = 8
-    Height = 133
+    Height = 173
     Top = 324
     Width = 651
     Caption = 'Coarse Approach'
-    ClientHeight = 117
+    ClientHeight = 157
     ClientWidth = 647
     Color = clYellow
     Font.Height = -11
@@ -213,11 +213,57 @@ object CoarseApproachTool: TCoarseApproachTool
       TabOrder = 5
       Value = 1
     end
+    object ShowPlotCheckBox: TCheckBox
+      Left = 13
+      Height = 21
+      Top = 126
+      Width = 98
+      Caption = 'Update plot'
+      OnClick = ShowPlotCheckBoxClick
+      TabOrder = 6
+    end
+    object ShowIndicatorCheckBox: TCheckBox
+      Left = 140
+      Height = 21
+      Top = 126
+      Width = 116
+      Caption = 'Show Indicator'
+      OnClick = ShowIndicatorCheckBoxClick
+      TabOrder = 7
+    end
+    object Label19: TLabel
+      Left = 14
+      Height = 18
+      Top = 107
+      Width = 179
+      Caption = 'During coarse approach'
+      Font.Height = -13
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object CoarseApproachStepEdit: TEdit
+      Left = 545
+      Height = 22
+      Top = 118
+      Width = 80
+      OnKeyPress = CoarseApproachStepEditKeyPress
+      TabOrder = 8
+      Text = '0.5'
+    end
+    object Label20: TLabel
+      Left = 358
+      Height = 15
+      Top = 125
+      Width = 158
+      Caption = 'Coarse approach step (um)'
+      ParentColor = False
+    end
   end
   object WalkerControlGroupBox: TGroupBox
     Left = 224
     Height = 190
-    Top = 460
+    Top = 504
     Width = 435
     Caption = 'Walker Control'
     ClientHeight = 174
@@ -378,7 +424,7 @@ object CoarseApproachTool: TCoarseApproachTool
   object Scan_Tube_GroupBox: TGroupBox
     Left = 8
     Height = 190
-    Top = 460
+    Top = 504
     Width = 210
     Caption = 'Scan Tube Control'
     ClientHeight = 174
@@ -558,8 +604,8 @@ object CoarseApproachTool: TCoarseApproachTool
   object StatusBar: TStatusBar
     Left = 0
     Height = 21
-    Top = 660
-    Width = 666
+    Top = 704
+    Width = 667
     Panels = <>
     SimpleText = 'Idle'
   end
