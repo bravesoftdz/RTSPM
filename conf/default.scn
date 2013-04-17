@@ -12,7 +12,7 @@
 scanner: Attocube-Tube-1-300K
 
 #Z Piezo range in microns, and voltage required to obtain that range, in terms of DAC voltage, not high voltage amplifier output
-z piezo range: 2 20
+z piezo range: 3.1 20
 
 #Number of XY ranges.  After this, we have lines that specify the range in microns, and voltage span required to obtain that range
 number of xy ranges: 5

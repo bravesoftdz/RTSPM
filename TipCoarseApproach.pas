@@ -341,9 +341,9 @@ begin
       if ((CoarseSP-ReadAveragedFeedbackChannel(100))>0) then
         FeedbackCondition:=1
        else FeedbackCondition:=-1;
-      StatusBar.SimpleText:='Approaching';
       while ((not InContact) and Approaching) do
         begin
+          StatusBar.SimpleText:='Approaching';
           CurrentZVoltage:=CurrentZVoltage + CoarseApproachStepSize*Direction*MinZVoltageStep;
           if CurrentZVoltage>MaxVoltage then CurrentZVoltage:=MaxVoltage;
           if CurrentZVoltage<MinVoltage then CurrentZVoltage:=MinVoltage;
@@ -675,6 +675,7 @@ begin
    if ShowCoarseApproachZIndicator then ShowIndicatorCheckBox.State:=cbChecked
                            else ShowIndicatorCheckBox.State:=cbUnchecked;
    CoarseApproachStep:=0.5; //in microns
+   ZExtensionScaleFactor:=1.2;
    RestrictedZExtension:=CoarseApproachStep*ZExtensionScaleFactor;
    CoarseApproachStepEdit.Text:=FloatToStr(CoarseApproachStep);
    RestrictedMaxZVoltage:=MicronsToVoltageUpScan(RestrictedZExtension/2, ZAxis);

@@ -1,10 +1,10 @@
 { This is an automatically generated lazarus resource file }
 
 LazarusResources.Add('TCoarseApproachTool','FORMDATA',[
-  'TPF0'#19'TCoarseApproachTool'#18'CoarseApproachTool'#4'Left'#3#2#4#6'Height'
+  'TPF0'#19'TCoarseApproachTool'#18'CoarseApproachTool'#4'Left'#3#3#3#6'Height'
   +#3#240#2#3'Top'#2'N'#5'Width'#3#155#2#7'Caption'#6#24'Tip Coarse Approach To'
   +'ol'#12'ClientHeight'#3#213#2#11'ClientWidth'#3#155#2#11'Font.Height'#2#245#4
-  +'Menu'#7#9'MainMenu1'#6'OnShow'#7#8'FormShow'#10'LCLVersion'#6#7'1.0.2.0'#0
+  +'Menu'#7#9'MainMenu1'#6'OnShow'#7#8'FormShow'#10'LCLVersion'#6#7'1.0.8.0'#0
   +#12'TProgressBar'#12'ZApproachBar'#4'Left'#2#8#6'Height'#2#22#4'Hint'#6#27'Z'
   +' Position of the scan tube'#3'Top'#3' '#1#5'Width'#3#139#2#3'Max'#4#255#255
   +#0#0#14'ParentShowHint'#8#8'Position'#4#0#128#0#0#8'ShowHint'#9#6'Smooth'#9#4

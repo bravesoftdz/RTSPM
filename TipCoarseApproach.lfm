@@ -1,5 +1,5 @@
 object CoarseApproachTool: TCoarseApproachTool
-  Left = 1026
+  Left = 771
   Height = 752
   Top = 78
   Width = 667
@@ -9,7 +9,7 @@ object CoarseApproachTool: TCoarseApproachTool
   Font.Height = -11
   Menu = MainMenu1
   OnShow = FormShow
-  LCLVersion = '1.0.2.0'
+  LCLVersion = '1.0.8.0'
   object ZApproachBar: TProgressBar
     Left = 8
     Height = 22

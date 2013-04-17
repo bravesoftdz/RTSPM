@@ -74,6 +74,7 @@ type
   procedure tc.execute;
   begin
   end;
+
 procedure TSPM_MainForm.CoarseApproachBtnClick(Sender: TObject);
 begin
   CoarseApproachTool.Show;
@@ -87,7 +88,7 @@ end;
 
 procedure TSPM_MainForm.FormCreate(Sender: TObject);
 begin
-  with tc.create(False) do
+  with tc.create(false) do
     begin
       waitfor;
       free;
