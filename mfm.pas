@@ -979,6 +979,7 @@ if Scanning then //stop the scan
                   //ReverseData[i,j]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                   ReverseLeveledData[i,j]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                   inc(i);
+                  Application.ProcessMessages;
                 end;
 
               //Now do this for the MFM scan
@@ -1020,6 +1021,7 @@ if Scanning then //stop the scan
                   //ReverseData[i,j]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                   MFMReverseLeveledData[i,j]:=MFMLeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                   inc(i);
+                  Application.ProcessMessages;
                 end;
 
               //end of the MFM part of the scan
@@ -1085,6 +1087,7 @@ if Scanning then //stop the scan
                   //ReverseData[j,i]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                   ReverseLeveledData[i,j]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                   inc(i);
+                  Application.ProcessMessages;
                 end;
 
               //Now do this for the MFM scan
@@ -1132,6 +1135,7 @@ if Scanning then //stop the scan
                   //ReverseData[j,i]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                   ReverseLeveledData[i,j]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                   inc(i);
+                  Application.ProcessMessages;
                 end;
 
               //end of MFM part for YScan axis

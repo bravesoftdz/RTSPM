@@ -1,8 +1,8 @@
 unit SPM_Main;
 //Checking git changes:  This version is on the PlotPanelReplacement Branch
 
-{$MODE Delphi}
-//{$mode objfpc}{$H+}
+//{$MODE Delphi}
+{$mode objfpc}{$H+}
 
 interface
 
@@ -87,12 +87,16 @@ end;
 
 
 procedure TSPM_MainForm.FormCreate(Sender: TObject);
+var
+   MainThread: THandle;
 begin
-  with tc.create(false) do
+  with tc.create(FALSE) do
     begin
       waitfor;
       free;
     end;
+  //MainThread:=GetCurrentThreadID;
+  //ThreadSetPriority(MainThread, 15);
 
   //PID parameters
   SAMP_TIME := 50000; // 70 us, in nanoseconds
@@ -121,10 +125,10 @@ begin
   ScanResolution:=256;
 
   //allow nonroot access
-  rt_allow_nonroot_hrt;
+  //rt_allow_nonroot_hrt;
   //start the main task as a soft real time task with a priority of 10, lower
   //than any other real-time task
-  GlobalTaskStarted:=StartMainTask(10);
+  GlobalTaskStarted:=StartMainTask(0);
   //SysConfig.Show;
 end;
 

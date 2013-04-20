@@ -10,7 +10,7 @@ object SPM_MainForm: TSPM_MainForm
   Font.Height = -11
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  LCLVersion = '1.0.2.0'
+  LCLVersion = '1.0.8.0'
   Visible = True
   object Bevel1: TBevel
     Left = 40

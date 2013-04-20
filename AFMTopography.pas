@@ -743,6 +743,7 @@ begin
                     //ReverseData[i,j]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                     ReverseLeveledData[i,j]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                     inc(i);
+                    Application.ProcessMessages;
                   end;
 
                 StartY:=StartY - ScanYStep;
@@ -798,6 +799,7 @@ begin
                     //ReverseData[j,i]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                     ReverseLeveledData[i,j]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                     inc(i);
+                    Application.ProcessMessages;
                   end;
                 StartX:=StartX + ScanXStep;
                 MoveToX(StartX, StepX, 0);

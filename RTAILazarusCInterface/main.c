@@ -75,18 +75,36 @@ int StartMainTask( int priority)
 {
  //function to start a real time task with the given priority
  //StartMainTask is designed to be called from the Pascal Program to start the Main (i.e., Pascal) rt program
-
+    int hard_timer_running = 1;
+    int j=0;
+    rt_allow_nonroot_hrt();
 
      if(!(GlobalTask = rt_task_init_schmod(nam2num( "SomeTask" ), // Name
                                         priority, // Priority
                                         0, // Stack Size
                                         0, //, // max_msg_size
                                         SCHED_FIFO, // Policy
-                                        CPUMAP ))) // cpus_allowed
+                                        1 ))) // cpus_allowed
         {
             return 1;
         }
        else {
+                if ( (hard_timer_running == rt_is_hard_timer_running() ))
+                    {
+                     stop_rt_timer();
+                     rt_set_oneshot_mode();
+                     start_rt_timer(0);
+                     //sampling_interval = nano2count(TICK_TIME);  //Converts a value from
+                                                //nanoseconds to internal count units.
+                    }
+                else
+                    {
+                     rt_set_oneshot_mode();
+                     start_rt_timer(0);
+                     //sampling_interval = nano2count(TICK_TIME); // Sets the period of the concurrent task
+                    // that will be launched later.
+                    }
+                mlockall(MCL_CURRENT | MCL_FUTURE);
            return 0;
        }
 }
@@ -96,6 +114,7 @@ int StartMainTask( int priority)
 int EndMainTask()
 {
     //EndMainTask is designed to be called from the Pascal Program to end the Main (i.e., Pascal) rt program
+    rt_make_soft_real_time();
     rt_task_delete(GlobalTask);
    return 0;
 }
@@ -499,7 +518,7 @@ int pid_loop()
                                         0, // Stack Size
                                         0, //, // max_msg_size
                                         SCHED_FIFO, // Policy
-                                        CPUMAP ))) // cpus_allowed
+                                        0 ))) // cpus_allowed
         {
             rt_printk("ERROR: Cannot initialize PIDLoop task\n");
             exit(1);
@@ -794,7 +813,7 @@ int pid_loop()
     comedi_close(dev_output);
     rt_task_delete(PIDloop_Task); //Self termination at end.
 
-    pthread_exit(NULL);
+    //pthread_exit(NULL);
     return 0;
 
 

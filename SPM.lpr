@@ -1,8 +1,8 @@
 program SPM;
 
-//{$mode objfpc}{$H+}
-{$linklib stdc++}
-{$MODE Delphi}
+{$mode objfpc}{$H+}
+//{$linklib stdc++}
+//{$MODE Delphi}
 
 uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}

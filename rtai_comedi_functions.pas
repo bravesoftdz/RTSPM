@@ -62,10 +62,10 @@ begin
    StartFeedback:=FALSE;
    PIDProcedureThreadID:=0;
    //check  if hard timer is running, else start it
-   hard_timer_running:=rt_is_hard_timer_running;
-   if hard_timer_running then stop_rt_timer;
-   rt_set_oneshot_mode;
-   start_rt_timer(0);
+   //hard_timer_running:=rt_is_hard_timer_running;
+   //if hard_timer_running then stop_rt_timer;
+   //rt_set_oneshot_mode;
+   //start_rt_timer(0);
    //sampling_interval:=nano2count(sample_time);
    //start the thread here
    PIDProcedureThreadID:=BeginThread(@Call_pid_loop,nil);
