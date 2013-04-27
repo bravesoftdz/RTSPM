@@ -1,7 +1,7 @@
 object SPM_MainForm: TSPM_MainForm
-  Left = 863
+  Left = 898
   Height = 192
-  Top = 162
+  Top = 161
   Width = 540
   Caption = 'Scanning Probe Microscope-Main Panel'
   ClientHeight = 192
@@ -101,7 +101,7 @@ object SPM_MainForm: TSPM_MainForm
     BaudRate = br__9600
     DataBits = db8bits
     Parity = pNone
-    FlowControl = fcNone
+    FlowControl = fcXonXoff
     StopBits = sbOne
     Device = '/dev/ttyS0'
     left = 448

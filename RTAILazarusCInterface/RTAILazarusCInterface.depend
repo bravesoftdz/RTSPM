@@ -13,7 +13,7 @@
 	<rtai_spm.h>
 	<queue.c>
 
-1353358010 /usr/realtime/include/rtai_lxrt.h
+1350592138 /usr/realtime/include/rtai_lxrt.h
 	<rtai_sched.h>
 	<rtai_nam2num.h>
 	<linux/sched.h>
@@ -30,7 +30,7 @@
 	<unistd.h>
 	<sys/mman.h>
 
-1353358010 /usr/realtime/include/rtai_sched.h
+1350592138 /usr/realtime/include/rtai_sched.h
 	<rtai.h>
 	<sys/time.h>
 	<time.h>
@@ -41,20 +41,20 @@
 	<linux/rbtree.h>
 	<linux/sched.h>
 
-1353358010 /usr/realtime/include/rtai.h
+1350592138 /usr/realtime/include/rtai.h
 	<linux/version.h>
 	<rtai_sanity.h>
 	<asm/rtai.h>
 
-1353358010 /usr/realtime/include/rtai_sanity.h
+1350592138 /usr/realtime/include/rtai_sanity.h
 
-1353358010 /usr/realtime/include/asm/rtai.h
+1350592138 /usr/realtime/include/asm/rtai.h
 	<rtai_config.h>
 	<asm/rtai_hal.h>
 
-1353358010 /usr/realtime/include/rtai_config.h
+1350592138 /usr/realtime/include/rtai_config.h
 
-1353358010 /usr/realtime/include/asm/rtai_hal.h
+1350592138 /usr/realtime/include/asm/rtai_hal.h
 	<rtai_hal_names.h>
 	<asm/rtai_vectors.h>
 	<rtai_types.h>
@@ -72,20 +72,20 @@
 	<asm/rtai_oldnames.h>
 	<asm/rtai_emulate_tsc.h>
 
-1353358010 /usr/realtime/include/rtai_hal_names.h
+1350592138 /usr/realtime/include/rtai_hal_names.h
 	<linux/version.h>
 
-1353358010 /usr/realtime/include/asm/rtai_vectors.h
+1350592138 /usr/realtime/include/asm/rtai_vectors.h
 	<linux/version.h>
 	<rtai_hal_names.h>
 	<rtai_config.h>
 	<linux/interrupt.h>
 
-1353358010 /usr/realtime/include/rtai_types.h
+1350592138 /usr/realtime/include/rtai_types.h
 	<rtai_config.h>
 	<rtai_wrappers.h>
 
-1353358010 /usr/realtime/include/rtai_wrappers.h
+1350592138 /usr/realtime/include/rtai_wrappers.h
 	<linux/version.h>
 	<linux/module.h>
 	<linux/moduleparam.h>
@@ -93,27 +93,27 @@
 	<linux/device.h>
 	<linux/pid.h>
 
-1353358010 /usr/realtime/include/asm/rtai_atomic.h
+1350592138 /usr/realtime/include/asm/rtai_atomic.h
 	<linux/bitops.h>
 	<asm/atomic.h>
 	<asm/system.h>
 
-1353358010 /usr/realtime/include/asm/rtai_fpu.h
+1350592138 /usr/realtime/include/asm/rtai_fpu.h
 	<asm/processor.h>
 
-1353358010 /usr/realtime/include/rtai_trace.h
+1350592138 /usr/realtime/include/rtai_trace.h
 	<rtai_types.h>
 	<linux/trace.h>
 
-1353358010 /usr/realtime/include/asm/rtai_oldnames.h
+1350592138 /usr/realtime/include/asm/rtai_oldnames.h
 	<linux/irq.h>
 
-1353358010 /usr/realtime/include/asm/rtai_emulate_tsc.h
+1350592138 /usr/realtime/include/asm/rtai_emulate_tsc.h
 
-1353358010 /usr/realtime/include/rtai_nam2num.h
+1350592138 /usr/realtime/include/rtai_nam2num.h
 	<rtai_types.h>
 
-1353358010 /usr/realtime/include/asm/rtai_lxrt.h
+1350592138 /usr/realtime/include/asm/rtai_lxrt.h
 	<linux/version.h>
 	<asm/rtai_vectors.h>
 	<asm/segment.h>
@@ -121,11 +121,11 @@
 	<sys/syscall.h>
 	<unistd.h>
 
-1353358010 /usr/realtime/include/rtai_msg.h
+1350592138 /usr/realtime/include/rtai_msg.h
 	<rtai_types.h>
 	<rtai_lxrt.h>
 
-1353358013 /usr/realtime/include/rtai_comedi.h
+1350592140 /usr/realtime/include/rtai_comedi.h
 	<linux/compiler.h>
 	<rtai_types.h>
 	<rtai_sem.h>
@@ -137,14 +137,14 @@
 	<rtai_msg.h>
 	<rtai_shm.h>
 
-1353358010 /usr/realtime/include/rtai_sem.h
+1350592138 /usr/realtime/include/rtai_sem.h
 	<rtai_types.h>
 	<rtai_nam2num.h>
 	<rtai_sched.h>
 	<linux/errno.h>
 	<rtai_lxrt.h>
 
-1353358010 /usr/realtime/include/rtai_netrpc.h
+1350592138 /usr/realtime/include/rtai_netrpc.h
 	<rtai_config.h>
 	<rtai_registry.h>
 	<rtai_lxrt.h>
@@ -155,15 +155,15 @@
 	<stdlib.h>
 	<stddef.h>
 
-1353358010 /usr/realtime/include/rtai_registry.h
+1350592138 /usr/realtime/include/rtai_registry.h
 	<rtai_nam2num.h>
 	<rtai.h>
 
-1353358010 /usr/realtime/include/rtai_mbx.h
+1350592138 /usr/realtime/include/rtai_mbx.h
 	<rtai_sem.h>
 	<rtai_lxrt.h>
 
-1353358010 /usr/realtime/include/rtai_shm.h
+1350592138 /usr/realtime/include/rtai_shm.h
 	<linux/module.h>
 	<linux/version.h>
 	<linux/vmalloc.h>
@@ -178,7 +178,7 @@
 	<sys/ioctl.h>
 	<rtai_lxrt.h>
 
-1353358010 /usr/realtime/include/rtai_malloc.h
+1350592138 /usr/realtime/include/rtai_malloc.h
 	<rtai_types.h>
 	<linux/kernel.h>
 	<linux/list.h>
@@ -1220,7 +1220,7 @@
 	<linux/init.h>
 	<asm/page.h>
 
-1351113314 source:/home/chandra/LazarusPrograms/AFM.XDev/RTAILazarusCInterface/main.c
+1366989238 source:/home/chandra/LazarusPrograms/AFM.XDev/RTAILazarusCInterface/main.c
 	<stdio.h>
 	<stdlib.h>
 	<unistd.h>
@@ -1234,7 +1234,7 @@
 	<rtai_spm.h>
 	<queue.c>
 
-1353350355 /usr/src/linux-headers-rtai/include/linux/version.h
+1350587830 /usr/src/linux-headers-rtai/include/linux/version.h
 
 1307064911 /usr/src/linux-headers-rtai/include/linux/interrupt.h
 	<linux/kernel.h>
@@ -1254,7 +1254,7 @@
 	<asm/system.h>
 	<trace/events/irq.h>
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/kernel.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/kernel.h
 	<stdarg.h>
 	<linux/linkage.h>
 	<linux/stddef.h>
@@ -1302,7 +1302,7 @@
 	<linux/types.h>
 	<linux/bitops.h>
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/ipipe_base.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/ipipe_base.h
 	<asm/ipipe_base.h>
 
 1307064911 /usr/src/linux-headers-rtai/include/linux/typecheck.h
@@ -1315,7 +1315,7 @@
 1307064911 /usr/src/linux-headers-rtai/include/linux/jump_label.h
 	<asm/jump_label.h>
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/preempt.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/preempt.h
 	<linux/thread_info.h>
 	<linux/linkage.h>
 	<linux/list.h>
@@ -1362,10 +1362,10 @@
 
 1307064911 /usr/src/linux-headers-rtai/include/linux/irqreturn.h
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/irqnr.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/irqnr.h
 	<asm/irq.h>
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/hardirq.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/hardirq.h
 	<linux/preempt.h>
 	<linux/lockdep.h>
 	<linux/ftrace_irq.h>
@@ -1387,7 +1387,7 @@
 
 1307064911 /usr/src/linux-headers-rtai/include/linux/ftrace_irq.h
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/sched.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/sched.h
 	<asm/param.h>
 	<linux/capability.h>
 	<linux/threads.h>
@@ -1456,7 +1456,7 @@
 	<linux/spinlock.h>
 	<linux/preempt.h>
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/spinlock.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/spinlock.h
 	<linux/typecheck.h>
 	<linux/preempt.h>
 	<linux/linkage.h>
@@ -1494,16 +1494,16 @@
 
 1307064911 /usr/src/linux-headers-rtai/include/linux/rwlock_types.h
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/spinlock_up.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/spinlock_up.h
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/ipipe_lock.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/ipipe_lock.h
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/rwlock.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/rwlock.h
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/spinlock_api_smp.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/spinlock_api_smp.h
 	<linux/rwlock_api_smp.h>
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/rwlock_api_smp.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/rwlock_api_smp.h
 
 1307064911 /usr/src/linux-headers-rtai/include/linux/spinlock_api_up.h
 
@@ -1583,7 +1583,7 @@
 
 1307064911 /usr/src/linux-headers-rtai/include/linux/page-debug-flags.h
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/ipipe.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/ipipe.h
 	<linux/spinlock.h>
 	<linux/cache.h>
 	<linux/percpu.h>
@@ -1706,7 +1706,7 @@
 1307064911 /usr/src/linux-headers-rtai/include/linux/pageblock-flags.h
 	<linux/types.h>
 
-1353350355 /usr/src/linux-headers-rtai/include/generated/bounds.h
+1350587830 /usr/src/linux-headers-rtai/include/generated/bounds.h
 
 1307064911 /usr/src/linux-headers-rtai/include/linux/memory_hotplug.h
 	<linux/mmzone.h>
@@ -2233,7 +2233,7 @@
 1307064911 /usr/src/linux-headers-rtai/include/linux/pm_wakeup.h
 	<linux/types.h>
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/irq.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/irq.h
 	<linux/smp.h>
 	<linux/linkage.h>
 	<linux/cache.h>
@@ -2251,16 +2251,16 @@
 	<linux/irqdesc.h>
 	<asm/hw_irq.h>
 
-1353349594 /usr/src/linux-headers-rtai/include/linux/irqdesc.h
+1350586954 /usr/src/linux-headers-rtai/include/linux/irqdesc.h
 
 1307064911 /usr/src/linux-headers-rtai/include/linux/vmalloc.h
 	<linux/spinlock.h>
 	<linux/init.h>
 	<asm/page.h>
 
-1344449209 /home/chandra/LazarusPrograms/AFM.XDev/RTAILazarusCInterface//rtai_spm.h
+1364769364 /home/chandra/LazarusPrograms/AFM.XDev/RTAILazarusCInterface//rtai_spm.h
 
-1305170280 /home/chandra/LazarusPrograms/AFM.XDev/RTAILazarusCInterface//queue.c
+1355183093 /home/chandra/LazarusPrograms/AFM.XDev/RTAILazarusCInterface//queue.c
 	<stdio.h>
 	<errno.h>
 	<stdlib.h>

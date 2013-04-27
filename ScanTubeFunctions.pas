@@ -354,7 +354,7 @@ implementation
               OscilloscopeForm.OscilloscopeChartLineSeries4.AddXY(XValue,LineData[i], '',clFuchsia); //color blue, second layer, reverse scan
         XValue:=XValue+Step;
       end;
-      Application.ProcessMessages;
+      //Application.ProcessMessages;
     XLineScan:=LineData;
   end;
 

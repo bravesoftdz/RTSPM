@@ -34,6 +34,7 @@ begin
         WriteData('setm 2 stp'+Chr(13));
         WriteData('setm 3 stp'+Chr(13));
       end;
+    //Active:=FALSE;
   end;
 end;
 {----------------------------------------------------------------------------}

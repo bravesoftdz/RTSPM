@@ -76,7 +76,6 @@ int StartMainTask( int priority)
  //function to start a real time task with the given priority
  //StartMainTask is designed to be called from the Pascal Program to start the Main (i.e., Pascal) rt program
     int hard_timer_running = 1;
-    int j=0;
     rt_allow_nonroot_hrt();
 
      if(!(GlobalTask = rt_task_init_schmod(nam2num( "SomeTask" ), // Name
@@ -169,7 +168,6 @@ int PLLReferenceGeneration()
     static int PLLGenerationBufferSize;
 	unsigned int maxdata;
 	unsigned int chanlist[16];
-	int ret;
     static lsampl_t data[PLLGenerationBufferNPoints]; //this is the buffer used to send data points out
     comedi_cmd cmd;
 
@@ -447,6 +445,9 @@ int sineoutput()
 //*******************************************************************************
 int pid_loop()
 
+//Modified on 4/25/2013 to take into account nonmonotonic response curve
+//This should lock on to one set point depending on the sign of ErrorSign
+//See Venkat's AFM notebook, page 199
 //Modified on May 8 to take into account a moving average, and a moving variance
 //and also to remove the retraction of the piezo except on the first pass.
 
@@ -462,13 +463,17 @@ int pid_loop()
     static double bi, ad, bd; //PID coefficients
     static double Pcontrib, Icontrib, Dcontrib; //individual PID contributions
     static double FeedbackReading; //Readings of the error chann
+    static double LastFeedbackReading; //Readings of the error chann
     static double v; //u is the actuator output, and v is the calculated output
     static int j = 0;
+    static int TempErrorSign = 1;
+    static double SensorSlope;
     static double LastDiffContrib;
     static double Error;
     static double LastError =0;
     static double SecondLastError =0;
     static double LastOutput =0;
+    static double SecondLastOutput =0;
     //static double SummedPIDOutput; //Summed PID Output
     static double SummedFeedbackReading; //Summed FeedbackReading
     //static double SummedVariance;
@@ -581,11 +586,14 @@ int pid_loop()
         LastError = 0;
         SecondLastError = 0;
         LastOutput = PIDOutput;
+        SecondLastOutput = 0;
         LastDiffContrib =0;
         Dcontrib = 0;
         Icontrib = 0;
         AveragedPIDOutput=LastOutput;  //This is what the main program will actually read
         FirstPIDPass = 0;
+        LastFeedbackReading = 0;
+        SensorSlope = 0;
       }
 
 
@@ -694,20 +702,31 @@ int pid_loop()
 
       //Convert to a voltage reading
       FeedbackReading = ((((float) data_from_card)/MaxInputBits)*InputRange + MinInputVoltage);
+//      if ((LastOutput-SecondLastOutput)!=0)
+//        {
+//          SensorSlope = (LastError-SecondLastError)/(LastOutput-SecondLastOutput);
+//        }
+      //TempErrorSign = 1;
+//      if(((SensorSlope>=0)? 1:-1)==OutputPhase)
+//       {
+//         if((FeedbackReading - SetPoint)>0)
+//           {
+//             TempErrorSign = -1;
+//           }
+//       }
       //rt_printk("Data from card is %d \n", data_from_card);
-      //rt_printk("Feedback reading is %f \n", FeedbackReading);
+//      rt_printk("Sensor Slope is is %f \n", SensorSlope);
       //rt_printk("Input m is %d \n", m);
       delta = (FeedbackReading - AveragedFeedbackReading);
       //AveragedFeedbackReading = alpha*FeedbackReading+(1-alpha)*AveragedFeedbackReading;  //running averange
       //PIDOutputVariance = alpha*(delta*delta) + (1-alpha)*PIDOutputVariance;
       //Venkat changed the following line to add logarithmic averaging on January 10, 2012
       if(Logarithmic){
-        Error = AmplifierGainSign*OutputPhase*log10(fabs(FeedbackReading/SetPoint));
+        Error = ((float) AmplifierGainSign)*((float) OutputPhase)*log10(fabs(FeedbackReading/SetPoint));
         }
        else {
-         Error = AmplifierGainSign*OutputPhase*(SetPoint - FeedbackReading);//multiply by OutputPhase+AmplifierGainSign
+         Error = ((float) AmplifierGainSign)*((float) OutputPhase)*(SetPoint - FeedbackReading);//multiply by OutputPhase+AmplifierGainSign
        }
-      //Error = AmplifierGainSign*OutputPhase*(SetPoint - FeedbackReading);//multiply by OutputPhase+AmplifierGainSign
       Pcontrib = PropCoff*(Error - LastError);
       //Not sure of sign of second contribution in line below...should it be - ?
       Dcontrib = ad*LastDiffContrib - bd*(Error - 2*LastError + SecondLastError);
@@ -720,6 +739,7 @@ int pid_loop()
 
       //Calculate the averaged quantities
       pop_queue(&FeedbackReading_queue, &last_mean);
+      LastFeedbackReading=AveragedFeedbackReading;
       AveragedFeedbackReading += (FeedbackReading - last_mean)/PID_averages;
       push_queue(&FeedbackReading_queue, FeedbackReading);
 
@@ -771,10 +791,12 @@ int pid_loop()
       Icontrib = bi*Error;
 
       //Update parameters
-      LastError = Error;
       SecondLastError = LastError;
+      LastError = Error;
       LastDiffContrib = Dcontrib;
+      SecondLastOutput=LastOutput;
       LastOutput = PIDOutput;
+      //LastFeedbackReading = AveragedFeedbackReading;
 
 
       //rt_printk("PContrib is %f \n", Pcontrib);

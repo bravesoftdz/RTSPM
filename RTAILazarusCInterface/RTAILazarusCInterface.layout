@@ -2,12 +2,12 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
 	<File name="main.c" open="1" top="1" tabpos="2">
-		<Cursor position="29802" topLine="69" />
+		<Cursor position="29143" topLine="703" />
 	</File>
 	<File name="queue.c" open="1" top="0" tabpos="3">
 		<Cursor position="19" topLine="0" />
 	</File>
 	<File name="rtai_spm.h" open="1" top="0" tabpos="1">
-		<Cursor position="2879" topLine="101" />
+		<Cursor position="3584" topLine="48" />
 	</File>
 </CodeBlocks_layout_file>

@@ -1,7 +1,7 @@
 object SysConfig: TSysConfig
-  Left = 706
+  Left = 707
   Height = 441
-  Top = 265
+  Top = 264
   Width = 702
   ActiveControl = AttocubeCheckBox
   Caption = 'Scanning Probe Microscope - Global System Configuration'
@@ -10,7 +10,7 @@ object SysConfig: TSysConfig
   Font.Height = -11
   OnClose = FormClose
   OnShow = FormShow
-  LCLVersion = '1.0.2.0'
+  LCLVersion = '1.0.8.0'
   object GroupBox4: TGroupBox
     Left = 200
     Height = 148
@@ -26,7 +26,7 @@ object SysConfig: TSysConfig
       Left = 15
       Height = 15
       Top = 11
-      Width = 116
+      Width = 99
       Caption = 'Scan tube X  control'
       ParentColor = False
     end
@@ -34,7 +34,7 @@ object SysConfig: TSysConfig
       Left = 178
       Height = 15
       Top = 11
-      Width = 112
+      Width = 96
       Caption = 'Scan tube Y control'
       ParentColor = False
     end
@@ -42,7 +42,7 @@ object SysConfig: TSysConfig
       Left = 337
       Height = 15
       Top = 11
-      Width = 114
+      Width = 95
       Caption = 'Scan tube Z control'
       ParentColor = False
     end
@@ -50,7 +50,7 @@ object SysConfig: TSysConfig
       Left = 15
       Height = 15
       Top = 65
-      Width = 90
+      Width = 78
       Caption = 'Channel 0 input'
       ParentColor = False
     end
@@ -58,7 +58,7 @@ object SysConfig: TSysConfig
       Left = 178
       Height = 15
       Top = 65
-      Width = 90
+      Width = 78
       Caption = 'Channel 1 input'
       ParentColor = False
     end
@@ -66,13 +66,13 @@ object SysConfig: TSysConfig
       Left = 337
       Height = 15
       Top = 65
-      Width = 90
+      Width = 78
       Caption = 'Channel 2 input'
       ParentColor = False
     end
     object ScanXComboBox: TComboBox
       Left = 15
-      Height = 25
+      Height = 27
       Top = 30
       Width = 138
       ItemHeight = 0
@@ -82,7 +82,7 @@ object SysConfig: TSysConfig
     end
     object ScanYComboBox: TComboBox
       Left = 178
-      Height = 25
+      Height = 27
       Top = 30
       Width = 138
       ItemHeight = 0
@@ -92,7 +92,7 @@ object SysConfig: TSysConfig
     end
     object ScanZComboBox: TComboBox
       Left = 337
-      Height = 25
+      Height = 27
       Top = 30
       Width = 138
       ItemHeight = 0
@@ -102,7 +102,7 @@ object SysConfig: TSysConfig
     end
     object Ch0ComboBox: TComboBox
       Left = 15
-      Height = 25
+      Height = 27
       Top = 84
       Width = 138
       DropDownCount = 16
@@ -113,7 +113,7 @@ object SysConfig: TSysConfig
     end
     object Ch1ComboBox: TComboBox
       Left = 178
-      Height = 25
+      Height = 27
       Top = 84
       Width = 138
       ItemHeight = 0
@@ -123,7 +123,7 @@ object SysConfig: TSysConfig
     end
     object Ch2ComboBox: TComboBox
       Left = 337
-      Height = 25
+      Height = 27
       Top = 84
       Width = 138
       ItemHeight = 0
@@ -147,13 +147,13 @@ object SysConfig: TSysConfig
       Left = 18
       Height = 15
       Top = 56
-      Width = 79
+      Width = 67
       Caption = 'GPIB Address'
       ParentColor = False
     end
     object LockInGPIBAddressSpinEdit: TSpinEdit
       Left = 92
-      Height = 22
+      Height = 24
       Top = 52
       Width = 39
       MaxValue = 50
@@ -164,9 +164,9 @@ object SysConfig: TSysConfig
     end
     object LockInCheckBox: TCheckBox
       Left = 18
-      Height = 21
+      Height = 24
       Top = 10
-      Width = 155
+      Width = 165
       Caption = 'Use Lock in amplifier'
       Checked = True
       OnClick = LockInCheckBoxClick
@@ -187,9 +187,9 @@ object SysConfig: TSysConfig
     TabOrder = 1
     object NanosurfCheckBox: TCheckBox
       Left = 18
-      Height = 21
+      Height = 24
       Top = 10
-      Width = 136
+      Width = 145
       Caption = 'Use Nanosurf PLL'
       OnClick = NanosurfCheckBoxClick
       TabOrder = 0
@@ -210,13 +210,13 @@ object SysConfig: TSysConfig
       Left = 18
       Height = 15
       Top = 56
-      Width = 54
+      Width = 47
       Caption = 'Com Port'
       ParentColor = False
     end
     object AttocubeComPortSpinEdit: TSpinEdit
       Left = 92
-      Height = 22
+      Height = 24
       Top = 52
       Width = 39
       MaxValue = 4
@@ -227,9 +227,9 @@ object SysConfig: TSysConfig
     end
     object AttocubeCheckBox: TCheckBox
       Left = 18
-      Height = 21
+      Height = 24
       Top = 10
-      Width = 110
+      Width = 117
       Caption = 'Use Attocube'
       OnClick = AttocubeCheckBoxClick
       TabOrder = 1
@@ -250,7 +250,7 @@ object SysConfig: TSysConfig
       Left = 15
       Height = 15
       Top = 15
-      Width = 89
+      Width = 78
       Caption = 'No file selected'
       ParentColor = False
     end
@@ -277,7 +277,7 @@ object SysConfig: TSysConfig
     TabOrder = 5
     object FeedbackComboBox: TComboBox
       Left = 15
-      Height = 25
+      Height = 27
       Top = 2
       Width = 145
       ItemHeight = 0
@@ -287,9 +287,9 @@ object SysConfig: TSysConfig
     end
     object LogCheckBox: TCheckBox
       Left = 166
-      Height = 21
+      Height = 24
       Top = 6
-      Width = 89
+      Width = 107
       Caption = 'Logarithmic'
       OnClick = LogCheckBoxClick
       TabOrder = 1
@@ -306,7 +306,7 @@ object SysConfig: TSysConfig
     TabOrder = 6
     object Device1Edit: TLabeledEdit
       Left = 17
-      Height = 22
+      Height = 24
       Top = 27
       Width = 140
       Color = clRed
@@ -325,7 +325,7 @@ object SysConfig: TSysConfig
     end
     object Device2Edit: TLabeledEdit
       Left = 208
-      Height = 22
+      Height = 24
       Top = 27
       Width = 140
       Color = clRed
@@ -344,7 +344,7 @@ object SysConfig: TSysConfig
     end
     object Device3Edit: TLabeledEdit
       Left = 397
-      Height = 22
+      Height = 24
       Top = 27
       Width = 140
       Color = clRed
@@ -375,7 +375,7 @@ object SysConfig: TSysConfig
     TabOrder = 7
     object SampleVoltageComboBox: TComboBox
       Left = 6
-      Height = 25
+      Height = 27
       Top = 2
       Width = 173
       ItemHeight = 0
