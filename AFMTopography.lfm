@@ -1,7 +1,7 @@
 object AFMTopograph: TAFMTopograph
-  Left = 337
+  Left = 350
   Height = 778
-  Top = 49
+  Top = 53
   Width = 804
   Caption = 'AFM Topography'
   ClientHeight = 778
@@ -65,7 +65,7 @@ object AFMTopograph: TAFMTopograph
     Left = 21
     Height = 15
     Top = 401
-    Width = 55
+    Width = 54
     Caption = 'Scale Min'
     ParentColor = False
   end
@@ -75,8 +75,8 @@ object AFMTopograph: TAFMTopograph
     Top = 464
     Width = 210
     Caption = 'Scan Tube Control'
-    ClientHeight = 172
-    ClientWidth = 202
+    ClientHeight = 174
+    ClientWidth = 206
     Color = clSilver
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
@@ -87,7 +87,7 @@ object AFMTopograph: TAFMTopograph
       Left = 8
       Height = 15
       Top = 40
-      Width = 32
+      Width = 31
       Caption = 'Set X'
       ParentColor = False
     end
@@ -95,7 +95,7 @@ object AFMTopograph: TAFMTopograph
       Left = 8
       Height = 15
       Top = 64
-      Width = 31
+      Width = 30
       Caption = 'Set Y'
       ParentColor = False
     end
@@ -103,7 +103,7 @@ object AFMTopograph: TAFMTopograph
       Left = 8
       Height = 15
       Top = 88
-      Width = 32
+      Width = 31
       Caption = 'Set Z'
       ParentColor = False
     end
@@ -111,7 +111,7 @@ object AFMTopograph: TAFMTopograph
       Left = 16
       Height = 15
       Top = 8
-      Width = 91
+      Width = 92
       Caption = 'Change Position'
       ParentColor = False
     end
@@ -131,7 +131,7 @@ object AFMTopograph: TAFMTopograph
       Left = 125
       Height = 15
       Top = 8
-      Width = 67
+      Width = 68
       Caption = 'Current Pos'
       ParentColor = False
     end
@@ -270,8 +270,8 @@ object AFMTopograph: TAFMTopograph
     Top = 464
     Width = 311
     Caption = 'Scan Control'
-    ClientHeight = 206
-    ClientWidth = 303
+    ClientHeight = 208
+    ClientWidth = 307
     Color = clYellow
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
@@ -290,7 +290,7 @@ object AFMTopograph: TAFMTopograph
       Left = 65
       Height = 15
       Top = 22
-      Width = 30
+      Width = 31
       Caption = 'Ch. 1'
       ParentColor = False
     end
@@ -298,7 +298,7 @@ object AFMTopograph: TAFMTopograph
       Left = 16
       Height = 15
       Top = 41
-      Width = 20
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -306,7 +306,7 @@ object AFMTopograph: TAFMTopograph
       Left = 62
       Height = 15
       Top = 41
-      Width = 20
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -326,7 +326,7 @@ object AFMTopograph: TAFMTopograph
       Left = 16
       Height = 15
       Top = 66
-      Width = 55
+      Width = 53
       Caption = 'Feedback'
       ParentColor = False
     end
@@ -334,7 +334,7 @@ object AFMTopograph: TAFMTopograph
       Left = 19
       Height = 15
       Top = 77
-      Width = 20
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -342,7 +342,7 @@ object AFMTopograph: TAFMTopograph
       Left = 110
       Height = 15
       Top = 27
-      Width = 57
+      Width = 58
       Caption = 'Error Sign'
       ParentColor = False
     end
@@ -350,7 +350,7 @@ object AFMTopograph: TAFMTopograph
       Left = 16
       Height = 15
       Top = 5
-      Width = 42
+      Width = 41
       Caption = 'Signals'
       ParentColor = False
     end
@@ -358,7 +358,7 @@ object AFMTopograph: TAFMTopograph
       Left = 110
       Height = 15
       Top = 8
-      Width = 88
+      Width = 89
       Caption = 'PID Parameters'
       ParentColor = False
     end
@@ -372,7 +372,7 @@ object AFMTopograph: TAFMTopograph
       Left = 14
       Height = 15
       Top = 178
-      Width = 70
+      Width = 72
       Caption = 'Error Signal:'
       ParentColor = False
     end
@@ -380,7 +380,7 @@ object AFMTopograph: TAFMTopograph
       Left = 110
       Height = 15
       Top = 178
-      Width = 20
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -492,9 +492,9 @@ object AFMTopograph: TAFMTopograph
     end
     object LogarithmicCheckBox: TCheckBox
       Left = 201
-      Height = 21
+      Height = 24
       Top = 171
-      Width = 97
+      Width = 107
       Caption = 'Logarithmic'
       OnClick = LogarithmicCheckBoxClick
       TabOrder = 7
@@ -506,8 +506,8 @@ object AFMTopograph: TAFMTopograph
     Top = 464
     Width = 241
     Caption = 'Scan Parameters'
-    ClientHeight = 170
-    ClientWidth = 233
+    ClientHeight = 172
+    ClientWidth = 237
     Color = clRed
     ParentColor = False
     TabOrder = 3
@@ -531,7 +531,7 @@ object AFMTopograph: TAFMTopograph
       Left = 130
       Height = 15
       Top = 96
-      Width = 53
+      Width = 54
       Caption = 'Averages'
       ParentColor = False
     end
@@ -547,13 +547,13 @@ object AFMTopograph: TAFMTopograph
       Left = 18
       Height = 15
       Top = 152
-      Width = 83
+      Width = 82
       Caption = 'Scan Direction'
       ParentColor = False
     end
     object ScanResolutionComboBox: TComboBox
       Left = 16
-      Height = 24
+      Height = 27
       Top = 20
       Width = 135
       ItemHeight = 0
@@ -590,7 +590,7 @@ object AFMTopograph: TAFMTopograph
     end
     object ScanRangeComboBox: TComboBox
       Left = 16
-      Height = 24
+      Height = 27
       Top = 64
       Width = 135
       ItemHeight = 0
@@ -600,7 +600,7 @@ object AFMTopograph: TAFMTopograph
     end
     object ScanDirectionComboBox: TComboBox
       Left = 130
-      Height = 24
+      Height = 27
       Top = 144
       Width = 100
       ItemHeight = 0
@@ -615,8 +615,8 @@ object AFMTopograph: TAFMTopograph
   end
   object StatusBar: TStatusBar
     Left = 0
-    Height = 22
-    Top = 756
+    Height = 21
+    Top = 757
     Width = 804
     Panels = <>
     SimpleText = 'Idle'
@@ -654,8 +654,8 @@ object AFMTopograph: TAFMTopograph
     Top = 656
     Width = 206
     Caption = 'File Saving'
-    ClientHeight = 87
-    ClientWidth = 198
+    ClientHeight = 89
+    ClientWidth = 202
     TabOrder = 8
     object Label20: TLabel
       Left = 13
@@ -694,9 +694,9 @@ object AFMTopograph: TAFMTopograph
   end
   object LevelImageCheckBox: TCheckBox
     Left = 168
-    Height = 21
+    Height = 24
     Top = 424
-    Width = 124
+    Width = 138
     Caption = 'AutoLevel Image'
     OnClick = LevelImageRadioButtonClick
     TabOrder = 9

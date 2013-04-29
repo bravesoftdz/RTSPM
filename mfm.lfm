@@ -1,11 +1,11 @@
 object MFMForm: TMFMForm
-  Left = 309
-  Height = 823
-  Top = 24
+  Left = 13
+  Height = 896
+  Top = 70
   Width = 1129
   ActiveControl = PropEdit
   Caption = 'Magnetic Force MIcroscopy'
-  ClientHeight = 823
+  ClientHeight = 896
   ClientWidth = 1129
   OnClose = FormClose
   OnShow = FormShow
@@ -66,7 +66,7 @@ object MFMForm: TMFMForm
     Left = 21
     Height = 15
     Top = 401
-    Width = 50
+    Width = 49
     Caption = 'Scale Min'
     Font.Height = -11
     ParentColor = False
@@ -120,8 +120,8 @@ object MFMForm: TMFMForm
     Top = 520
     Width = 210
     Caption = 'Scan Tube Control'
-    ClientHeight = 172
-    ClientWidth = 202
+    ClientHeight = 174
+    ClientWidth = 206
     Color = clSilver
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
@@ -132,7 +132,7 @@ object MFMForm: TMFMForm
       Left = 8
       Height = 15
       Top = 40
-      Width = 32
+      Width = 31
       Caption = 'Set X'
       ParentColor = False
     end
@@ -140,7 +140,7 @@ object MFMForm: TMFMForm
       Left = 8
       Height = 15
       Top = 64
-      Width = 31
+      Width = 30
       Caption = 'Set Y'
       ParentColor = False
     end
@@ -148,7 +148,7 @@ object MFMForm: TMFMForm
       Left = 8
       Height = 15
       Top = 88
-      Width = 32
+      Width = 31
       Caption = 'Set Z'
       ParentColor = False
     end
@@ -156,7 +156,7 @@ object MFMForm: TMFMForm
       Left = 16
       Height = 15
       Top = 8
-      Width = 91
+      Width = 92
       Caption = 'Change Position'
       ParentColor = False
     end
@@ -176,7 +176,7 @@ object MFMForm: TMFMForm
       Left = 125
       Height = 15
       Top = 8
-      Width = 67
+      Width = 68
       Caption = 'Current Pos'
       ParentColor = False
     end
@@ -315,8 +315,8 @@ object MFMForm: TMFMForm
     Top = 33
     Width = 311
     Caption = 'Scan Control'
-    ClientHeight = 181
-    ClientWidth = 303
+    ClientHeight = 183
+    ClientWidth = 307
     Color = clYellow
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
@@ -335,7 +335,7 @@ object MFMForm: TMFMForm
       Left = 65
       Height = 15
       Top = 28
-      Width = 30
+      Width = 31
       Caption = 'Ch. 1'
       ParentColor = False
     end
@@ -343,7 +343,7 @@ object MFMForm: TMFMForm
       Left = 16
       Height = 15
       Top = 47
-      Width = 20
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -351,7 +351,7 @@ object MFMForm: TMFMForm
       Left = 62
       Height = 15
       Top = 47
-      Width = 20
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -371,7 +371,7 @@ object MFMForm: TMFMForm
       Left = 16
       Height = 15
       Top = 72
-      Width = 55
+      Width = 53
       Caption = 'Feedback'
       ParentColor = False
     end
@@ -379,7 +379,7 @@ object MFMForm: TMFMForm
       Left = 19
       Height = 15
       Top = 91
-      Width = 20
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -387,7 +387,7 @@ object MFMForm: TMFMForm
       Left = 112
       Height = 15
       Top = 34
-      Width = 57
+      Width = 58
       Caption = 'Error Sign'
       ParentColor = False
     end
@@ -395,7 +395,7 @@ object MFMForm: TMFMForm
       Left = 16
       Height = 15
       Top = 1
-      Width = 42
+      Width = 41
       Caption = 'Signals'
       ParentColor = False
     end
@@ -403,7 +403,7 @@ object MFMForm: TMFMForm
       Left = 112
       Height = 15
       Top = 15
-      Width = 88
+      Width = 89
       Caption = 'PID Parameters'
       ParentColor = False
     end
@@ -417,7 +417,7 @@ object MFMForm: TMFMForm
       Left = 228
       Height = 15
       Top = 130
-      Width = 67
+      Width = 68
       Caption = 'Error Signal'
       ParentColor = False
     end
@@ -425,7 +425,7 @@ object MFMForm: TMFMForm
       Left = 228
       Height = 15
       Top = 149
-      Width = 20
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -542,8 +542,8 @@ object MFMForm: TMFMForm
     Top = 240
     Width = 241
     Caption = 'Scan Parameters'
-    ClientHeight = 170
-    ClientWidth = 233
+    ClientHeight = 172
+    ClientWidth = 237
     Color = clRed
     Font.Height = -11
     ParentColor = False
@@ -553,7 +553,7 @@ object MFMForm: TMFMForm
       Left = 18
       Height = 15
       Top = 1
-      Width = 82
+      Width = 79
       Caption = 'Scan Resolution'
       ParentColor = False
     end
@@ -561,7 +561,7 @@ object MFMForm: TMFMForm
       Left = 16
       Height = 15
       Top = 96
-      Width = 82
+      Width = 83
       Caption = 'Dwell time  (ms)'
       ParentColor = False
     end
@@ -569,7 +569,7 @@ object MFMForm: TMFMForm
       Left = 130
       Height = 15
       Top = 96
-      Width = 49
+      Width = 47
       Caption = 'Averages'
       ParentColor = False
     end
@@ -577,7 +577,7 @@ object MFMForm: TMFMForm
       Left = 18
       Height = 15
       Top = 48
-      Width = 57
+      Width = 55
       Caption = 'Scan range'
       ParentColor = False
     end
@@ -585,13 +585,13 @@ object MFMForm: TMFMForm
       Left = 18
       Height = 15
       Top = 152
-      Width = 74
+      Width = 72
       Caption = 'Scan Direction'
       ParentColor = False
     end
     object ScanResolutionComboBox: TComboBox
       Left = 16
-      Height = 24
+      Height = 27
       Top = 20
       Width = 135
       Font.Height = -11
@@ -634,7 +634,7 @@ object MFMForm: TMFMForm
     end
     object ScanRangeComboBox: TComboBox
       Left = 16
-      Height = 24
+      Height = 27
       Top = 64
       Width = 135
       Font.Height = -11
@@ -646,7 +646,7 @@ object MFMForm: TMFMForm
     end
     object ScanDirectionComboBox: TComboBox
       Left = 130
-      Height = 24
+      Height = 27
       Top = 144
       Width = 100
       Font.Height = -11
@@ -700,8 +700,8 @@ object MFMForm: TMFMForm
     Top = 728
     Width = 206
     Caption = 'File Saving'
-    ClientHeight = 87
-    ClientWidth = 198
+    ClientHeight = 89
+    ClientWidth = 202
     Font.Height = -11
     ParentFont = False
     TabOrder = 7
@@ -709,7 +709,7 @@ object MFMForm: TMFMForm
       Left = 13
       Height = 15
       Top = 54
-      Width = 82
+      Width = 79
       Caption = 'Run Description'
       ParentColor = False
     end
@@ -742,8 +742,8 @@ object MFMForm: TMFMForm
   end
   object StatusBar: TStatusBar
     Left = 0
-    Height = 22
-    Top = 801
+    Height = 21
+    Top = 875
     Width = 1129
     Panels = <>
     SimpleText = 'Idle'
@@ -752,7 +752,7 @@ object MFMForm: TMFMForm
     Left = 19
     Height = 15
     Top = 849
-    Width = 50
+    Width = 49
     Caption = 'Scale Min'
     Font.Height = -11
     ParentColor = False
@@ -823,18 +823,18 @@ object MFMForm: TMFMForm
   end
   object LevelTopoImageCheckBox: TCheckBox
     Left = 240
-    Height = 22
+    Height = 24
     Top = 426
-    Width = 144
+    Width = 138
     Caption = 'AutoLevel Image'
     OnClick = LevelTopoImageCheckBoxClick
     TabOrder = 13
   end
   object LevelMFMImageCheckBox: TCheckBox
     Left = 472
-    Height = 22
+    Height = 24
     Top = 840
-    Width = 144
+    Width = 138
     Caption = 'AutoLevel Image'
     OnClick = LevelMFMImageCheckBoxClick
     TabOrder = 14
@@ -854,8 +854,8 @@ object MFMForm: TMFMForm
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 55
-    ClientWidth = 144
+    ClientHeight = 54
+    ClientWidth = 148
     ItemIndex = 0
     Items.Strings = (
       'Lift Mode'

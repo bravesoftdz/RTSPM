@@ -1,10 +1,10 @@
 object EFMForm: TEFMForm
-  Left = 466
-  Height = 823
-  Top = 76
+  Left = 62
+  Height = 899
+  Top = 49
   Width = 1129
   Caption = 'Electrostatic Force Microscopy/Scanned Gate Microscopy'
-  ClientHeight = 823
+  ClientHeight = 899
   ClientWidth = 1129
   OnClose = FormClose
   OnShow = FormShow
@@ -65,7 +65,7 @@ object EFMForm: TEFMForm
     Left = 21
     Height = 15
     Top = 401
-    Width = 50
+    Width = 49
     Caption = 'Scale Min'
     Font.Height = -11
     ParentColor = False
@@ -119,8 +119,8 @@ object EFMForm: TEFMForm
     Top = 548
     Width = 210
     Caption = 'Scan Tube Control'
-    ClientHeight = 172
-    ClientWidth = 202
+    ClientHeight = 174
+    ClientWidth = 206
     Color = clSilver
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
@@ -131,7 +131,7 @@ object EFMForm: TEFMForm
       Left = 8
       Height = 15
       Top = 40
-      Width = 32
+      Width = 31
       Caption = 'Set X'
       ParentColor = False
     end
@@ -139,7 +139,7 @@ object EFMForm: TEFMForm
       Left = 8
       Height = 15
       Top = 64
-      Width = 31
+      Width = 30
       Caption = 'Set Y'
       ParentColor = False
     end
@@ -147,7 +147,7 @@ object EFMForm: TEFMForm
       Left = 8
       Height = 15
       Top = 88
-      Width = 32
+      Width = 31
       Caption = 'Set Z'
       ParentColor = False
     end
@@ -155,7 +155,7 @@ object EFMForm: TEFMForm
       Left = 16
       Height = 15
       Top = 8
-      Width = 91
+      Width = 92
       Caption = 'Change Position'
       ParentColor = False
     end
@@ -175,7 +175,7 @@ object EFMForm: TEFMForm
       Left = 125
       Height = 15
       Top = 8
-      Width = 67
+      Width = 68
       Caption = 'Current Pos'
       ParentColor = False
     end
@@ -314,8 +314,8 @@ object EFMForm: TEFMForm
     Top = 33
     Width = 311
     Caption = 'Scan Control'
-    ClientHeight = 181
-    ClientWidth = 303
+    ClientHeight = 183
+    ClientWidth = 307
     Color = clYellow
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
@@ -334,7 +334,7 @@ object EFMForm: TEFMForm
       Left = 64
       Height = 15
       Top = 45
-      Width = 30
+      Width = 31
       Caption = 'Ch. 1'
       ParentColor = False
     end
@@ -342,7 +342,7 @@ object EFMForm: TEFMForm
       Left = 15
       Height = 15
       Top = 64
-      Width = 20
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -350,7 +350,7 @@ object EFMForm: TEFMForm
       Left = 61
       Height = 15
       Top = 64
-      Width = 20
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -370,7 +370,7 @@ object EFMForm: TEFMForm
       Left = 15
       Height = 15
       Top = 89
-      Width = 55
+      Width = 53
       Caption = 'Feedback'
       ParentColor = False
     end
@@ -378,7 +378,7 @@ object EFMForm: TEFMForm
       Left = 18
       Height = 15
       Top = 108
-      Width = 20
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -386,7 +386,7 @@ object EFMForm: TEFMForm
       Left = 111
       Height = 15
       Top = 36
-      Width = 57
+      Width = 58
       Caption = 'Error Sign'
       ParentColor = False
     end
@@ -394,7 +394,7 @@ object EFMForm: TEFMForm
       Left = 15
       Height = 15
       Top = 18
-      Width = 42
+      Width = 41
       Caption = 'Signals'
       ParentColor = False
     end
@@ -402,7 +402,7 @@ object EFMForm: TEFMForm
       Left = 111
       Height = 15
       Top = 17
-      Width = 88
+      Width = 89
       Caption = 'PID Parameters'
       ParentColor = False
     end
@@ -416,7 +416,7 @@ object EFMForm: TEFMForm
       Left = 227
       Height = 15
       Top = 132
-      Width = 67
+      Width = 68
       Caption = 'Error Signal'
       ParentColor = False
     end
@@ -424,7 +424,7 @@ object EFMForm: TEFMForm
       Left = 227
       Height = 15
       Top = 151
-      Width = 20
+      Width = 19
       Caption = '0.0'
       ParentColor = False
     end
@@ -541,8 +541,8 @@ object EFMForm: TEFMForm
     Top = 240
     Width = 241
     Caption = 'Scan Parameters'
-    ClientHeight = 170
-    ClientWidth = 233
+    ClientHeight = 172
+    ClientWidth = 237
     Color = clRed
     Font.Height = -11
     ParentColor = False
@@ -552,7 +552,7 @@ object EFMForm: TEFMForm
       Left = 18
       Height = 15
       Top = 1
-      Width = 82
+      Width = 79
       Caption = 'Scan Resolution'
       ParentColor = False
     end
@@ -560,7 +560,7 @@ object EFMForm: TEFMForm
       Left = 16
       Height = 15
       Top = 96
-      Width = 82
+      Width = 83
       Caption = 'Dwell time  (ms)'
       ParentColor = False
     end
@@ -568,7 +568,7 @@ object EFMForm: TEFMForm
       Left = 130
       Height = 15
       Top = 96
-      Width = 49
+      Width = 47
       Caption = 'Averages'
       ParentColor = False
     end
@@ -576,7 +576,7 @@ object EFMForm: TEFMForm
       Left = 18
       Height = 15
       Top = 48
-      Width = 57
+      Width = 55
       Caption = 'Scan range'
       ParentColor = False
     end
@@ -584,13 +584,13 @@ object EFMForm: TEFMForm
       Left = 18
       Height = 15
       Top = 152
-      Width = 74
+      Width = 72
       Caption = 'Scan Direction'
       ParentColor = False
     end
     object ScanResolutionComboBox: TComboBox
       Left = 16
-      Height = 24
+      Height = 27
       Top = 20
       Width = 135
       Font.Height = -11
@@ -633,7 +633,7 @@ object EFMForm: TEFMForm
     end
     object ScanRangeComboBox: TComboBox
       Left = 16
-      Height = 24
+      Height = 27
       Top = 64
       Width = 135
       Font.Height = -11
@@ -645,7 +645,7 @@ object EFMForm: TEFMForm
     end
     object ScanDirectionComboBox: TComboBox
       Left = 130
-      Height = 24
+      Height = 27
       Top = 144
       Width = 100
       Font.Height = -11
@@ -699,8 +699,8 @@ object EFMForm: TEFMForm
     Top = 756
     Width = 206
     Caption = 'File Saving'
-    ClientHeight = 87
-    ClientWidth = 198
+    ClientHeight = 89
+    ClientWidth = 202
     Font.Height = -11
     ParentFont = False
     TabOrder = 7
@@ -708,7 +708,7 @@ object EFMForm: TEFMForm
       Left = 13
       Height = 15
       Top = 54
-      Width = 82
+      Width = 79
       Caption = 'Run Description'
       ParentColor = False
     end
@@ -741,8 +741,8 @@ object EFMForm: TEFMForm
   end
   object StatusBar: TStatusBar
     Left = 0
-    Height = 22
-    Top = 801
+    Height = 21
+    Top = 878
     Width = 1129
     Panels = <>
     SimpleText = 'Idle'
@@ -751,7 +751,7 @@ object EFMForm: TEFMForm
     Left = 19
     Height = 15
     Top = 849
-    Width = 50
+    Width = 49
     Caption = 'Scale Min'
     Font.Height = -11
     ParentColor = False
@@ -823,18 +823,18 @@ object EFMForm: TEFMForm
   end
   object LevelTopoImageCheckBox: TCheckBox
     Left = 240
-    Height = 22
+    Height = 24
     Top = 426
-    Width = 144
+    Width = 138
     Caption = 'AutoLevel Image'
     OnClick = LevelTopoImageCheckBoxClick
     TabOrder = 13
   end
   object LevelMFMImageCheckBox: TCheckBox
     Left = 472
-    Height = 22
+    Height = 24
     Top = 840
-    Width = 144
+    Width = 138
     Caption = 'AutoLevel Image'
     TabOrder = 14
   end
@@ -853,8 +853,8 @@ object EFMForm: TEFMForm
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 71
-    ClientWidth = 152
+    ClientHeight = 70
+    ClientWidth = 156
     ItemIndex = 0
     Items.Strings = (
       'dc Lift Mode'
@@ -880,7 +880,7 @@ object EFMForm: TEFMForm
     Left = 984
     Height = 18
     Top = 496
-    Width = 142
+    Width = 144
     Caption = 'Samp/Tip Voltage (V)'
     ParentColor = False
   end

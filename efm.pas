@@ -933,7 +933,7 @@ if Scanning then //stop the scan
 
                   //Re-engage feedback, then wait for it to settle, based on the integral time of the PID
                   EngageFeedbackBtnClick(Self);
-                  fastdelay(10*IntTime);
+                  fastdelay(DwellTime);
 
                 end; //of if useacEFM then else
               StartY:=StartY - ScanYStep;
@@ -1090,7 +1090,7 @@ if Scanning then //stop the scan
 
                   //Re-engage feedback, then wait for it to settle, based on the integral time of the PID
                   EngageFeedbackBtnClick(Self);
-                  fastdelay(10*IntTime);
+                  fastdelay(DwellTime);
 
                 end; //of if useacEFM then else
               StartX:=StartX + ScanXStep;
@@ -1316,8 +1316,8 @@ begin
  PropEdit.Text:=FloatToStr(PropCoff);
  IntEdit.Text:=FloatToStr(IntTime/1E6);  //IntTime and DiffTime are specified in nanoseconds
  DiffEdit.Text:=FloatToStr(DiffTime/1E6);//while the user input is in milliseconds
- LiftModeHeight:=20; //Default Lift mode height, in nm
- LiftModeHeightSpinEdit.Value:=LiftModeHeight;
+ LiftModeHeight:=0.020; //Default Lift mode height, in um
+ LiftModeHeightSpinEdit.Value:=LiftModeHeight*1000;
 
  if OutputPhase>0 then
    ErrorCorrectionSpinEdit.Value:=1
@@ -1450,7 +1450,7 @@ end;
 
 procedure TEFMForm.LiftModeHeightSpinEditChange(Sender: TObject);
 begin
- LiftModeHeight:=LiftModeHeightSpinEdit.Value;
+ LiftModeHeight:=0.001*(LiftModeHeightSpinEdit.Value);
 end;
 
 procedure TEFMForm.EFMModeRadioGroupClick(Sender: TObject);

@@ -588,8 +588,8 @@ begin
   PropEdit.Text:=FloatToStr(PropCoff);
   IntEdit.Text:=FloatToStr(IntTime/1E6);  //IntTime and DiffTime are specified in nanoseconds
   DiffEdit.Text:=FloatToStr(DiffTime/1E6);//while the user input is in milliseconds
-  LiftModeHeight:=20; //Default Lift mode height, in nm
-  LiftModeHeightSpinEdit.Value:=LiftModeHeight;
+  LiftModeHeight:=0.020; //Default Lift mode height, in um
+  LiftModeHeightSpinEdit.Value:=LiftModeHeight*1000;
 
   if OutputPhase>0 then
     ErrorCorrectionSpinEdit.Value:=1
@@ -660,7 +660,7 @@ end;
 
 procedure TMFMForm.LiftModeHeightSpinEditChange(Sender: TObject);
 begin
-  LiftModeHeight:=LiftModeHeightSpinEdit.Value;
+  LiftModeHeight:=0.001*(LiftModeHeightSpinEdit.Value);
 end;
 
 procedure TMFMForm.MFMModeRadioGroupClick(Sender: TObject);
@@ -1021,14 +1021,14 @@ if Scanning then //stop the scan
                   //ReverseData[i,j]:=LeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                   MFMReverseLeveledData[i,j]:=MFMLeveledSingleLineReverseData[ScanResolution-1-i];//Need to reverse
                   inc(i);
-                  Application.ProcessMessages;
+                  //Application.ProcessMessages;
                 end;
 
               //end of the MFM part of the scan
 
               //Re-engage feedback, then wait for it to settle, based on the integral time of the PID
               EngageFeedbackBtnClick(Self);
-              fastdelay(10*IntTime);
+              fastdelay(DwellTime);
 
               StartY:=StartY - ScanYStep;
               MoveToY(StartY, StepY, 0);
@@ -1142,7 +1142,7 @@ if Scanning then //stop the scan
 
               //Re-engage feedback, then wait for it to settle, based on the integral time of the PID
               EngageFeedbackBtnClick(Self);
-              fastdelay(10*IntTime);
+              fastdelay(DwellTime);
 
               StartX:=StartX + ScanXStep;
               MoveToX(StartX, StepX, 0);
@@ -1336,7 +1336,7 @@ begin
       InFeedback:=TRUE;
       EngageFeedbackBtn.Caption:='Stop Feedback';
       //PID_averages :=1; //Set the number of averages = 1
-      FirstPIDPass := 1; //This is the first PID pass
+      if Sender=EngageFeedbackBtn then FirstPIDPass := 1; //This is the first PID pass
       PIDParametersChanged:=0; //PID parameters have not changed (yet)
       pid_loop_running:=1;
       StartFeedback;
