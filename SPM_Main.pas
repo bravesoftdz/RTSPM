@@ -141,7 +141,8 @@ begin
   //ExclusiveMoveZ.Free;
   //ExclusiveMoveZ:=nil;
   ReleaseBoards;
-  if AttocubeComPort.Active then AttocubeComPort.Close;
+  FreeAttocube;
+  //if AttocubeComPort.Active then AttocubeComPort.Close;
   if GlobalTaskStarted then EndMainTask;
   GlobalTaskStarted:=FALSE;
 end;
