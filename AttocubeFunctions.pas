@@ -27,14 +27,14 @@ begin
     DataBits:=db8bits;
     Parity:=pNone;
     StopBits:=sbOne;
-    if not Active then Active:=TRUE;
+    if not Active then Open;
     if Active then  //set each axis in step mode
       begin
         WriteData('setm 1 stp'+Chr(13));
         WriteData('setm 2 stp'+Chr(13));
         WriteData('setm 3 stp'+Chr(13));
       end;
-    //Active:=FALSE;
+    Close;
   end;
 end;
 {----------------------------------------------------------------------------}
@@ -42,6 +42,7 @@ procedure AttocubePlusMove(WhichAxis: Axis);
   begin
     With SPM_MainForm.AttocubeComPort do
     begin
+      if not Active then Open;
       if WhichAxis=XAxis then
         begin
           WriteData('setm 1 stp'+Chr(13));
@@ -57,7 +58,7 @@ procedure AttocubePlusMove(WhichAxis: Axis);
           WriteData('setm 3 stp'+Chr(13));
           WriteData('stepu 3 c'+Chr(13));
         end;
-
+      Close;
     end;
   end;
 {-----------------------------------------------------------------------------}
@@ -65,6 +66,7 @@ procedure AttocubeMinusMove(WhichAxis: Axis);
   begin
     With SPM_MainForm.AttocubeComPort do
     begin
+      if not Active then Open;
       if WhichAxis=XAxis then
         begin
           WriteData('setm 1 stp'+Chr(13));
@@ -80,7 +82,7 @@ procedure AttocubeMinusMove(WhichAxis: Axis);
           WriteData('setm 3 stp'+Chr(13));
           WriteData('stepd 3 c'+Chr(13));
         end;
-
+      Close;
     end;
   end;
 {------------------------------------------------------------------------------}
@@ -88,6 +90,7 @@ procedure AttocubeStop(WhichAxis:Axis);
   begin
     With SPM_MainForm.AttocubeComPort do
     begin
+      if not Active then Open;
       if WhichAxis=XAxis then
         begin
           WriteData('stop 1'+Chr(13));
@@ -103,7 +106,7 @@ procedure AttocubeStop(WhichAxis:Axis);
           WriteData('stop 3'+Chr(13));
           WriteData('setm 3 gnd'+Chr(13));
         end;
-
+      Close;
     end;
   end;
 {---------------------------------------------------------------------------}
@@ -125,11 +128,13 @@ procedure AttocubeTimedZApproach(MoveTime:integer);
   begin
     With SPM_MainForm.AttocubeComPort do
       begin
+        if not Active then Open;
         WriteData('setm 3 stp'+Chr(13));
         WriteData('stepu 3 c'+Chr(13));
         delay(MoveTime);
         WriteData('stop 3'+Chr(13));
         WriteData('setm 3 gnd'+Chr(13));
+        Close;
       end;
   end;
 {---------------------------------------------------------------------------}
@@ -137,11 +142,13 @@ procedure AttocubeTimedZRetract(MoveTime:integer);
   begin
     With SPM_MainForm.AttocubeComPort do
       begin
+        if not Active then Open;
         WriteData('setm 3 stp'+Chr(13));
         WriteData('stepd 3 c'+Chr(13));
         delay(MoveTime);
         WriteData('stop 3'+Chr(13));
         WriteData('setm 3 gnd'+Chr(13));
+        Close;
       end;
   end;
 end.

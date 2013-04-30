@@ -119,8 +119,6 @@ implementation
    //First write the magic file header
    //Note that writeln on Linux systesms does not write the CR character, so we are ok
    writeln(TextFileVersion, 'Gwyddion Simple Field 1.0');
-   //next the date
-   writeln(TextFileVersion, 'Date = '+DateTimeToStr(Now));
    //title
    writeln(TextFileVersion, 'Title = '+Title);
    //XRes
@@ -133,6 +131,8 @@ implementation
    //XReal and YReal
    writeln(TextFileVersion, 'XReal = '+FloatToStrF(XReal*1E-6, ffExponent, 10, 4));
    writeln(TextFileVersion, 'YReal = '+FloatToStrF(YReal*1E-6, ffExponent, 10, 4));
+   //next the date
+   writeln(TextFileVersion, 'Date = '+DateTimeToStr(Now));
 
    //since the rest of the file needs to be written in binary format, with a buffer of NUL
    //characters, we now close the file, open it again as a binary file, and determine the file size

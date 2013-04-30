@@ -1375,7 +1375,7 @@ begin
       FeedbackChannelReading:=ReadFeedbackChannel;
       FeedbackOutputLabel.Caption:=FloatToStrF(FeedbackChannelReading, ffFixed, 10, 4);
       CurrentZ:=ZVoltageToMicrons(AveragedPIDOutput);
-      ErrorSignalLabel.Caption:=FloatToStrF(PIDOutputVariance, ffFixed, 10, 4);
+      ErrorSignalLabel.Caption:=FloatToStrF(FeedbackReading-SetPoint, ffFixed, 10, 4);
     end
    else
     begin
@@ -1386,7 +1386,7 @@ begin
       Ch0OutputLabel.Caption:=FloatToStrF(Ch0Reading, ffFixed, 10, 4);
       Ch1OutputLabel.Caption:=FloatToStrF(Ch1Reading, ffFixed, 10, 4);
       FeedbackOutputLabel.Caption:=FloatToStrF(FeedbackChannelReading, ffFixed, 10, 4);
-      ErrorSignalLabel.Caption:=FloatToStrF(PIDOutputVariance, ffFixed, 10, 4);
+      ErrorSignalLabel.Caption:=FloatToStrF(FeedbackReading-SetPoint, ffFixed, 10, 4);
     end;
 
   UpdateXYPositionIndicators;
@@ -1417,7 +1417,7 @@ begin
     InFeedback:=TRUE;
     EngageFeedbackBtn.Caption:='Stop Feedback';
     //PID_averages :=1; //Set the number of averages = 1
-    FirstPIDPass := 1; //This is the first PID pass
+    If Sender=EngageFeedbackBtn then FirstPIDPass := 1; //This is the first PID pass
     PIDParametersChanged:=0; //PID parameters have not changed (yet)
     pid_loop_running:=1;
     StartFeedback;

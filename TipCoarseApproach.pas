@@ -101,6 +101,8 @@ type
     CoarseApproachStepSizeEdit: TSpinEdit;
     Label11: TLabel;
     procedure CoarseApproachStepEditKeyPress(Sender: TObject; var Key: char);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure SaveApproachCurve1Click(Sender: TObject);
     procedure ShowIndicatorCheckBoxClick(Sender: TObject);
     procedure ShowPlotCheckBoxClick(Sender: TObject);
     procedure YAutoScaleCheckBoxClick(Sender: TObject);
@@ -175,6 +177,8 @@ uses
   GlobalVariables, ScanTubeFunctions, WalkerFunctions, DAQFunctions,
   GlobalFunctions, rtai_comedi_types;
 
+type
+    DataPoint               = array[0..1] of real;
 const
   MaxCoarseApproachSteps = 10000; //Maximum number of coarse approach steps
   CoarseApproachWaitTime = 10; //msecs to wait between each coarse approach step
@@ -194,6 +198,10 @@ var
   ZExtensionScaleFactor   : real; //Restricted Z is extended by this percentage over CoarseApproachStep
   RestrictedMaxZVoltage,
   RestrictedMinZVoltage   : real; //Restricted voltages if CoarseApproachStep is less than z extension
+  ApproachCurve,
+  RetractCurve            : array of DataPoint; //arrays to store
+  ApproachPoints,
+  RetractPoints           : integer;
 {-----------------------------------------------------------------------------}
 
 function CheckContact: boolean;
@@ -514,6 +522,46 @@ begin
     end;
 end;
 
+procedure TCoarseApproachTool.FormClose(Sender: TObject;
+  var CloseAction: TCloseAction);
+begin
+  //Free memory associated with the Approach and Retract curves
+  SetLength(ApproachCurve, 0);
+  SetLength(RetractCurve, 0);
+end;
+
+procedure TCoarseApproachTool.SaveApproachCurve1Click(Sender: TObject);
+var
+  TextFileVersion: TextFile;
+  i, j    : integer;
+begin
+  if SaveDialog.Execute then
+     begin
+       AssignFile(TextFileVersion, SaveDialog.FileName);
+       Rewrite(TextFileVersion);
+       //First write the magic file header
+       //Note that writeln on Linux systesms does not write the CR character, so we are ok
+       writeln(TextFileVersion, 'SPM  Coarse Approach Curve Data File');
+       //next the date
+       writeln(TextFileVersion, 'Date = '+DateTimeToStr(Now));
+       //First the Approach data
+       writeln(TextFileVersion, 'Approach Curve');
+       writeln(TextFileVersion, 'Z(um)      FeedbackReading');
+       for i:=0 to (ApproachPoints-1) do
+         writeln(TextFileVersion, FloatToStrF(ApproachCurve[0,j], ffExponent, 10, 4)
+                         + '  '+ FloatToStrF(ApproachCurve[0,j], ffExponent, 10, 4));
+
+       writeln(TextFileVersion, '   ');
+       writeln(TextFileVersion, 'Retract Curve');
+       writeln(TextFileVersion, 'Z(um)      FeedbackReading');
+       for i:=0 to (RetractPoints-1) do
+         writeln(TextFileVersion, FloatToStrF(RetractCurve[0,j], ffExponent, 10, 4)
+                         + '  '+ FloatToStrF(RetractCurve[0,j], ffExponent, 10, 4));
+       //close the file and we are done!
+       CloseFile(TextFileVersion);
+     end;
+end;
+
 procedure TCoarseApproachTool.DataTimerTimer(Sender: TObject);
   var
     Ch0Reading,
@@ -535,6 +583,7 @@ var
                             : boolean;
   Direction                 : integer;
   MaxVoltage, MinVoltage    : real;
+  j                         : integer;
 begin
   //Assume that we have already approached, and we want to take a slow approach
   //curve
@@ -597,6 +646,7 @@ if Approaching then //stop the acquisition
       FeedbackCondition:=1
      else FeedbackCondition:=-1;
     FullyExtended:=FALSE;
+    j:=-1; //initialize the counter
     while (Approaching and (not InContact) and (not FullyExtended)) do
       begin
         if (((Direction=1) and (CurrentZVoltage>=MinVoltage)) or
@@ -613,11 +663,17 @@ if Approaching then //stop the acquisition
         //Check if we are in contact
         InContact:=AveragedCheckContact(NumbAverages);
         FeedbackOutputLabel.Caption:=FloatToStrF(FeedbackChannelReading, ffFixed, 10, 4);
+        inc(j);
+        if (j+1)>Length(ApproachCurve) then SetLength(ApproachCurve, Length(ApproachCurve) + 100);
+        ApproachCurve[0,j]:=CurrentZ; ApproachCurve[1,j]:=FeedbackChannelReading;
         ProbeSignalLineSeries1.AddXY(CurrentZ, FeedbackChannelReading, '', clRed);
         fastdelay(CoarseApproachWaitTime);
         Application.ProcessMessages; // Process any events from the program
       end;
     //After we have reached this point, we slowly retract
+    ApproachPoints:=j+1;
+
+    j:=-1;
     StartingPointReached:=FALSE;
     while (Approaching and (not StartingPointReached))do
       begin
@@ -638,9 +694,13 @@ if Approaching then //stop the acquisition
         //This is just to get a reading
         AveragedCheckContact(NumbAverages);
         FeedbackOutputLabel.Caption:=FloatToStrF(FeedbackChannelReading, ffFixed, 10, 4);
+        inc(j);
+        if (j+1)>Length(RetractCurve) then SetLength(RetractCurve, Length(RetractCurve) + 100);
+        RetractCurve[0,j]:=CurrentZ; RetractCurve[1,j]:=FeedbackChannelReading;
         ProbeSignalLineSeries2.AddXY(CurrentZ, FeedbackChannelReading, '', clBlue);
         Application.ProcessMessages; // Process any events from the program
       end;
+    RetractPoints:=j+1;
     //Finish and bring us back to where we were
     Approaching:=FALSE;
     AcquireCurveBtn.Caption:='Acquire approach curve';
@@ -719,6 +779,8 @@ begin
    MoveToZVoltage(MaxZVoltage/2, 0.005);
    UpdateXYPositionIndicators;
    UpdateZPositionIndicators;
+   SetLength(ApproachCurve, 1000);  //initialize the approach and retract curves
+   SetLength(RetractCurve, 1000);
 end;
 
 procedure TCoarseApproachTool.XAutoScaleCheckBoxClick(Sender: TObject);
