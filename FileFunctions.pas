@@ -338,7 +338,6 @@ if FileExists(SysConfig_file) then
      if (Lowercase(TempString[1])='y') then UseAttocube:=TRUE else UseAttocube:=FALSE;
      TempString:=StripStringWithComma(read_string);
      AttocubeComPortNumber:=StrToInt(TempString);
-     SPM_MainForm.AttocubeComPort.Device:='/dev/ttyS'+IntToStr(AttocubeComPortNumber-1);
 
 
      //Next line deals with the Nanosurf

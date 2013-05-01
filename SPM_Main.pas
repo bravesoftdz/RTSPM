@@ -22,7 +22,6 @@ type
   TSPM_MainForm = class(TForm)
     CoarseApproachBtn: TBitBtn;
     AFMBtn: TBitBtn;
-    AttocubeComPort: TSdpoSerial;
     FastTimer: TEpikTimer;
     STMBtn: TBitBtn;
     MFM_Lift_Btn: TBitBtn;

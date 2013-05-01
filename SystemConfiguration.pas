@@ -105,7 +105,6 @@ end;
 procedure TSysConfig.AttocubeComPortSpinEditChange(Sender: TObject);
 begin
   AttoCubeComPortNumber:=AttoCubeComPortSpinEdit.Value;
-  SPM_MainForm.AttocubeComPort.Device:='/dev/ttyS'+IntToStr(AttocubeComPortNumber-1);
   SomethingChanged:=TRUE;
 end;
 
@@ -204,7 +203,6 @@ begin
    if UseAttocube then
             AttocubeCheckBox.State:=cbChecked else AttocubeCheckBox.State:=cbUnChecked;
    AttocubeComPortSpinEdit.Value:=AttocubeComPortNumber;
-   SPM_MainForm.AttocubeComPort.Device:='/dev/ttyS'+IntToStr(AttocubeComPortNumber-1);
    if UseNanosurf then
             NanosurfCheckBox.State:=cbChecked else NanosurfCheckBox.State:=cbUnChecked;
    if UseLockIn then
