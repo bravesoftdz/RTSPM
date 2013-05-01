@@ -1,5 +1,5 @@
 object EFMForm: TEFMForm
-  Left = 515
+  Left = 1150
   Height = 899
   Top = 106
   Width = 1129

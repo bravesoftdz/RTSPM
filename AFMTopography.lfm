@@ -1,7 +1,7 @@
 object AFMTopograph: TAFMTopograph
-  Left = 895
+  Left = 840
   Height = 778
-  Top = 226
+  Top = 47
   Width = 804
   Caption = 'AFM Topography'
   ClientHeight = 778
@@ -436,7 +436,7 @@ object AFMTopograph: TAFMTopograph
     object PropEdit: TLabeledEdit
       Left = 229
       Height = 20
-      Top = 19
+      Top = 8
       Width = 47
       EditLabel.AnchorSideLeft.Control = PropEdit
       EditLabel.AnchorSideRight.Control = PropEdit
@@ -444,7 +444,7 @@ object AFMTopograph: TAFMTopograph
       EditLabel.AnchorSideBottom.Control = PropEdit
       EditLabel.Left = 229
       EditLabel.Height = 15
-      EditLabel.Top = 1
+      EditLabel.Top = -10
       EditLabel.Width = 47
       EditLabel.Caption = 'Proportional'
       EditLabel.ParentColor = False
@@ -455,7 +455,7 @@ object AFMTopograph: TAFMTopograph
     object IntEdit: TLabeledEdit
       Left = 228
       Height = 20
-      Top = 56
+      Top = 45
       Width = 47
       EditLabel.AnchorSideLeft.Control = IntEdit
       EditLabel.AnchorSideRight.Control = IntEdit
@@ -463,7 +463,7 @@ object AFMTopograph: TAFMTopograph
       EditLabel.AnchorSideBottom.Control = IntEdit
       EditLabel.Left = 228
       EditLabel.Height = 15
-      EditLabel.Top = 38
+      EditLabel.Top = 27
       EditLabel.Width = 47
       EditLabel.Caption = 'Integral'
       EditLabel.ParentColor = False
@@ -474,7 +474,7 @@ object AFMTopograph: TAFMTopograph
     object DiffEdit: TLabeledEdit
       Left = 229
       Height = 20
-      Top = 95
+      Top = 84
       Width = 47
       EditLabel.AnchorSideLeft.Control = DiffEdit
       EditLabel.AnchorSideRight.Control = DiffEdit
@@ -482,7 +482,7 @@ object AFMTopograph: TAFMTopograph
       EditLabel.AnchorSideBottom.Control = DiffEdit
       EditLabel.Left = 229
       EditLabel.Height = 15
-      EditLabel.Top = 77
+      EditLabel.Top = 66
       EditLabel.Width = 47
       EditLabel.Caption = 'Differential'
       EditLabel.ParentColor = False
@@ -700,6 +700,19 @@ object AFMTopograph: TAFMTopograph
     Caption = 'AutoLevel Image'
     OnClick = LevelImageRadioButtonClick
     TabOrder = 9
+  end
+  object TunePIDBtn: TButton
+    Left = 320
+    Height = 25
+    Top = 704
+    Width = 139
+    Caption = 'Tune PID'
+    Color = clGreen
+    Font.Height = -13
+    Font.Name = 'Sans Serif'
+    OnClick = TunePIDBtnClick
+    ParentFont = False
+    TabOrder = 10
   end
   object DataTimer: TTimer
     Enabled = False

@@ -15,6 +15,7 @@ type
   { TAFMTopograph }
 
 TAFMTopograph = class(TForm)
+  TunePIDBtn: TButton;
   LevelImageCheckBox: TCheckBox;
   LogarithmicCheckBox: TCheckBox;
 DescriptionEdit: TEdit;
@@ -116,6 +117,7 @@ procedure SetYEditKeyPress(Sender: TObject; var Key: Char);
 procedure SetXEditKeyPress(Sender: TObject; var Key: Char);
 procedure FormClose(Sender: TObject; var Action: TCloseAction);
 procedure FormShow(Sender: TObject);
+procedure TunePIDBtnClick(Sender: TObject);
 private
     { Private declarations }
 public
@@ -132,7 +134,8 @@ AFMTopograph: TAFMTopograph;
 
 implementation
 uses ScanTubeFunctions, GlobalFunctions, FileFunctions, Oscilloscope,
-     DAQFunctions, rtai_comedi_functions, rtai_comedi_types, BGRABitmap, BGRABitmapTypes;
+     DAQFunctions, rtai_comedi_functions, rtai_comedi_types,
+     BGRABitmap, BGRABitmapTypes, PIDTuning;
 var
   ForwardImageBitmap,
   ReverseImageBitmap,
@@ -518,6 +521,11 @@ begin
  LevelImageCheckBox.State:=cbUnchecked;
 end;
 
+procedure TAFMTopograph.TunePIDBtnClick(Sender: TObject);
+begin
+  PIDTuningForm.Show;
+end;
+
 procedure TAFMTopograph.IntEditKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key=Chr(13) then
@@ -540,6 +548,8 @@ procedure TAFMTopograph.SetPointEditKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key=Chr(13) then SetPoint:=StrToFloat(SetPointEdit.Text);
 end;
+
+
 
 procedure TAFMTopograph.SetXEditKeyPress(Sender: TObject; var Key: Char);
   var EditCaption: string;

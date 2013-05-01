@@ -24,7 +24,7 @@ uses
   GlobalFunctions in 'GlobalFunctions.pas', daq_comedi_functions,
   daq_comedi_types, GlobalVariables, rtai_comedi_functions, rtai_comedi_types,
   rtai_functions, rtai_types, AFMTopography, plot, etpackage, SdpoSerialLaz,
-  MFM, Oscilloscope, bgrabitmappack, EFM, STM;
+  MFM, Oscilloscope, bgrabitmappack, EFM, STM, PIDTuning;
 
 {$IFDEF MSWINDOWS}
 {$R *.RES}
@@ -43,5 +43,6 @@ begin
   Application.CreateForm(TAFMTopograph, AFMTopograph);
   Application.CreateForm(TEFMForm, EFMForm);
   Application.CreateForm(TSTMForm, STMForm);
+  Application.CreateForm(TPIDTuningForm, PIDTuningForm);
   Application.Run;
 end.

@@ -1,7 +1,7 @@
 object STMForm: TSTMForm
-  Left = 636
+  Left = 1088
   Height = 792
-  Top = 55
+  Top = 350
   Width = 802
   Caption = 'Scanning Tunneling Microscopy'
   ClientHeight = 792

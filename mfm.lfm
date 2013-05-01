@@ -1,7 +1,7 @@
 object MFMForm: TMFMForm
-  Left = 444
+  Left = 251
   Height = 896
-  Top = 93
+  Top = 235
   Width = 1129
   ActiveControl = PropEdit
   Caption = 'Magnetic Force MIcroscopy'
