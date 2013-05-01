@@ -77,6 +77,7 @@ int StartMainTask( int priority)
  //StartMainTask is designed to be called from the Pascal Program to start the Main (i.e., Pascal) rt program
     int hard_timer_running = 1;
     rt_allow_nonroot_hrt();
+    timer_interval = nano2count(TimerTime);
 
      if(!(GlobalTask = rt_task_init_schmod(nam2num( "SomeTask" ), // Name
                                         priority, // Priority
@@ -99,10 +100,11 @@ int StartMainTask( int priority)
                 else
                     {
                      rt_set_oneshot_mode();
-                     start_rt_timer(0);
+                     start_rt_timer(timer_interval);
                      //sampling_interval = nano2count(TICK_TIME); // Sets the period of the concurrent task
                     // that will be launched later.
                     }
+                rt_set_runnable_on_cpuid(GlobalTask, 1);
                 mlockall(MCL_CURRENT | MCL_FUTURE);
            return 0;
        }
@@ -593,7 +595,7 @@ int pid_loop()
         AveragedPIDOutput=LastOutput;  //This is what the main program will actually read
         FirstPIDPass = 0;
         LastFeedbackReading = 0;
-        SensorSlope = 0;
+        //SensorSlope = 0;
       }
 
 
@@ -673,7 +675,7 @@ int pid_loop()
     for (j=0; j<PID_averages; j++)
       {
         push_queue(&FeedbackReading_queue, AveragedFeedbackReading);
-        push_queue(&FeedbackReadingVar_queue, PIDOutputVariance);
+        //push_queue(&FeedbackReadingVar_queue, PIDOutputVariance);
         push_queue(&PIDOutput_queue, LastOutput);
         push_queue(&Chan1Input_queue, AveragedChan1Reading);
         push_queue(&Chan2Input_queue, AveragedChan2Reading);
@@ -717,7 +719,7 @@ int pid_loop()
       //rt_printk("Data from card is %d \n", data_from_card);
 //      rt_printk("Sensor Slope is is %f \n", SensorSlope);
       //rt_printk("Input m is %d \n", m);
-      delta = (FeedbackReading - AveragedFeedbackReading);
+      //delta = (FeedbackReading - AveragedFeedbackReading);
       //AveragedFeedbackReading = alpha*FeedbackReading+(1-alpha)*AveragedFeedbackReading;  //running averange
       //PIDOutputVariance = alpha*(delta*delta) + (1-alpha)*PIDOutputVariance;
       //Venkat changed the following line to add logarithmic averaging on January 10, 2012
@@ -743,10 +745,10 @@ int pid_loop()
       AveragedFeedbackReading += (FeedbackReading - last_mean)/PID_averages;
       push_queue(&FeedbackReading_queue, FeedbackReading);
 
-      pop_queue(&FeedbackReadingVar_queue, &last_var);
-      new_var = delta*delta;
-      PIDOutputVariance += (new_var - last_var)/PID_averages;
-      push_queue(&FeedbackReadingVar_queue, new_var);
+      //pop_queue(&FeedbackReadingVar_queue, &last_var);
+      //new_var = delta*delta;
+      //PIDOutputVariance += (new_var - last_var)/PID_averages;
+      //push_queue(&FeedbackReadingVar_queue, new_var);
 
       //Now read and average Chan1 and Chan2 inputs only if we need to
       if(DoChan1Average) {

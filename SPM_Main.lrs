@@ -25,11 +25,8 @@ LazarusResources.Add('TSPM_MainForm','FORMDATA',[
   +#0#7'Caption'#6#4'Exit'#7'OnClick'#7#11'FormDestroy'#8'TabOrder'#2#6#0#0#7'T'
   +'BitBtn'#19'SystemConfiguration'#4'Left'#2'@'#6'Height'#2' '#3'Top'#2'w'#5'W'
   +'idth'#3#137#0#7'Caption'#6#20'System Configuration'#7'OnClick'#7#24'SystemC'
-  +'onfigurationClick'#8'TabOrder'#2#7#0#0#11'TSdpoSerial'#15'AttocubeComPort'#6
-  +'Active'#8#8'BaudRate'#7#8'br__9600'#8'DataBits'#7#7'db8bits'#6'Parity'#7#5
-  +'pNone'#11'FlowControl'#7#9'fcXonXoff'#8'StopBits'#7#5'sbOne'#6'Device'#6#10
-  +'/dev/ttyS0'#4'left'#3#192#1#3'top'#2'x'#0#0#10'TEpikTimer'#9'FastTimer'#15
-  +'StringPrecision'#2#6#16'WantMilliseconds'#9#8'WantDays'#9#14'TimebaseSource'
-  +#7#14'SystemTimebase'#15'CorrelationMode'#7#16'OnTimebaseSelect'#4'left'#3
-  +#231#0#3'top'#3#164#0#0#0#0
+  +'onfigurationClick'#8'TabOrder'#2#7#0#0#10'TEpikTimer'#9'FastTimer'#15'Strin'
+  +'gPrecision'#2#6#16'WantMilliseconds'#9#8'WantDays'#9#14'TimebaseSource'#7#14
+  +'SystemTimebase'#15'CorrelationMode'#7#16'OnTimebaseSelect'#4'left'#3#231#0#3
+  +'top'#3#164#0#0#0#0
 ]);

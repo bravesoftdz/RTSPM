@@ -96,17 +96,6 @@ object SPM_MainForm: TSPM_MainForm
     OnClick = SystemConfigurationClick
     TabOrder = 7
   end
-  object AttocubeComPort: TSdpoSerial
-    Active = False
-    BaudRate = br__9600
-    DataBits = db8bits
-    Parity = pNone
-    FlowControl = fcXonXoff
-    StopBits = sbOne
-    Device = '/dev/ttyS0'
-    left = 448
-    top = 120
-  end
   object FastTimer: TEpikTimer
     StringPrecision = 6
     WantMilliseconds = True

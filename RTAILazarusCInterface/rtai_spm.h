@@ -13,6 +13,7 @@ typedef struct  {
 
 #define TRUE 1
 #define FALSE 0
+#define TimerTime 50000 //Minimum time of timer, for rt_start_timer()
 #define PLLGenMinPulseTime 500 //Update time of DAC for PLL generation, in nanoseconds (0.5 usec= 2MHz)
 #define PLLUpdateFrequency 1.0E9/PLLGenMinPulseTime
 #define PLLGenerationLoopTime 1000000 //Loop time of the PLL reference generation loop, in nanoseconds (1 ms)
@@ -33,6 +34,7 @@ volatile Acquisition_channel PLLAmplitudeChannel; //channel for amplitude detect
 
 volatile int hard_timer_running = TRUE; //flag to check if hard timer is running.  Set initially to TRUE (1, not 0)
 static RTIME sampling_interval;
+static RTIME timer_interval;  //timer interval for rt_start_timer
 
 volatile int AmplifierGainSign =-1;//Sign of the Amplifier Gain on the z axis
 volatile double MaxZVoltage =-10;

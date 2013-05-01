@@ -349,7 +349,7 @@ begin
       FeedbackChannelReading:=ReadFeedbackChannel;
       FeedbackOutputLabel.Caption:=FloatToStrF(FeedbackChannelReading, ffFixed, 10, 4);
       CurrentZ:=ZVoltageToMicrons(AveragedPIDOutput);
-      ErrorSignalLabel.Caption:=FloatToStrF(FeedbackReading-SetPoint, ffFixed, 10, 4);
+      ErrorSignalLabel.Caption:=FloatToStrF(AveragedFeedbackReading-SetPoint, ffFixed, 10, 4);
     end
    else
     begin
@@ -360,7 +360,7 @@ begin
       Ch0OutputLabel.Caption:=FloatToStrF(Ch0Reading, ffFixed, 10, 4);
       Ch1OutputLabel.Caption:=FloatToStrF(Ch1Reading, ffFixed, 10, 4);
       FeedbackOutputLabel.Caption:=FloatToStrF(FeedbackChannelReading, ffFixed, 10, 4);
-      ErrorSignalLabel.Caption:=FloatToStrF(FeedbackReading-SetPoint, ffFixed, 10, 4);
+      ErrorSignalLabel.Caption:=FloatToStrF(AveragedFeedbackReading-SetPoint, ffFixed, 10, 4);
     end;
 
   UpdateXYPositionIndicators;
