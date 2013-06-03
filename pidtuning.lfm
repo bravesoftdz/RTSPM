@@ -1,7 +1,7 @@
 object PIDTuningForm: TPIDTuningForm
-  Left = 448
+  Left = 442
   Height = 459
-  Top = 162
+  Top = 164
   Width = 355
   Caption = 'Feedback PID tuning'
   ClientHeight = 459
@@ -15,7 +15,7 @@ object PIDTuningForm: TPIDTuningForm
     Top = 8
     Width = 321
     Caption = 'PID Parameters'
-    ClientHeight = 214
+    ClientHeight = 216
     ClientWidth = 317
     Color = clYellow
     Font.Height = -11
@@ -27,7 +27,7 @@ object PIDTuningForm: TPIDTuningForm
       Left = 16
       Height = 15
       Top = 22
-      Width = 30
+      Width = 31
       Caption = 'Ch. 0'
       ParentColor = False
     end
@@ -35,7 +35,7 @@ object PIDTuningForm: TPIDTuningForm
       Left = 65
       Height = 15
       Top = 22
-      Width = 30
+      Width = 31
       Caption = 'Ch. 1'
       ParentColor = False
     end
@@ -71,7 +71,7 @@ object PIDTuningForm: TPIDTuningForm
       Left = 16
       Height = 15
       Top = 66
-      Width = 54
+      Width = 53
       Caption = 'Feedback'
       ParentColor = False
     end
@@ -87,7 +87,7 @@ object PIDTuningForm: TPIDTuningForm
       Left = 110
       Height = 15
       Top = 27
-      Width = 56
+      Width = 58
       Caption = 'Error Sign'
       ParentColor = False
     end
@@ -103,7 +103,7 @@ object PIDTuningForm: TPIDTuningForm
       Left = 110
       Height = 15
       Top = 8
-      Width = 87
+      Width = 89
       Caption = 'PID Parameters'
       ParentColor = False
     end
@@ -117,7 +117,7 @@ object PIDTuningForm: TPIDTuningForm
       Left = 14
       Height = 15
       Top = 178
-      Width = 70
+      Width = 72
       Caption = 'Error Signal:'
       ParentColor = False
     end
@@ -131,7 +131,7 @@ object PIDTuningForm: TPIDTuningForm
     end
     object SetPointEdit: TLabeledEdit
       Left = 110
-      Height = 20
+      Height = 24
       Top = 85
       Width = 51
       EditLabel.AnchorSideLeft.Control = SetPointEdit
@@ -159,7 +159,7 @@ object PIDTuningForm: TPIDTuningForm
     end
     object ErrorCorrectionSpinEdit: TSpinEdit
       Left = 110
-      Height = 20
+      Height = 24
       Top = 46
       Width = 45
       Increment = 2
@@ -171,7 +171,7 @@ object PIDTuningForm: TPIDTuningForm
     end
     object PropEdit: TLabeledEdit
       Left = 229
-      Height = 20
+      Height = 24
       Top = 19
       Width = 70
       EditLabel.AnchorSideLeft.Control = PropEdit
@@ -190,7 +190,7 @@ object PIDTuningForm: TPIDTuningForm
     end
     object IntEdit: TLabeledEdit
       Left = 228
-      Height = 20
+      Height = 24
       Top = 56
       Width = 72
       EditLabel.AnchorSideLeft.Control = IntEdit
@@ -209,7 +209,7 @@ object PIDTuningForm: TPIDTuningForm
     end
     object DiffEdit: TLabeledEdit
       Left = 228
-      Height = 20
+      Height = 24
       Top = 95
       Width = 69
       EditLabel.AnchorSideLeft.Control = DiffEdit
@@ -228,9 +228,9 @@ object PIDTuningForm: TPIDTuningForm
     end
     object LogarithmicCheckBox: TCheckBox
       Left = 201
-      Height = 19
+      Height = 24
       Top = 184
-      Width = 90
+      Width = 107
       Caption = 'Logarithmic'
       TabOrder = 6
     end
@@ -241,7 +241,7 @@ object PIDTuningForm: TPIDTuningForm
     Top = 256
     Width = 210
     Caption = 'Scan Tube Control'
-    ClientHeight = 172
+    ClientHeight = 174
     ClientWidth = 206
     Color = clSilver
     Font.Height = -11
@@ -277,7 +277,7 @@ object PIDTuningForm: TPIDTuningForm
       Left = 16
       Height = 15
       Top = 8
-      Width = 90
+      Width = 92
       Caption = 'Change Position'
       ParentColor = False
     end
@@ -297,7 +297,7 @@ object PIDTuningForm: TPIDTuningForm
       Left = 125
       Height = 15
       Top = 8
-      Width = 66
+      Width = 68
       Caption = 'Current Pos'
       ParentColor = False
     end
@@ -309,7 +309,7 @@ object PIDTuningForm: TPIDTuningForm
     end
     object SetXEdit: TEdit
       Left = 48
-      Height = 20
+      Height = 24
       Top = 36
       Width = 57
       OnKeyPress = SetXEditKeyPress
@@ -318,7 +318,7 @@ object PIDTuningForm: TPIDTuningForm
     end
     object SetYEdit: TEdit
       Left = 48
-      Height = 20
+      Height = 24
       Top = 60
       Width = 57
       OnKeyPress = SetYEditKeyPress
@@ -327,7 +327,7 @@ object PIDTuningForm: TPIDTuningForm
     end
     object SetZEdit: TEdit
       Left = 48
-      Height = 20
+      Height = 24
       Top = 85
       Width = 57
       OnKeyPress = SetZEditKeyPress
@@ -336,7 +336,7 @@ object PIDTuningForm: TPIDTuningForm
     end
     object StepXEdit: TLabeledEdit
       Left = 9
-      Height = 20
+      Height = 24
       Top = 137
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepXEdit
@@ -355,7 +355,7 @@ object PIDTuningForm: TPIDTuningForm
     end
     object StepYEdit: TLabeledEdit
       Left = 80
-      Height = 20
+      Height = 24
       Top = 136
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepYEdit
@@ -374,7 +374,7 @@ object PIDTuningForm: TPIDTuningForm
     end
     object StepZEdit: TLabeledEdit
       Left = 155
-      Height = 20
+      Height = 24
       Top = 137
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepZEdit
@@ -422,7 +422,7 @@ object PIDTuningForm: TPIDTuningForm
     Top = 256
     Width = 105
     Caption = 'Sq Wave Param'
-    ClientHeight = 174
+    ClientHeight = 176
     ClientWidth = 101
     Font.Height = -11
     Font.Name = 'Sans Serif'
@@ -430,7 +430,7 @@ object PIDTuningForm: TPIDTuningForm
     TabOrder = 2
     object SPMaxEdit: TLabeledEdit
       Left = 13
-      Height = 20
+      Height = 24
       Top = 23
       Width = 83
       EditLabel.AnchorSideLeft.Control = SPMaxEdit
@@ -449,7 +449,7 @@ object PIDTuningForm: TPIDTuningForm
     end
     object SPMinEdit: TLabeledEdit
       Left = 12
-      Height = 20
+      Height = 24
       Top = 63
       Width = 84
       EditLabel.AnchorSideLeft.Control = SPMinEdit
@@ -468,19 +468,19 @@ object PIDTuningForm: TPIDTuningForm
     end
     object PeriodSpinEdit: TSpinEdit
       Left = 14
-      Height = 20
+      Height = 24
       Top = 111
       Width = 69
-      MinValue = 1
+      MinValue = 10
       OnChange = PeriodSpinEditChange
       TabOrder = 2
-      Value = 1
+      Value = 10
     end
     object Label1: TLabel
       Left = 12
       Height = 15
       Top = 90
-      Width = 65
+      Width = 66
       Caption = 'Period (ms)'
       ParentColor = False
     end
@@ -497,7 +497,7 @@ object PIDTuningForm: TPIDTuningForm
   end
   object SquareWaveTimer: TTimer
     Enabled = False
-    Interval = 10
+    Interval = 100
     OnTimer = SquareWaveTimerTimer
     left = 56
     top = 152

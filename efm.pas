@@ -1316,7 +1316,7 @@ begin
  PropEdit.Text:=FloatToStr(PropCoff);
  IntEdit.Text:=FloatToStr(IntTime/1E6);  //IntTime and DiffTime are specified in nanoseconds
  DiffEdit.Text:=FloatToStr(DiffTime/1E6);//while the user input is in milliseconds
- LiftModeHeight:=0.020; //Default Lift mode height, in um
+ LiftModeHeight:=0.010; //Default Lift mode height, in um
  LiftModeHeightSpinEdit.Value:=LiftModeHeight*1000;
 
  if OutputPhase>0 then

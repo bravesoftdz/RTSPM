@@ -93,14 +93,15 @@ var
 implementation
 
 uses
-   GlobalVariables, ScanTubeFunctions, GlobalFunctions,
+   GlobalVariables,
+  ScanTubeFunctions, GlobalFunctions,
           rtai_comedi_types, rtai_comedi_functions;
 
 var
-    OldSetPoint              : real;
+    OldSetPoint              : double;
     SetPointMax,             //Max setpoint
     SetPointMin,             //Min setpoint
-    Period                   : real;
+    Period                   :  double;
 
     AtMinSetPoint,
     SquareWaveOn             : boolean;
@@ -134,7 +135,7 @@ begin
   SetPointMin:=SetPoint*0.90; //10% under the SetPoint
   SPMaxEdit.Caption:=FloatToStr(SetPointMax);
   SPMinEdit.Caption:=FloatToStr(SetPointMin);
-  Period:=1; // in milliseconds
+  Period:=100; // in milliseconds
   PeriodSpinEdit.Value:=Period;
   SquareWaveOn:=FALSE;
 end;
@@ -248,6 +249,7 @@ end;
 procedure TPIDTuningForm.FormClose(Sender: TObject;
   var CloseAction: TCloseAction);
 begin
+  SquareWaveTimer.Enabled:=FALSE;
   SetPoint:=OldSetPoint;
 end;
 
@@ -312,6 +314,7 @@ begin
       SetPoint:=SetPointMin;
       AtMinSetPoint:=TRUE;
     end;
+    Application.ProcessMessages;
 end;
 
 procedure TPIDTuningForm.StepXEditKeyPress(Sender: TObject; var Key: char);

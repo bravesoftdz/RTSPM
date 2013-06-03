@@ -49,7 +49,7 @@ var
 //General variables
   StartingUpProgram     : Boolean = TRUE;  //starting up the program for the first time
   CoarseSP              : real = 0.5;   //Set point to use during Coarse approach, in volts
-  SetPoint              : real = 0.5;   //Set point to use during
+  //SetPoint              : real = 0.5;   //Set point to use during
   ApproachCriterion     : real = 0.15; //Value to use to see whether we have approached
   //Logarithmic           : boolean = FALSE; //no logarithmic feedback   Changed Jan 10, 2012, this is now a real time variable
   GlobalTaskStarted     : boolean = FALSE;
