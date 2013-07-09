@@ -336,11 +336,12 @@ implementation
           end
          else
           begin
-            fastdelay(SinglePointDwellTime*0.2);
-            sum:=0;
-            for j := 0 to NumbAverages - 1 do
-                sum:=sum+CurrentZ;
-            LineData[i]:=sum/NumbAverages;
+            fastdelay(SinglePointDwellTime*0.5);
+            LineData[i]:=ReadAveragedFeedbackChannel(NumbAverages);
+            //sum:=0;
+            //for j := 0 to NumbAverages - 1 do
+            //    sum:=sum+CurrentZ;
+            //LineData[i]:=sum/NumbAverages;
           end;
           if Step>0 then
             if InFeedback then //this is a topographic image, and we use line series 1
@@ -379,11 +380,12 @@ implementation
           end
          else
           begin
-            fastdelay(SinglePointDwellTime*0.2);
-            sum:=0;
-            for j := 0 to NumbAverages - 1 do
-                sum:=sum+CurrentZ;
-            LineData[i]:=sum/NumbAverages;
+            fastdelay(SinglePointDwellTime*0.5);
+            LineData[i]:=ReadAveragedFeedbackChannel(NumbAverages);
+            //sum:=0;
+            //for j := 0 to NumbAverages - 1 do
+            //    sum:=sum+CurrentZ;
+            //LineData[i]:=sum/NumbAverages;
           end;
           if Step<0 then
             if InFeedback then //Topo image, plot in Line Series1

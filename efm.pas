@@ -894,23 +894,28 @@ if Scanning then //stop the scan
                   EngageFeedbackBtnClick(Self);  //Use the button to click it
                   fastdelay(10*DwellTime); //Delay at beginning of scan to relax
                   StartX:=ScanXMinusLimit;
-                  StatusBar.SimpleText:='Scanning forward MFM '+ IntToStr(j+1);
+                  StatusBar.SimpleText:='Scanning forward EFM '+ IntToStr(j+1);
 
                   if UseLiftMode then
                     MFMForwardLineScanData:= LiftModeXLineScan(ScanResolution, StartX, ScanXStep,
                                     DwellTime, PID_Averages, ForwardLineScanData)  //Forward direction
                    else //we are using constant height mode, which is taken care of by the normal XLineScan
-                    MFMForwardLineScanData:= XLineScan(ScanResolution, StartX, ScanXStep,
+                    begin
+                      //but we need to lift the Z piezo by the scan height first!
+                      MoveToZ(CurrentZ+LiftModeHeight, StepZ, 0);
+                      MFMForwardLineScanData:= XLineScan(ScanResolution, StartX, ScanXStep,
                                     DwellTime, PID_Averages);
+                    end;
 
                   fastdelay(10*DwellTime); //Delay at beginning of scan to relax
                   StartX:=ScanXPlusLimit;
-                  StatusBar.SimpleText:='Scanning reverse MFM '+ IntToStr(j+1);
+                  StatusBar.SimpleText:='Scanning reverse EFM '+ IntToStr(j+1);
 
                   if UseLiftMode then
                     MFMReverseLineScanData:= LiftModeXLineScan(ScanResolution, StartX, -ScanXStep,
                                     DwellTime, PID_Averages, ReverseLineScanData)  //Reverse direction
                    else
+                    //no need to lift here, since we are already lifted!
                     MFMReverseLineScanData:= XLineScan(ScanResolution, StartX, -ScanXStep,
                                     DwellTime, PID_Averages);  //Reverse direction
 
@@ -1045,18 +1050,21 @@ if Scanning then //stop the scan
                   EngageFeedbackBtnClick(Self);  //Use the button to click it
                   fastdelay(10*DwellTime); //Delay at beginning of scan to relax
                   StartY:=ScanYPlusLimit;
-                  StatusBar.SimpleText:='Scanning downward MFM line '+ IntToStr(j+1);
+                  StatusBar.SimpleText:='Scanning downward EFM line '+ IntToStr(j+1);
 
                   if UseLiftMode then
                     MFMForwardLineScanData:= LiftModeYLineScan(ScanResolution, StartY, -ScanYStep,
                                     DwellTime, PID_Averages, ForwardLineScanData)
                    else
-                    MFMForwardLineScanData:= YLineScan(ScanResolution, StartY, -ScanYStep,
+                    begin
+                      MoveToZ(CurrentZ+LiftModeHeight, StepZ, 0);
+                      MFMForwardLineScanData:= YLineScan(ScanResolution, StartY, -ScanYStep,
                                     DwellTime, PID_Averages);  //Downward direction
+                    end;
 
                   fastdelay(10*DwellTime); //Delay at beginning of scan to relax
                   StartY:=ScanYMinusLimit;
-                  StatusBar.SimpleText:='Scanning upward MFM line '+ IntToStr(j+1);
+                  StatusBar.SimpleText:='Scanning upward EFM line '+ IntToStr(j+1);
 
                   if UseLiftMode then
                     MFMReverseLineScanData:= LiftModeYLineScan(ScanResolution, StartY, +ScanXStep,

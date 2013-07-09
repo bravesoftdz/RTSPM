@@ -378,7 +378,7 @@ begin
               MoveToZVoltage(MaxZVoltage, 100*MinZVoltageStep);   //Retract piezo}
               FullyExtended:=FALSE;
               WalkerTimedZApproach(200); //Approach for 200 msec
-              fastdelay(350);  //wait for 10 msecs for things to settle
+              fastdelay(1000);  //wait for 10 msecs for things to settle
               Inc(CoarseApproachStepNumber);
               StepNumberLabel.Caption:=IntToStr(CoarseApproachStepNumber);
               ProbeSignalLineSeries1.Clear; //Need to clear only line series 1

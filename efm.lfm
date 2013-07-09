@@ -25,7 +25,7 @@ object EFMForm: TEFMForm
     Left = 21
     Height = 20
     Top = 8
-    Width = 185
+    Width = 181
     Caption = 'Forward Topo Image'
     Font.Height = -16
     Font.Name = 'Tahoma'
@@ -37,7 +37,7 @@ object EFMForm: TEFMForm
     Left = 435
     Height = 20
     Top = 8
-    Width = 184
+    Width = 182
     Caption = 'Reverse Topo Image'
     Font.Height = -16
     Font.Name = 'Tahoma'
@@ -55,7 +55,7 @@ object EFMForm: TEFMForm
     Left = 18
     Height = 15
     Top = 432
-    Width = 52
+    Width = 58
     Caption = 'Scale Max'
     Font.Height = -11
     ParentColor = False
@@ -65,7 +65,7 @@ object EFMForm: TEFMForm
     Left = 21
     Height = 15
     Top = 401
-    Width = 49
+    Width = 55
     Caption = 'Scale Min'
     Font.Height = -11
     ParentColor = False
@@ -81,7 +81,7 @@ object EFMForm: TEFMForm
     Left = 18
     Height = 20
     Top = 456
-    Width = 181
+    Width = 175
     Caption = 'Forward EFM Image'
     Font.Height = -16
     Font.Name = 'Tahoma'
@@ -99,7 +99,7 @@ object EFMForm: TEFMForm
     Left = 435
     Height = 20
     Top = 456
-    Width = 180
+    Width = 176
     Caption = 'Reverse EFM Image'
     Font.Height = -16
     Font.Name = 'Tahoma'
@@ -139,7 +139,7 @@ object EFMForm: TEFMForm
       Left = 8
       Height = 15
       Top = 64
-      Width = 30
+      Width = 31
       Caption = 'Set Y'
       ParentColor = False
     end
@@ -147,7 +147,7 @@ object EFMForm: TEFMForm
       Left = 8
       Height = 15
       Top = 88
-      Width = 31
+      Width = 33
       Caption = 'Set Z'
       ParentColor = False
     end
@@ -155,7 +155,7 @@ object EFMForm: TEFMForm
       Left = 16
       Height = 15
       Top = 8
-      Width = 92
+      Width = 93
       Caption = 'Change Position'
       ParentColor = False
     end
@@ -175,7 +175,7 @@ object EFMForm: TEFMForm
       Left = 125
       Height = 15
       Top = 8
-      Width = 68
+      Width = 69
       Caption = 'Current Pos'
       ParentColor = False
     end
@@ -187,7 +187,7 @@ object EFMForm: TEFMForm
     end
     object SetXEdit: TEdit
       Left = 48
-      Height = 24
+      Height = 22
       Top = 36
       Width = 57
       OnKeyPress = SetXEditKeyPress
@@ -196,7 +196,7 @@ object EFMForm: TEFMForm
     end
     object SetYEdit: TEdit
       Left = 48
-      Height = 24
+      Height = 22
       Top = 60
       Width = 57
       OnKeyPress = SetYEditKeyPress
@@ -205,7 +205,7 @@ object EFMForm: TEFMForm
     end
     object SetZEdit: TEdit
       Left = 48
-      Height = 24
+      Height = 22
       Top = 85
       Width = 57
       OnKeyPress = SetZEditKeyPress
@@ -214,7 +214,7 @@ object EFMForm: TEFMForm
     end
     object StepXEdit: TLabeledEdit
       Left = 9
-      Height = 24
+      Height = 22
       Top = 137
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepXEdit
@@ -233,7 +233,7 @@ object EFMForm: TEFMForm
     end
     object StepYEdit: TLabeledEdit
       Left = 80
-      Height = 24
+      Height = 22
       Top = 136
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepYEdit
@@ -252,7 +252,7 @@ object EFMForm: TEFMForm
     end
     object StepZEdit: TLabeledEdit
       Left = 155
-      Height = 24
+      Height = 22
       Top = 137
       Width = 47
       EditLabel.AnchorSideLeft.Control = StepZEdit
@@ -386,7 +386,7 @@ object EFMForm: TEFMForm
       Left = 111
       Height = 15
       Top = 36
-      Width = 58
+      Width = 59
       Caption = 'Error Sign'
       ParentColor = False
     end
@@ -394,7 +394,7 @@ object EFMForm: TEFMForm
       Left = 15
       Height = 15
       Top = 18
-      Width = 41
+      Width = 43
       Caption = 'Signals'
       ParentColor = False
     end
@@ -402,7 +402,7 @@ object EFMForm: TEFMForm
       Left = 111
       Height = 15
       Top = 17
-      Width = 89
+      Width = 90
       Caption = 'PID Parameters'
       ParentColor = False
     end
@@ -416,7 +416,7 @@ object EFMForm: TEFMForm
       Left = 227
       Height = 15
       Top = 132
-      Width = 68
+      Width = 69
       Caption = 'Error Signal'
       ParentColor = False
     end
@@ -430,7 +430,7 @@ object EFMForm: TEFMForm
     end
     object SetPointEdit: TLabeledEdit
       Left = 111
-      Height = 24
+      Height = 22
       Top = 94
       Width = 54
       EditLabel.AnchorSideLeft.Control = SetPointEdit
@@ -467,7 +467,7 @@ object EFMForm: TEFMForm
     end
     object ErrorCorrectionSpinEdit: TSpinEdit
       Left = 111
-      Height = 24
+      Height = 22
       Top = 55
       Width = 45
       Increment = 2
@@ -479,7 +479,7 @@ object EFMForm: TEFMForm
     end
     object PropEdit: TLabeledEdit
       Left = 230
-      Height = 24
+      Height = 22
       Top = 22
       Width = 47
       EditLabel.AnchorSideLeft.Control = PropEdit
@@ -498,7 +498,7 @@ object EFMForm: TEFMForm
     end
     object IntEdit: TLabeledEdit
       Left = 230
-      Height = 24
+      Height = 22
       Top = 60
       Width = 47
       EditLabel.AnchorSideLeft.Control = IntEdit
@@ -517,7 +517,7 @@ object EFMForm: TEFMForm
     end
     object DiffEdit: TLabeledEdit
       Left = 230
-      Height = 24
+      Height = 22
       Top = 99
       Width = 47
       EditLabel.AnchorSideLeft.Control = DiffEdit
@@ -552,7 +552,7 @@ object EFMForm: TEFMForm
       Left = 18
       Height = 15
       Top = 1
-      Width = 79
+      Width = 92
       Caption = 'Scan Resolution'
       ParentColor = False
     end
@@ -560,7 +560,7 @@ object EFMForm: TEFMForm
       Left = 16
       Height = 15
       Top = 96
-      Width = 83
+      Width = 94
       Caption = 'Dwell time  (ms)'
       ParentColor = False
     end
@@ -568,7 +568,7 @@ object EFMForm: TEFMForm
       Left = 130
       Height = 15
       Top = 96
-      Width = 47
+      Width = 53
       Caption = 'Averages'
       ParentColor = False
     end
@@ -576,7 +576,7 @@ object EFMForm: TEFMForm
       Left = 18
       Height = 15
       Top = 48
-      Width = 55
+      Width = 66
       Caption = 'Scan range'
       ParentColor = False
     end
@@ -584,13 +584,13 @@ object EFMForm: TEFMForm
       Left = 18
       Height = 15
       Top = 152
-      Width = 72
+      Width = 83
       Caption = 'Scan Direction'
       ParentColor = False
     end
     object ScanResolutionComboBox: TComboBox
       Left = 16
-      Height = 27
+      Height = 25
       Top = 20
       Width = 135
       Font.Height = -11
@@ -608,7 +608,7 @@ object EFMForm: TEFMForm
     end
     object DwellTimeEdit: TSpinEdit
       Left = 16
-      Height = 24
+      Height = 22
       Top = 115
       Width = 62
       Font.Height = -11
@@ -621,7 +621,7 @@ object EFMForm: TEFMForm
     end
     object AveragesEdit: TSpinEdit
       Left = 130
-      Height = 24
+      Height = 22
       Top = 115
       Width = 62
       Font.Height = -11
@@ -633,7 +633,7 @@ object EFMForm: TEFMForm
     end
     object ScanRangeComboBox: TComboBox
       Left = 16
-      Height = 27
+      Height = 25
       Top = 64
       Width = 135
       Font.Height = -11
@@ -645,7 +645,7 @@ object EFMForm: TEFMForm
     end
     object ScanDirectionComboBox: TComboBox
       Left = 130
-      Height = 27
+      Height = 25
       Top = 144
       Width = 100
       Font.Height = -11
@@ -662,7 +662,7 @@ object EFMForm: TEFMForm
   end
   object TopoScaleMaxEdit: TEdit
     Left = 96
-    Height = 24
+    Height = 22
     Top = 425
     Width = 80
     Font.Height = -11
@@ -673,7 +673,7 @@ object EFMForm: TEFMForm
   end
   object TopoScaleMinEdit: TEdit
     Left = 96
-    Height = 24
+    Height = 22
     Top = 392
     Width = 80
     Font.Height = -11
@@ -708,7 +708,7 @@ object EFMForm: TEFMForm
       Left = 13
       Height = 15
       Top = 54
-      Width = 79
+      Width = 90
       Caption = 'Run Description'
       ParentColor = False
     end
@@ -732,7 +732,7 @@ object EFMForm: TEFMForm
     end
     object DescriptionEdit: TEdit
       Left = 9
-      Height = 24
+      Height = 22
       Top = 67
       Width = 183
       TabOrder = 2
@@ -751,7 +751,7 @@ object EFMForm: TEFMForm
     Left = 19
     Height = 15
     Top = 849
-    Width = 49
+    Width = 55
     Caption = 'Scale Min'
     Font.Height = -11
     ParentColor = False
@@ -759,7 +759,7 @@ object EFMForm: TEFMForm
   end
   object MFMScaleMinEdit: TEdit
     Left = 94
-    Height = 24
+    Height = 22
     Top = 840
     Width = 80
     Font.Height = -11
@@ -770,7 +770,7 @@ object EFMForm: TEFMForm
   end
   object MFMScaleMaxEdit: TEdit
     Left = 318
-    Height = 24
+    Height = 22
     Top = 842
     Width = 80
     Font.Height = -11
@@ -784,7 +784,7 @@ object EFMForm: TEFMForm
     Left = 240
     Height = 15
     Top = 849
-    Width = 52
+    Width = 58
     Caption = 'Scale Max'
     Font.Height = -11
     ParentColor = False
@@ -803,7 +803,7 @@ object EFMForm: TEFMForm
   end
   object LiftModeHeightSpinEdit: TFloatSpinEdit
     Left = 985
-    Height = 27
+    Height = 25
     Top = 464
     Width = 64
     Increment = 0.1
@@ -817,24 +817,24 @@ object EFMForm: TEFMForm
     Left = 979
     Height = 18
     Top = 440
-    Width = 146
+    Width = 140
     Caption = 'Lift mode height (nm)'
     ParentColor = False
   end
   object LevelTopoImageCheckBox: TCheckBox
     Left = 240
-    Height = 24
+    Height = 21
     Top = 426
-    Width = 138
+    Width = 130
     Caption = 'AutoLevel Image'
     OnClick = LevelTopoImageCheckBoxClick
     TabOrder = 13
   end
   object LevelMFMImageCheckBox: TCheckBox
     Left = 472
-    Height = 24
+    Height = 21
     Top = 840
-    Width = 138
+    Width = 130
     Caption = 'AutoLevel Image'
     TabOrder = 14
   end
@@ -866,7 +866,7 @@ object EFMForm: TEFMForm
   end
   object SampleVoltageSpinEdit: TFloatSpinEdit
     Left = 985
-    Height = 27
+    Height = 25
     Top = 512
     Width = 66
     Increment = 0.1
@@ -880,7 +880,7 @@ object EFMForm: TEFMForm
     Left = 984
     Height = 18
     Top = 496
-    Width = 144
+    Width = 136
     Caption = 'Samp/Tip Voltage (V)'
     ParentColor = False
   end

@@ -993,8 +993,11 @@ if Scanning then //stop the scan
                 MFMForwardLineScanData:= LiftModeXLineScan(ScanResolution, StartX, ScanXStep,
                                     DwellTime, PID_Averages, ForwardLineScanData)  //Forward direction
                else //we are using constant height mode, which is taken care of by the normal XLineScan
-                MFMForwardLineScanData:= XLineScan(ScanResolution, StartX, ScanXStep,
+                begin
+                  MoveToZ(CurrentZ+LiftModeHeight, StepZ, 0);  //Lift to constant height above current height
+                  MFMForwardLineScanData:= XLineScan(ScanResolution, StartX, ScanXStep,
                                     DwellTime, PID_Averages);
+                end;
 
               fastdelay(10*DwellTime); //Delay at beginning of scan to relax
               StartX:=ScanXPlusLimit;
@@ -1101,8 +1104,11 @@ if Scanning then //stop the scan
                 MFMForwardLineScanData:= LiftModeYLineScan(ScanResolution, StartY, -ScanYStep,
                                     DwellTime, PID_Averages, ForwardLineScanData)
                else
-                MFMForwardLineScanData:= YLineScan(ScanResolution, StartY, -ScanYStep,
+                begin
+                  MoveToZ(CurrentZ+LiftModeHeight, StepZ, 0);  //Lift to constant height above current height
+                  MFMForwardLineScanData:= YLineScan(ScanResolution, StartY, -ScanYStep,
                                     DwellTime, PID_Averages);  //Downward direction
+                end;
 
               fastdelay(10*DwellTime); //Delay at beginning of scan to relax
               StartY:=ScanYMinusLimit;
